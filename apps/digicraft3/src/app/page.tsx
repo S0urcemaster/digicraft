@@ -5,7 +5,7 @@ import { colorWithContrast } from '@digicraft/lib'
 
 export default function Home() {
 
-	const context = useDigiContext()
+	const {app} = useDigiContext()
 
 	return (
 		<>

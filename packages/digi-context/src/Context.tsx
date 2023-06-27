@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { createContext, ReactNode, useContext, useState } from 'react'
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
 
 type Environment = {
+	font: string
 	width: number
 	height: number
 	contrast: number
@@ -12,29 +13,33 @@ export type Model = {
 }
 
 export type Context = {
+	app: Model
 	setEnvironment: (environment: Environment) => void
-} & Model
+}
 
 const DigiContext = createContext<Context>({} as Context)
 
 export function DigiContextProvider({children}: { children: ReactNode}) {
 
-	const [digicraft, setDigicraft] = useState<Model>({
-		environment: {} as Environment,
-	})
-
-	const [environment] = useState<Environment>({
-		width: 1920,
-		height: 1080,
-		contrast: 1,
+	const [app, setApp] = useState<Model>({
+		environment: {
+			width: 1920,
+			height: 1080,
+			contrast: 1,
+			font: 'Arial',
+		},
 	})
 
 	function setEnvironment(environment: Environment) {
-		setDigicraft({...digicraft, environment})
+		setApp({...app, environment})
 	}
 
+	useEffect(() => {
+		console.log("logsntr", "context digicraft", app)
+	}, [app])
+
 	return (
-		<DigiContext.Provider value={{environment, setEnvironment}}>
+		<DigiContext.Provider value={{app, setEnvironment}}>
 			{children}
 		</DigiContext.Provider>
 	)

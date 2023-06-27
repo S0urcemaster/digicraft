@@ -4,11 +4,11 @@ import styles from './DigiHead.module.scss'
 
 export default function DigiHead() {
 
-	const context = useDigiContext()
+	const {app} = useDigiContext()
 
 	return (
 		<header className={styles.header}>
-			DigiHead {context.environment.width}
+			DigiHead {app.environment.width}
 		</header>
 	)
 }

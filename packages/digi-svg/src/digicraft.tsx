@@ -1,13 +1,18 @@
+'use client'
 import * as React from 'react'
-import { Context, useDigiContext } from '@digicraft/context'
+import { useDigiContext } from '@digicraft/context'
+import { useEffect } from 'react'
 
-export default function Digicraft({context}: {context: Context}) {
+export function DigiCraft() {
 
-	const {environment} = useDigiContext()
+	const {app, setEnvironment} = useDigiContext()
 
+	useEffect(() => {
+		console.log("logsntr", "environment digicraft svg", app)
+	}, [app])
 	return (
 		<svg>
-			<text x="0" y="15" fill="red">Digicraft</text>
+			<text x="0" y="15" fill="red" style={{fontFamily: app.environment.font}}>Digicraft</text>
 		</svg>
 	)
 }
