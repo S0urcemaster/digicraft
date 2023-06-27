@@ -1,5 +1,5 @@
 'use client'
-import './globals.css'
+import './globals.scss'
 import { DigiContextProvider } from '@digicraft/context'
 import DigiHead from '../components/DigiHead'
 import DigiMain from '../components/DigiMain'
