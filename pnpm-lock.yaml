@@ -17,9 +17,9 @@ importers:
       '@digicraft/context':
         specifier: '*'
         version: link:../../packages/digi-context
-      '@digicraft/model':
+      '@digicraft/lib':
         specifier: '*'
-        version: link:../../packages/digi-model
+        version: link:../../packages/digi-lib
       next:
         specifier: ~13.4.6
         version: 13.4.6(react-dom@18.2.0)(react@18.2.0)
@@ -67,14 +67,39 @@ importers:
         specifier: ~5.0.0
         version: 5.0.0
 
-  packages/digi-model:
+  packages/digi-lib:
+    dependencies:
+      '@types/chroma-js':
+        specifier: ^2.4.0
+        version: 2.4.0
+      chroma-js:
+        specifier: ^2.4.2
+        version: 2.4.2
     devDependencies:
       rimraf:
         specifier: ~5.0.0
         version: 5.0.0
       typescript:
         specifier: ~4.9.0
-        version: 4.9.3
+        version: 4.9.5
+
+  packages/digi-svg:
+    dependencies:
+      '@digicraft/context':
+        specifier: '*'
+        version: link:../digi-context
+      '@types/react':
+        specifier: ~18.2.0
+        version: 18.2.0
+      react:
+        specifier: ~18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ~18.2.0
+        version: 18.2.0(react@18.2.0)
+      rimraf:
+        specifier: ~5.0.0
+        version: 5.0.0
 
 packages:
 
@@ -291,6 +316,10 @@ packages:
     resolution: {integrity: sha512-sJ902EfIzn1Fa+qYmjdQqh8tPsoxyBz+8yBKC2HKUxyezKJFwPGOn7pv4WY6QuQW//ySQi5lJjA/ZT9sNWWNTg==}
     dependencies:
       tslib: 2.6.0
+    dev: false
+
+  /@types/chroma-js@2.4.0:
+    resolution: {integrity: sha512-JklMxityrwjBTjGY2anH8JaTx3yjRU3/sEHSblLH1ba5lqcSh1LnImXJZO5peJfXyqKYWjHTGy4s5Wz++hARrw==}
     dev: false
 
   /@types/json5@0.0.29:
@@ -577,6 +606,10 @@ packages:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
     dev: true
+
+  /chroma-js@2.4.2:
+    resolution: {integrity: sha512-U9eDw6+wt7V8z5NncY2jJfZa+hUH8XEj8FQHgFJTrUFnJfXYf4Ml4adI2vXZOjqRDpFWtYVWypDfZwnJ+HIR4A==}
+    dev: false
 
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}

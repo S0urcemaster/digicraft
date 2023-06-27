@@ -4,6 +4,7 @@ import { createContext, ReactNode, useContext, useState } from 'react'
 type Environment = {
 	width: number
 	height: number
+	contrast: number
 }
 
 export type Model = {
@@ -24,7 +25,8 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 
 	const [environment] = useState<Environment>({
 		width: 1920,
-		height: 1080
+		height: 1080,
+		contrast: 1,
 	})
 
 	function setEnvironment(environment: Environment) {

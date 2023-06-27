@@ -18,14 +18,10 @@ export default function RootLayout({children}: {
 		<html lang="en" className={noto.className}>
 		<body>
 		<DigiContextProvider>
-			<header>
-				<DigiHead />
-			</header>
-			<main>
-				<DigiMain>
-					{children}
-				</DigiMain>
-			</main>
+			<DigiHead/>
+			<DigiMain>
+				{children}
+			</DigiMain>
 		</DigiContextProvider>
 
 		</body>

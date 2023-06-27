@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useDigiContext } from '@digicraft/context'
+import styles from './DigiHead.module.css'
 import { ReactNode } from 'react'
 
 export default function DigiMain({children}: {
@@ -7,8 +7,8 @@ export default function DigiMain({children}: {
 }) {
 
 	return (
-		<>
+		<main className={styles.main}>
 			DigiMain {children}
-		</>
+		</main>
 	)
 }

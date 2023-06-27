@@ -1,8 +1,8 @@
 {
-  "name": "@digicraft/model",
+  "name": "@digicraft/svg",
   "version": "1.0.0",
-  "main": "dist/model",
-  "types": "dist/model",
+  "main": "dist/svg",
+  "types": "dist/svg",
   "files": [
     "dist"
   ],
@@ -12,8 +12,15 @@
     "compile": "tsc -p tsconfig.build.json",
     "prepublishOnly": "pnpm run build"
   },
+  "peerDependencies": {
+    "react": "~18.2.0",
+    "@types/react": "~18.2.0",
+    "react-dom": "~18.2.0",
+    "rimraf": "~5.0.0"
+  },
+  "dependencies": {
+    "@digicraft/context": "*"
+  },
   "devDependencies": {
-    "rimraf": "~5.0.0",
-    "typescript": "~4.9.0"
   }
 }
