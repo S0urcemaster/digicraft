@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 
 // import { SVGEditor } from 'svg-editor'
 // import Frame from '@/components/Frame'
@@ -6,7 +6,8 @@
 // import { Svg, SvgProps, Viewbox } from 'digi-svg'
 // import { AppContextProvider } from 'digi-context'
 
-// import { Empty, Test } from '@digi-craft/empty-package'
+import { useDigiContext } from '@digicraft/context'
+import { Model } from '@digicraft/model'
 
 export default function Home() {
 	// console.log("logsntr", "Empty", Empty)
@@ -15,6 +16,9 @@ export default function Home() {
 	// 		screenResolution: {width: 1800, height: 900}
 	// 	}
 	// }
+
+	const context = useDigiContext()
+	const x:Model = {environment: {width: 100, height: 100}}
 
 	return (
 		<>

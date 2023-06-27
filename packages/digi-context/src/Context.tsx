@@ -1,13 +1,43 @@
 import * as React from 'react'
-import { digiModel } from '@digicraft/model'
+import { createContext, ReactNode, useContext, useState } from 'react'
 
-export default function Context() {
+type Environment = {
+	width: number
+	height: number
+}
 
-	const model = digiModel
+export type Model = {
+	environment: Environment
+}
+
+export type Context = {
+	setEnvironment: (environment: Environment) => void
+} & Model
+
+const DigiContext = createContext<Context>({} as Context)
+
+export function DigiContextProvider({children}: { children: ReactNode}) {
+
+	const [digicraft, setDigicraft] = useState<Model>({
+		environment: {} as Environment,
+	})
+
+	const [environment] = useState<Environment>({
+		width: 1920,
+		height: 1080
+	})
+
+	function setEnvironment(environment: Environment) {
+		setDigicraft({...digicraft, environment})
+	}
 
 	return (
-		<>
-			{model.name}
-		</>
+		<DigiContext.Provider value={{environment, setEnvironment}}>
+			{children}
+		</DigiContext.Provider>
 	)
+}
+
+export function useDigiContext() {
+	return useContext(DigiContext)
 }

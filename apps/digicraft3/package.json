@@ -8,15 +8,16 @@
     "build": "next build"
   },
   "dependencies": {
+    "@digicraft/context": "*",
+    "@digicraft/model": "*",
     "next": "~13.4.6",
     "react": "~18.2.0",
-    "react-dom": "~18.2.0",
-    "@digicraft/model": "*"
+    "react-dom": "~18.2.0"
   },
   "devDependencies": {
     "@types/node": "~18.16.0",
-    "@types/react": "~18.0.0",
-    "@types/react-dom": "~18.0.0",
+    "@types/react": "~18.2.0",
+    "@types/react-dom": "~18.2.0",
     "rimraf": "~5.0.0",
     "typescript": "~4.9.0"
   }

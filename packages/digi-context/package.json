@@ -1,6 +1,11 @@
 {
   "name": "@digicraft/context",
   "version": "1.0.0",
+  "main": "dist/Context",
+  "types": "dist/Context",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "pnpm run clean && pnpm run compile",
     "clean": "rimraf ./dist",
@@ -8,15 +13,13 @@
     "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
-    "react": "~18.2.0"
-  },
-  "dependencies": {
-    "@digicraft/model": "*"
-  },
-  "devDependencies": {
-    "@types/react": "~18.0.0",
     "react": "~18.2.0",
+    "@types/react": "~18.2.0",
     "react-dom": "~18.2.0",
     "rimraf": "~5.0.0"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
   }
 }
