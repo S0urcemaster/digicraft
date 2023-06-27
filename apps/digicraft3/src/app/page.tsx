@@ -23,7 +23,6 @@ export default function Home() {
 	return (
 		<>
 			{/*<Frame>*/}
-				<main>
 					{/*<Test />*/}
 					{/*<AppContextProvider>*/}
 					{/*	<SVGEditor />*/}
@@ -37,7 +36,6 @@ export default function Home() {
 						{/*	<rect x={0} y={0} width={100} height={100} />*/}
 						{/*</Svg>*/}
 					{/*</AppContextProvider>*/}
-				</main>
 			{/*</Frame>*/}
 		</>
 
