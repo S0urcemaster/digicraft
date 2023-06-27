@@ -1,0 +1,19 @@
+{
+  "name": "digicraft",
+  "version": "1.0.0",
+  "description": "The Digi Craft Project",
+  "author": "sntr",
+  "private": true,
+  "scripts": {
+    "build": "pnpm run -r build"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "devDependencies": {
+    "typescript": "~4.9.0"
+  },
+  "keywords": [],
+  "license": "ISC"
+}
