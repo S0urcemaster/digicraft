@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
+import { clog } from '@digicraft/lib'
 
 type Environment = {
 	font: string
@@ -33,18 +34,17 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 
 	useEffect(() => {
 		function resize() {
-			console.log("logsntr", "resize")
 			setApp({...app, environment: {...app.environment, width: window.innerWidth, height: window.innerHeight}})
 		}
 		if(app) {
 			window.addEventListener('resize', resize)
-
 		}
 		return () => window.removeEventListener('resize', resize)
 	}, [])
 
 	useEffect(() => {
-		console.log("logsntr", "app", app)
+		const now = new Date()
+		clog("app", app)
 	}, [app])
 
 	function setEnvironment(environment: Environment) {

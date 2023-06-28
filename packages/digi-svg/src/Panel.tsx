@@ -11,6 +11,9 @@ type PanelProps = {
 
 export function Panel({relativeX, relativeY, width, height, children}: PanelProps) {
 
+	console.info('info')
+	console.debug('debug')
+
 	const style:CSSProperties = {
 		position: 'relative',
 		left: relativeX,
