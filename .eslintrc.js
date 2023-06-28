@@ -12,6 +12,7 @@ module.exports = {
     semi: ['off', 'always'],
     quotes: ['off', 'always'],
     "no-undef": "off",
+    "no-unused-vars": "off",
   },
   globals: {
     window: true,
