@@ -1,4 +1,8 @@
+@import '../vars.module.scss';
+
 * {
 	margin: 0;
 	padding: 0;
+	background: $dark-bg;
+	color: $dark-color;
 }

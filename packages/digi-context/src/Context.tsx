@@ -5,7 +5,7 @@ type Environment = {
 	font: string
 	width: number
 	height: number
-	contrast: number
+	contrast: number // 0- dark theme, 1- light theme
 }
 
 export type Model = {
@@ -15,6 +15,7 @@ export type Model = {
 export type Context = {
 	app: Model
 	setEnvironment: (environment: Environment) => void
+	update: () => void
 }
 
 const DigiContext = createContext<Context>({} as Context)
@@ -23,23 +24,39 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 
 	const [app, setApp] = useState<Model>({
 		environment: {
-			width: 1920,
+			width: 1921,
 			height: 1080,
-			contrast: 1,
+			contrast: 0,
 			font: 'Arial',
 		},
 	})
+
+	useEffect(() => {
+		function resize() {
+			console.log("logsntr", "resize")
+			setApp({...app, environment: {...app.environment, width: window.innerWidth, height: window.innerHeight}})
+		}
+		if(app) {
+			window.addEventListener('resize', resize)
+
+		}
+		return () => window.removeEventListener('resize', resize)
+	}, [])
+
+	useEffect(() => {
+		console.log("logsntr", "app", app)
+	}, [app])
 
 	function setEnvironment(environment: Environment) {
 		setApp({...app, environment})
 	}
 
-	useEffect(() => {
-		console.log("logsntr", "context digicraft", app)
-	}, [app])
+	function update() {
+
+	}
 
 	return (
-		<DigiContext.Provider value={{app, setEnvironment}}>
+		<DigiContext.Provider value={{app, setEnvironment, update}}>
 			{children}
 		</DigiContext.Provider>
 	)

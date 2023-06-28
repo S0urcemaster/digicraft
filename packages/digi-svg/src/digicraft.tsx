@@ -1,19 +1,34 @@
 'use client'
 import * as React from 'react'
 import { useDigiContext } from '@digicraft/context'
-import { useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
+import chroma from 'chroma-js'
 
-export function DigiCraft() {
+type DigiCraftTheme = {
+	color: string
+}
 
-	const {app, setEnvironment} = useDigiContext()
+type DigiCraftProps = {
+	fontFamily: string
+	theme: DigiCraftTheme
+	x: number
+	y: number
+	// children: ReactNode
+}
 
-	useEffect(() => {
-		console.log("logsntr", "environment digicraft svg", app)
-	}, [app])
+export const digiCraftThemes: {[key:string]: DigiCraftTheme} = {
+	light: {
+		color: 'white',
+	}
+}
+
+export function DigiCraft({fontFamily, theme, x, y}: DigiCraftProps) {
+
+	const stroke = chroma(theme.color).brighten(0.5).hex()
+
 	return (
-		<svg>
-			<text x="0" y="30" fill={'rgb(0,0,0)'} stroke={'rgba(0,0,0,0.5)'} style={{fontFamily: app.environment.font, fontSize: 30}}>Digicraft</text>
-			<text x="0" y="60" fill={'rgb(0,0,0)'} stroke={'rgba(0,0,0,1)'} style={{fontFamily: app.environment.font, fontSize: 30}}>Digicraft</text>
+		<svg width={100} height={30} viewBox={'0 0 116 33'}>
+			<text x={x} y={y} fill={theme.color} stroke={stroke} style={{fontFamily: fontFamily, fontSize: 30}}>Digicraft</text>
 		</svg>
 	)
 }
