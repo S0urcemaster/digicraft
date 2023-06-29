@@ -6,7 +6,7 @@ type H1Props = {
 	children: ReactNode
 }
 
-export default function H1({style, children}: H1Props) {
+export function H1({style, children}: H1Props) {
 	return (
 		<h1 style={{...style}}>
 			{children}

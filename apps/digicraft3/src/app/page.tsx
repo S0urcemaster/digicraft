@@ -3,6 +3,7 @@
 import { useDigiContext } from '@digicraft/context'
 import { colorWithContrast } from '@digicraft/lib'
 import { HtmlContent } from '@digicraft/ui'
+import {H1} from '@digicraft/ui'
 
 export default function Home() {
 
@@ -14,8 +15,8 @@ export default function Home() {
 
 	return (
 		<>
-			<HtmlContent setTitle={setContentTitle}>
-
+			<HtmlContent title={'Welcome'}>
+				<H1>Welcome</H1>
 			</HtmlContent>
 		</>
 	)

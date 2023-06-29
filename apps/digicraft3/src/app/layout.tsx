@@ -1,4 +1,5 @@
 'use client'
+
 import './globals.scss'
 import { DigiContextProvider } from '@digicraft/context'
 import { ReactNode } from 'react'

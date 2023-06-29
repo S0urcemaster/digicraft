@@ -14,7 +14,7 @@ export default function DigiHead() {
 		<header className={styles.header} style={{height: app.environment.headerHeight}}>
 			<Panel width={app.environment.clientWidth} height={app.environment.headerHeight}>
 				<Header />
-				<DigiCraft x={3} y={-3} fontSize={25} style={{fontFamily: font_main.style.fontFamily}} theme={digiCraftThemes.light} />
+				<DigiCraft x={3} y={0} fontSize={25} style={{fontFamily: font_main.style.fontFamily}} theme={digiCraftThemes.light} />
 
 			</Panel>
 		</header>

@@ -1,25 +1,26 @@
 'use client'
 
 import * as React from 'react'
-import H1 from './typography/H1'
 import { CSSProperties, ReactNode, useEffect } from 'react'
+import { useDigiContext } from '@digicraft/context'
 
 type HtmlContentProps = {
 	style?: CSSProperties
 	children: ReactNode
-	setTitle: (title: string) => void
+	title: string
 }
 
-export function HtmlContent({style, children, setTitle}: HtmlContentProps) {
+export function HtmlContent({style, children, title}: HtmlContentProps) {
+
+	const {app, setContentTitle} = useDigiContext()
 
 	useEffect(() => {
-		setTitle('HtmlContent')
+		setContentTitle(title)
 	}, [])
 
 	return (
 		<>
-			<H1>HtmlContent</H1>
-			<h2>HtmlContent</h2>
+			{children}
 		</>
 	)
 }

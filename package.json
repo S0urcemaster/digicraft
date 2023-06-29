@@ -10,7 +10,7 @@
     "build:lib": "pnpm -F @digicraft/lib build",
     "build:context": "pnpm -F @digicraft/context build",
     "build:svg": "pnpm -F @digicraft/svg build",
-    "build:dc3": "pnpm -F @digicraft/digicraft3 build",
+    "build:app": "pnpm -F @digicraft/digicraft3 build",
     "dev": "pnpm -F @digicraft/digicraft3 run dev"
   },
   "workspaces": [

@@ -1,7 +1,8 @@
 
 import * as React from 'react'
-import chroma from 'chroma-js'
 import { CSSProperties } from 'react'
+import {Text} from './components/Text'
+import { clog } from '@digicraft/lib'
 
 type DigiCraftTheme = {
 	color: string
@@ -13,7 +14,6 @@ type DigiCraftProps = {
 	x: number
 	y: number
 	fontSize: number
-	// children: ReactNode
 }
 
 export const digiCraftThemes: {[key:string]: DigiCraftTheme} = {
@@ -23,12 +23,8 @@ export const digiCraftThemes: {[key:string]: DigiCraftTheme} = {
 }
 
 export function DigiCraft({theme, x, y, style, fontSize}: DigiCraftProps) {
-
-	const stroke = chroma.mix(theme.color, 'rgba(255,255,255,0)', 0.5).hex()
-
+	clog('DigiCraft', {theme, x, y, style, fontSize})
 	return (
-		<>
-			<text x={x} y={y +fontSize -2} fontSize={fontSize} fontWeight={600} fill={theme.color} stroke={stroke} style={style}>Digi Craft</text>
-		</>
+		<Text x={x} y={y} fontSize={fontSize} fontWeight={600} color={theme.color} style={style}>Digi Craft</Text>
 	)
 }
