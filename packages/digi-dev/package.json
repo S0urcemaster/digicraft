@@ -1,5 +1,5 @@
 {
-  "name": "@digicraft/svg",
+  "name": "@digicraft/dev",
   "version": "1.0.0",
   "main": "dist/index",
   "types": "dist/index",
@@ -12,14 +12,9 @@
     "compile": "tsc -p tsconfig.build.json",
     "prepublishOnly": "pnpm run build"
   },
-  "peerDependencies": {
-  },
   "dependencies": {
-    "@types/chroma-js": "^2.4.0",
-    "chroma-js": "^2.4.2"
   },
   "devDependencies": {
-    "@digicraft/context": "*",
     "react": "~18.2.0",
     "@types/react": "~18.2.0",
     "react-dom": "~18.2.0",

@@ -26,6 +26,6 @@ export function DigiCraft({theme, x, y, style}: DigiCraftProps) {
 	const stroke = chroma(theme.color).brighten(0.5).hex()
 
 	return (
-		<text x={x} y={y} fill={theme.color} stroke={stroke} style={{...style}}>Digi Craft</text>
+		<text x={x} y={y} fill={theme.color} stroke={stroke} style={style}>Digi Craft</text>
 	)
 }

@@ -1,8 +1,8 @@
 {
   "name": "@digicraft/context",
   "version": "1.0.0",
-  "main": "dist/Context",
-  "types": "dist/Context",
+  "main": "dist/index",
+  "types": "dist/index",
   "files": [
     "dist"
   ],
