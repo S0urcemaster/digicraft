@@ -3,8 +3,20 @@
 * {
 	margin: 0;
 	padding: 0;
-	background: $dark-bg;
-	color: $dark-color;
 	position: relative;
 	overflow: hidden;
+	box-sizing: border-box;
+}
+
+html {
+	background: $dark-bg;
+	color: $dark-color;
+}
+
+h1 {
+	margin: -7px 0 0 0;
+}
+
+h2 {
+	margin: -13px 0 0 0;
 }

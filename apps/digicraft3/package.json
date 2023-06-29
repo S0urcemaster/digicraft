@@ -10,6 +10,7 @@
   "dependencies": {
     "@digicraft/lib": "*",
     "@digicraft/svg": "*",
+    "@digicraft/ui": "*",
     "@digicraft/context": "*",
     "@digicraft/dev": "*",
     "next": "~13.4.6",

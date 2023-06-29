@@ -24,11 +24,11 @@ export const digiCraftThemes: {[key:string]: DigiCraftTheme} = {
 
 export function DigiCraft({theme, x, y, style, fontSize}: DigiCraftProps) {
 
-	const stroke = chroma(theme.color).brighten(0.5).hex()
+	const stroke = chroma.mix(theme.color, 'rgba(255,255,255,0)', 0.5).hex()
 
 	return (
 		<>
-			<text x={x} y={y +fontSize -2} fontSize={fontSize} fill={theme.color} stroke={stroke} style={style}>Digi Craft</text>
+			<text x={x} y={y +fontSize -2} fontSize={fontSize} fontWeight={600} fill={theme.color} stroke={stroke} style={style}>Digi Craft</text>
 		</>
 	)
 }

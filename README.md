@@ -35,3 +35,9 @@ See https://webpack.js.org/concepts#loaders
 *Solution:*  
 Wrong import: ```import { clog } from '@digicraft/lib/src/...'```  
 instead of ```import { clog } from '@digicraft/lib'```
+
+### SVG Implementation
+| Panel | &lt;svg> |
+|-------|----------|
+|       |          |
+

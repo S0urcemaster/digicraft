@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "pnpm run -r build",
-    "build:packages": "pnpm -F @digicraft/lib... build && pnpm -F @digicraft/svg... build",
+    "build:packages": "pnpm -F ./packages/** build",
     "build:lib": "pnpm -F @digicraft/lib build",
     "build:context": "pnpm -F @digicraft/context build",
     "build:svg": "pnpm -F @digicraft/svg build",

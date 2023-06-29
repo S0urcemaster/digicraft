@@ -13,12 +13,14 @@ type Environment = {
 }
 
 export type Model = {
+	contentTitle: string
 	environment: Environment
 }
 
 export type Context = {
 	app: Model
 	getMainHeight: () => number
+	setContentTitle: (title: string) => void
 	setEnvironment: (environment: Environment) => void
 	update: () => void
 }
@@ -28,6 +30,7 @@ const DigiContext = createContext<Context>({} as Context)
 export function DigiContextProvider({children}: { children: ReactNode}) {
 
 	const [app, setApp] = useState<Model>({
+		contentTitle: 'Digi Craft',
 		environment: {
 			clientWidth: 1921,
 			clientHeight: 1080,
@@ -43,6 +46,10 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 		clog("app", app)
 	}, [app])
 
+	function setContentTitle(title: string) {
+
+	}
+
 	function setEnvironment(environment: Environment) {
 		clog("setEnvironment", environment)
 		setApp({...app, environment: environment})
@@ -57,7 +64,7 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 	}
 
 	return (
-		<DigiContext.Provider value={{app, setEnvironment, getMainHeight, update}}>
+		<DigiContext.Provider value={{app, setEnvironment, getMainHeight, update, setContentTitle}}>
 			{children}
 		</DigiContext.Provider>
 	)

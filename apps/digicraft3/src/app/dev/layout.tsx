@@ -11,7 +11,7 @@ export default function({children}: { children: ReactNode }) {
 	return (
 		<>
 			{children}
-			<Panel relativeX={0} relativeY={0} width={app.environment.clientWidth} height={app.environment.clientHeight}>
+			<Panel x={0} y={0} width={app.environment.clientWidth} height={app.environment.clientHeight}>
 
 			</Panel>
 		</>

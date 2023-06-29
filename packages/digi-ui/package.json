@@ -1,0 +1,23 @@
+{
+  "name": "@digicraft/ui",
+  "version": "1.0.0",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm run clean && pnpm run compile",
+    "clean": "rimraf ./dist",
+    "compile": "tsc -p tsconfig.build.json",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "react": "~18.2.0",
+    "@types/react": "~18.2.0",
+    "react-dom": "~18.2.0",
+    "rimraf": "~5.0.0"
+  }
+}
