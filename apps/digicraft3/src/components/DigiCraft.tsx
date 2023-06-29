@@ -26,14 +26,26 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 	const {app, setEnvironment} = useDigiContext()
 
 	useEffect(() => {
-		clog("DigiCraft main", app)
 		if(app) {
+		}
+	}, [])
+
+
+	useEffect(() => {
+		function resize() {
+			setEnvironment({...app.environment, clientWidth: window.innerWidth, clientHeight: window.innerHeight})
+		}
+		if(app) {
+			window.addEventListener('resize', resize)
 			setEnvironment({...app.environment,
 				mainFont: font_main.style.fontFamily,
 				specialFont: font_special.style.fontFamily,
 				headerHeight: parseInt(vars.headerHeight),
+				clientWidth: window.innerWidth,
+				clientHeight: window.innerHeight
 			})
 		}
+		return () => window.removeEventListener('resize', resize)
 	}, [])
 
 	return (

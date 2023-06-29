@@ -18,8 +18,8 @@ export type Model = {
 
 export type Context = {
 	app: Model
-	setEnvironment: (environment: Environment) => void
 	getMainHeight: () => number
+	setEnvironment: (environment: Environment) => void
 	update: () => void
 }
 
@@ -40,22 +40,12 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 	})
 
 	useEffect(() => {
-		function resize() {
-			setApp({...app, environment: {...app.environment, clientWidth: window.innerWidth, clientHeight: window.innerHeight}})
-		}
-		if(app) {
-			window.addEventListener('resize', resize)
-		}
-		return () => window.removeEventListener('resize', resize)
-	}, [])
-
-	useEffect(() => {
-		const now = new Date()
 		clog("app", app)
 	}, [app])
 
 	function setEnvironment(environment: Environment) {
-		setApp({...app, environment})
+		clog("setEnvironment", environment)
+		setApp({...app, environment: environment})
 	}
 
 	function getMainHeight() {

@@ -13,6 +13,7 @@ module.exports = {
     quotes: ['off', 'always'],
     "no-undef": "off",
     "no-unused-vars": "off",
+    "no-empty": "off",
   },
   globals: {
     window: true,
