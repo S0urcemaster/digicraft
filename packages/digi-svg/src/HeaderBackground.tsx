@@ -2,12 +2,12 @@ import * as React from 'react'
 import { CSSProperties } from 'react'
 import { gradients } from './content/Gradient'
 
-type HeaderProps = {
+type HeaderBackgroundProps = {
 
 	style?: CSSProperties
 }
 
-export function Header() {
+export function HeaderBackground({style}: HeaderBackgroundProps) {
 	return (
 		<>
 			<defs>

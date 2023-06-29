@@ -11,6 +11,7 @@
     "build:context": "pnpm -F @digicraft/context build",
     "build:svg": "pnpm -F @digicraft/svg build",
     "build:app": "pnpm -F @digicraft/digicraft3 build",
+    "clean": "pnpm  -F ./packages/** clean",
     "dev": "pnpm -F @digicraft/digicraft3 run dev"
   },
   "workspaces": [

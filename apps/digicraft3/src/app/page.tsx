@@ -9,13 +9,13 @@ import { clog } from '@digicraft/lib'
 
 export default function Home() {
 
-	const {app, setContentTitle} = useDigiContext()
+	const {state, setContentTitle} = useDigiContext()
 
 	useEffect(() => {
-		clog('page', app)
-		if(app) {
-			setContentTitle('Welcomex')
-		}
+		clog('page', state)
+		// if(state) {
+		// 	setContentTitle('Welcomex')
+		// }
 	}, [])
 
 	return (

@@ -23,21 +23,19 @@ export const font_special = Montserrat({
 
 export default function DigiCraft({children}: { children: ReactNode }) {
 
-	const {app, setEnvironment} = useDigiContext()
+	const {state, setEnvironment} = useDigiContext()
 
 	useEffect(() => {
-		if(app) {
-		}
 	}, [])
 
 
 	useEffect(() => {
 		function resize() {
-			setEnvironment({...app.environment, clientWidth: window.innerWidth, clientHeight: window.innerHeight})
+			setEnvironment({...state.environment, clientWidth: window.innerWidth, clientHeight: window.innerHeight})
 		}
-		if(app) {
+		if(state) {
 			window.addEventListener('resize', resize)
-			setEnvironment({...app.environment,
+			setEnvironment({...state.environment,
 				mainFont: font_main.style.fontFamily,
 				specialFont: font_special.style.fontFamily,
 				headerHeight: parseInt(vars.headerHeight),
@@ -49,7 +47,7 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 	}, [])
 
 	return (
-		<div style={{fontFamily: app.environment.mainFont}}>
+		<div style={{fontFamily: state.environment.mainFont}}>
 			<DigiHead />
 			<DigiMain>
 				{children}

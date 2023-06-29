@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export default function AppMenu() {
+export function AppMenu() {
 	return (
 		<>
 			AppMenu

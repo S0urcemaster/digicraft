@@ -1,6 +1,9 @@
+'use client'
+
 import * as React from 'react'
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
+import { createContext, ReactNode, useContext, useEffect, useReducer, useState } from 'react'
 import { clog } from '@digicraft/lib'
+import { DigiActionTypes, reducer } from './reducer'
 
 type Environment = {
 	mainFont: string
@@ -17,8 +20,21 @@ export type Model = {
 	environment: Environment
 }
 
+const initialState = {
+	contentTitle: 'Digi Craft',
+	environment: {
+		clientWidth: 1921,
+		clientHeight: 1080,
+		headerHeight: 30,
+		contrast: 0,
+		mainFont: 'Sans-serif',
+		monoFont: 'Monospace',
+		specialFont: 'Fantasy',
+	}
+}
+
 export type Context = {
-	app: Model
+	state: Model
 	getMainHeight: () => number
 	setContentTitle: (title: string) => void
 	setEnvironment: (environment: Environment) => void
@@ -29,35 +45,28 @@ const DigiContext = createContext<Context>({} as Context)
 
 export function DigiContextProvider({children}: { children: ReactNode}) {
 
-	const [app, setApp] = useState<Model>({
-		contentTitle: 'Digi Craft',
-		environment: {
-			clientWidth: 1921,
-			clientHeight: 1080,
-			headerHeight: 30,
-			contrast: 0,
-			mainFont: 'Sans-serif',
-			monoFont: 'Monospace',
-			specialFont: 'Fantasy',
-		},
-	})
+	const [state, dispatch] = useReducer(reducer, initialState)
 
 	useEffect(() => {
-		clog("app", app)
-	}, [app])
+		clog("Context[]")
+	}, [])
+
+	useEffect(() => {
+		clog("Context[state]", state)
+	}, [state])
 
 	function setContentTitle(title: string) {
 		clog("setContentTitle", title)
-		setApp({...app, contentTitle: title})
+		dispatch({type: DigiActionTypes.initialized, payload: {contentTitle: title}})
 	}
 
 	function setEnvironment(environment: Environment) {
 		clog("setEnvironment", environment)
-		setApp({...app, environment: environment})
+		dispatch({type: DigiActionTypes.initialized, payload: {environment: environment}})
 	}
 
 	function getMainHeight() {
-		return app.environment.clientHeight - app.environment.headerHeight
+		return state.environment.clientHeight - state.environment.headerHeight
 	}
 
 	function update() {
@@ -65,7 +74,7 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 	}
 
 	return (
-		<DigiContext.Provider value={{app, setEnvironment, getMainHeight, update, setContentTitle}}>
+		<DigiContext.Provider value={{state, setEnvironment, getMainHeight, update, setContentTitle}}>
 			{children}
 		</DigiContext.Provider>
 	)

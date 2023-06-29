@@ -8,7 +8,7 @@ type DigiCraftTheme = {
 	color: string
 }
 
-type DigiCraftProps = {
+type DigiCraftLogoProps = {
 	style?: CSSProperties
 	theme: DigiCraftTheme
 	x: number
@@ -22,8 +22,7 @@ export const digiCraftThemes: {[key:string]: DigiCraftTheme} = {
 	}
 }
 
-export function DigiCraft({theme, x, y, style, fontSize}: DigiCraftProps) {
-	clog('DigiCraft', {theme, x, y, style, fontSize})
+export function DigiCraftLogo({theme, x, y, style, fontSize}: DigiCraftLogoProps) {
 	return (
 		<Text x={x} y={y} fontSize={fontSize} fontWeight={600} color={theme.color} style={style}>Digi Craft</Text>
 	)
