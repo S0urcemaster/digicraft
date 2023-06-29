@@ -1,2 +1,9 @@
-$dark-bg: #0063a0;
+
+$header-height: 30px;
+
+$dark-bg: #c6c6c6;
 $dark-color: #fff;
+
+:export {
+	headerHeight: $header-height;
+}

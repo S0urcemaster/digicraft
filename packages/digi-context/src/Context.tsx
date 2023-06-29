@@ -3,9 +3,12 @@ import { createContext, ReactNode, useContext, useEffect, useState } from 'react
 import { clog } from '@digicraft/lib'
 
 type Environment = {
-	font: string
-	width: number
-	height: number
+	mainFont: string
+	monoFont: string
+	specialFont: string
+	clientWidth: number
+	clientHeight: number
+	headerHeight: number
 	contrast: number // 0- dark theme, 1- light theme
 }
 
@@ -16,6 +19,7 @@ export type Model = {
 export type Context = {
 	app: Model
 	setEnvironment: (environment: Environment) => void
+	getMainHeight: () => number
 	update: () => void
 }
 
@@ -25,16 +29,19 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 
 	const [app, setApp] = useState<Model>({
 		environment: {
-			width: 1921,
-			height: 1080,
+			clientWidth: 1921,
+			clientHeight: 1080,
+			headerHeight: 30,
 			contrast: 0,
-			font: 'Arial',
+			mainFont: 'Sans-serif',
+			monoFont: 'Monospace',
+			specialFont: 'Fantasy',
 		},
 	})
 
 	useEffect(() => {
 		function resize() {
-			setApp({...app, environment: {...app.environment, width: window.innerWidth, height: window.innerHeight}})
+			setApp({...app, environment: {...app.environment, clientWidth: window.innerWidth, clientHeight: window.innerHeight}})
 		}
 		if(app) {
 			window.addEventListener('resize', resize)
@@ -51,12 +58,16 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 		setApp({...app, environment})
 	}
 
+	function getMainHeight() {
+		return app.environment.clientHeight - app.environment.headerHeight
+	}
+
 	function update() {
 
 	}
 
 	return (
-		<DigiContext.Provider value={{app, setEnvironment, update}}>
+		<DigiContext.Provider value={{app, setEnvironment, getMainHeight, update}}>
 			{children}
 		</DigiContext.Provider>
 	)
