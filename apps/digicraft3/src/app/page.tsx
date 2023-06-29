@@ -4,18 +4,23 @@ import { useDigiContext } from '@digicraft/context'
 import { colorWithContrast } from '@digicraft/lib'
 import { HtmlContent } from '@digicraft/ui'
 import {H1} from '@digicraft/ui'
+import { useEffect } from 'react'
+import { clog } from '@digicraft/lib'
 
 export default function Home() {
 
 	const {app, setContentTitle} = useDigiContext()
 
-	const angle = 20
-	const scale = 0.8
-	const translate = (100 -(100 *scale)) /2
+	useEffect(() => {
+		clog('page', app)
+		if(app) {
+			setContentTitle('Welcomex')
+		}
+	}, [])
 
 	return (
 		<>
-			<HtmlContent title={'Welcome'}>
+			<HtmlContent>
 				<H1>Welcome</H1>
 			</HtmlContent>
 		</>

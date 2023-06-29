@@ -47,7 +47,8 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 	}, [app])
 
 	function setContentTitle(title: string) {
-
+		clog("setContentTitle", title)
+		setApp({...app, contentTitle: title})
 	}
 
 	function setEnvironment(environment: Environment) {
