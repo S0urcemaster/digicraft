@@ -17,7 +17,7 @@ export default function DigiHead() {
 		<header className={styles.header} style={{height: state.environment.headerHeight}}>
 			<Panel width={state.environment.clientWidth} height={state.environment.headerHeight}>
 				<HeaderBackground />
-				<DigiCraftLogo x={3} y={0} fontSize={25} style={{fontFamily: font_main.style.fontFamily}} theme={digiCraftThemes.light} />
+				<DigiCraftLogo x={5} y={3} fontSize={21} style={{fontFamily: font_main.style.fontFamily}} theme={digiCraftThemes.light} />
 				<Text x={150} y={0} fontSize={20} color={'white'}>{state && state.contentTitle}</Text>
 			</Panel>
 		</header>

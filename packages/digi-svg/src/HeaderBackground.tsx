@@ -11,9 +11,13 @@ export function HeaderBackground({style}: HeaderBackgroundProps) {
 	return (
 		<>
 			<defs>
-				{gradients.mozdev_blue('Gradient01')}
+				{gradients.gray_gray('bg')}
+				{gradients.mozdev_blue_reverse_plate('panel')}
 			</defs>
-			<rect x={'0'} y={'0'} width={'100%'} height={'100%'} fill={'url(#Gradient01)'} />
+			<rect x={0} y={0} width={'100%'} height={'100%'} fill={'url(#bg)'} />
+			<g>
+				<rect x={0} y={3} width={'100%'} height={17} fill={'#656486'} />
+			</g>
 		</>
 	)
 }

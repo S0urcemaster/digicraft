@@ -23,13 +23,20 @@ export const font_special = Montserrat({
 
 export default function DigiCraft({children}: { children: ReactNode }) {
 
-	const {state, setEnvironment} = useDigiContext()
+	const {state, setEnvironment, setCSSVars} = useDigiContext()
 
 	useEffect(() => {
 	}, [])
 
+	useEffect(() => { // set css vars
+		if(state) {
+			clog('vars', vars)
+			setCSSVars(vars)
+		}
+	}, [])
 
-	useEffect(() => {
+
+	useEffect(() => { // add resize listener
 		function resize() {
 			setEnvironment({...state.environment, clientWidth: window.innerWidth, clientHeight: window.innerHeight})
 		}

@@ -18,6 +18,7 @@ type Environment = {
 export type Model = {
 	contentTitle: string
 	environment: Environment
+	cssVars: {}
 }
 
 const initialState = {
@@ -30,7 +31,8 @@ const initialState = {
 		mainFont: 'Sans-serif',
 		monoFont: 'Monospace',
 		specialFont: 'Fantasy',
-	}
+	},
+	cssVars: {}
 }
 
 export type Context = {
@@ -38,6 +40,7 @@ export type Context = {
 	getMainHeight: () => number
 	setContentTitle: (title: string) => void
 	setEnvironment: (environment: Environment) => void
+	setCSSVars: (vars: {}) => void
 	update: () => void
 }
 
@@ -65,6 +68,10 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 		dispatch({type: DigiActionTypes.initialized, payload: {environment: environment}})
 	}
 
+	function setCSSVars(vars: {}) {
+		dispatch({type: DigiActionTypes.initialized, payload: {vars}})
+	}
+
 	function getMainHeight() {
 		return state.environment.clientHeight - state.environment.headerHeight
 	}
@@ -74,7 +81,14 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 	}
 
 	return (
-		<DigiContext.Provider value={{state, setEnvironment, getMainHeight, update, setContentTitle}}>
+		<DigiContext.Provider value={{
+			state,
+			setEnvironment,
+			getMainHeight,
+			update,
+			setContentTitle,
+			setCSSVars,
+		}}>
 			{children}
 		</DigiContext.Provider>
 	)

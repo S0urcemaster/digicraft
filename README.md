@@ -31,10 +31,16 @@ See https://webpack.js.org/concepts#loaders
 | import { clog } from '@digicraft/lib'  
 > type Environment = {  |
 ```  
-
 *Solution:*  
 Wrong import: ```import { clog } from '@digicraft/lib/src/...'```  
 instead of ```import { clog } from '@digicraft/lib'```
+
+#### ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL
+... @digicraft/digicraft3@1.0.0 build: `next build`  
+The same as above  
+*Solution:*  
+Check imports
+
 
 ### SVG Implementation
 | Panel | &lt;svg> |

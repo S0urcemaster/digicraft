@@ -12,9 +12,9 @@ type PanelProps = {
 export function Panel({x, y, width, height, children}: PanelProps) {
 
 	const style:CSSProperties = {
-		position: 'relative',
-		left: x && 0,
-		top: y && 0,
+		position: 'absolute',
+		left: x ?? 0,
+		top: y ?? 0,
 		width: width,
 		height: height,
 	}

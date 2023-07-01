@@ -14,7 +14,7 @@ export function reducer(state: Model, action: DigiAction): Model {
 	switch (type) {
 		case DigiActionTypes.initialized:
 			return {
-				...state, contentTitle: payload.contentTitle, environment: payload.environment
+				...state, contentTitle: payload.contentTitle, environment: payload.environment, cssVars: payload.vars
 			}
 	}
 	return state

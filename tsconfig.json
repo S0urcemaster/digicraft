@@ -4,7 +4,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@digicraft/*": ["packages/*/src"]
+      "@digicraft/*": ["packages/*/src"],
     },
     "noEmit": true
   }
