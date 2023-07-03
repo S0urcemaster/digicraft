@@ -23,10 +23,19 @@ function Edges({width, height}: {width: number, height: number}) {
 		<g>
 			{
 				[100, 110, 120, 130, 140, 150].map((i, ix) => {
-					return <rect x={ix} y={ix} width={width -ix *2} height={height -ix *2} fill={`rgba(${i}, ${i}, ${i})`} />
+					return (
+						<>
+							<line x1={ix} y1={ix} x2={width -ix} y2={ix} stroke={`rgba(${i +20}, ${i +40}, ${i +40})`} />
+							<line x1={ix} y1={ix} x2={ix} y2={height -ix} stroke={`rgba(${i +20}, ${i +40}, ${i +40})`} />
+							<line x1={ix} y1={height -ix} x2={width -ix} y2={height -ix} stroke={`rgba(${i}, ${i}, ${i})`} />
+							<line x1={width -ix} y1={ix} x2={width -ix} y2={height -ix} stroke={`rgba(${i}, ${i}, ${i})`} />
+						</>
+					)
 				})
+
 			}
-			{/*<rect x={5} y={5} width={width -5 *2} height={height -5 *2} fill={`rgba(${150}, ${150}, ${150})`} />*/}
+			<rect x={6} y={6} width={width -6 *2 +1} height={height -6 *2 +1} fill={`rgba(${160}, ${160}, ${160})`} />
+
 		</g>
 	)
 }
@@ -51,7 +60,8 @@ export function Button({width, height, style, children}: ButtonProps) {
 						<Edges width={width} height={height} />
 					}
 				</Panel>
-				<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', width: width, height: height}}>
+				<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute',
+					width: width, height: height, cursor: 'default'}}>
 					<p>{children}</p>
 				</div>
 			</div>

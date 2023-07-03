@@ -48,10 +48,10 @@ export const gradients: ReactNode = {
 	),
 	gray_gray: (id: string) => (
 		<linearGradient id={id} gradientTransform={'rotate(90)'}>
-			<stop offset={'0%'} stopColor={'#c3ccff'}/>
-			<stop offset={'20%'} stopColor={'#21349a'}/>
-			<stop offset={'80%'} stopColor={'#656486'}/>
-			<stop offset={'100%'} stopColor={'#242e65'}/>
+			<stop offset={'0%'} stopColor={'#d4c1ae'}/>
+			<stop offset={'20%'} stopColor={'#61503f'}/>
+			<stop offset={'80%'} stopColor={'#998877'}/>
+			<stop offset={'100%'} stopColor={'#61503f'}/>
 		</linearGradient>
 	),
 }

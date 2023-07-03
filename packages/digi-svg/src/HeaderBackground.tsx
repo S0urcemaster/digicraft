@@ -16,7 +16,7 @@ export function HeaderBackground({style}: HeaderBackgroundProps) {
 			</defs>
 			<rect x={0} y={0} width={'100%'} height={'100%'} fill={'url(#bg)'} />
 			<g>
-				<rect x={0} y={3} width={'100%'} height={17} fill={'#656486'} />
+				<rect x={0} y={3} width={'100%'} height={17} fill={'#998877'} />
 			</g>
 		</>
 	)
