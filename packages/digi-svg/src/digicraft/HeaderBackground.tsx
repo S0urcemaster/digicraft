@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { CSSProperties } from 'react'
-import { gradients } from './content/Gradient'
+import { gradients } from '../content/Gradient'
 
 type HeaderBackgroundProps = {
 

@@ -4,8 +4,8 @@ import * as React from 'react'
 import { useDigiContext } from '@digicraft/context'
 import styles from './DigiHead.module.scss'
 import { font_main } from './DigiCraft'
-import { digiCraftThemes, DigiCraftLogo, Panel, HeaderBackground } from '@digicraft/svg'
-import { Text } from '@digicraft/svg'
+// @ts-ignore
+import { digiCraftThemes, Logo, Panel, HeaderBackground, Text, ContentTitle } from '@digicraft/svg'
 
 export default function DigiHead() {
 
@@ -15,8 +15,8 @@ export default function DigiHead() {
 		<header className={styles.header} style={{height: state.environment.headerHeight}}>
 			<Panel width={state.environment.clientWidth} height={state.environment.headerHeight}>
 				<HeaderBackground />
-				<DigiCraftLogo x={5} y={3} fontSize={21} style={{fontFamily: font_main.style.fontFamily}} theme={digiCraftThemes.light} />
-				<Text x={150} y={0} fontSize={20} color={'white'}>{state ? state.contentTitle : ''}</Text>
+				<Logo x={5} y={3} fontSize={21} style={{fontFamily: font_main.style.fontFamily}} theme={digiCraftThemes.light} />
+				<ContentTitle theme={digiCraftThemes.light} x={150} y={2} fontSize={19} title={state ? state.contentTitle : ''} />
 			</Panel>
 		</header>
 	)

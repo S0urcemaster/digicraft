@@ -38,7 +38,6 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 			setEnvironment({...state.environment,
 				mainFont: font_main.style.fontFamily,
 				specialFont: font_special.style.fontFamily,
-				headerHeight: state.environment.headerHeight,
 				clientWidth: window.innerWidth,
 				clientHeight: window.innerHeight
 			})

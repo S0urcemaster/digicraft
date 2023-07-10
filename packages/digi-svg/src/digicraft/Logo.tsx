@@ -1,8 +1,7 @@
 
 import * as React from 'react'
 import { CSSProperties } from 'react'
-import {Text} from './components/Text'
-import { clog } from '@digicraft/lib'
+import {Text} from '../components/Text'
 
 type DigiCraftTheme = {
 	color: string
@@ -22,7 +21,7 @@ export const digiCraftThemes: {[key:string]: DigiCraftTheme} = {
 	}
 }
 
-export function DigiCraftLogo({theme, x, y, style, fontSize}: DigiCraftLogoProps) {
+export function Logo({theme, x, y, style, fontSize}: DigiCraftLogoProps) {
 	return (
 		<Text x={x} y={y} fontSize={fontSize} fontWeight={600} color={theme.color} style={{letterSpacing: 4, ...style}}>Digi Craft</Text>
 	)
