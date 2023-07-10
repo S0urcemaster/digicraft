@@ -1,5 +1,7 @@
+// 'use client'
 import * as React from 'react'
-import { CSSProperties, ReactNode } from 'react'
+import { CSSProperties, ReactNode, useEffect } from 'react'
+import { useDigiContext } from '@digicraft/context'
 
 type PanelProps = {
 	x?: number
@@ -11,6 +13,12 @@ type PanelProps = {
 
 export function Panel({x, y, width, height, children}: PanelProps) {
 
+	// const {state} = useDigiContext()
+	//
+	// useEffect(() => {
+	// 	console.log("logsntr", "state.environment.headerHeight", state.environment.headerHeight)
+	// }, [state])
+
 	const style:CSSProperties = {
 		position: 'absolute',
 		left: x ?? 0,
@@ -20,7 +28,7 @@ export function Panel({x, y, width, height, children}: PanelProps) {
 	}
 
 	return (
-		<svg style={style}>
+		<svg style={{...style}}>
 			{children}
 		</svg>
 	)

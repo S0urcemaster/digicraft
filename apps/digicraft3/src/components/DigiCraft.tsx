@@ -4,8 +4,8 @@ import * as React from 'react'
 import DigiHead from './DigiHead'
 import DigiMain from './DigiMain'
 import { ReactNode, useEffect } from 'react'
+// @ts-ignore
 import { useDigiContext } from '@digicraft/context'
-import vars from '../vars.module.scss'
 import { clog } from '@digicraft/lib'
 
 // import { Noto_Sans_Display, Montserrat, Nunito, Quicksand } from 'next/font/google'
@@ -23,16 +23,9 @@ export const font_special = Montserrat({
 
 export default function DigiCraft({children}: { children: ReactNode }) {
 
-	const {state, setEnvironment, setCSSVars} = useDigiContext()
+	const {state, setEnvironment} = useDigiContext()
 
 	useEffect(() => {
-	}, [])
-
-	useEffect(() => { // set css vars
-		if(state) {
-			clog('vars', vars)
-			setCSSVars(vars)
-		}
 	}, [])
 
 
@@ -45,7 +38,7 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 			setEnvironment({...state.environment,
 				mainFont: font_main.style.fontFamily,
 				specialFont: font_special.style.fontFamily,
-				headerHeight: parseInt(vars.headerHeight),
+				headerHeight: state.environment.headerHeight,
 				clientWidth: window.innerWidth,
 				clientHeight: window.innerHeight
 			})
@@ -55,7 +48,7 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 
 	return (
 		<div style={{fontFamily: state.environment.mainFont}}>
-			<DigiHead />
+			<DigiHead/>
 			<DigiMain>
 				{children}
 			</DigiMain>

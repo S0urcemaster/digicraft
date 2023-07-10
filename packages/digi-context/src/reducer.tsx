@@ -1,7 +1,11 @@
 import { Model } from './Context'
+import { clog } from '@digicraft/lib'
+import { CssVars } from './CssVars'
 
 export enum DigiActionTypes {
-	initialized = 'initialized',
+	environment = 'environment',
+	contentTitle = 'contentTitle',
+	cssVars = 'cssVars',
 }
 
 export type DigiAction = {
@@ -10,11 +14,16 @@ export type DigiAction = {
 }
 
 export function reducer(state: Model, action: DigiAction): Model {
+	clog("reducer/" +action.type, action, state)
 	const {type, payload} = action
 	switch (type) {
-		case DigiActionTypes.initialized:
+		case DigiActionTypes.environment:
 			return {
-				...state, contentTitle: payload.contentTitle, environment: payload.environment, cssVars: payload.vars
+				...state, environment: payload.environment
+			}
+		case DigiActionTypes.contentTitle:
+			return {
+				...state, contentTitle: payload.contentTitle
 			}
 	}
 	return state

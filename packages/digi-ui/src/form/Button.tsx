@@ -9,6 +9,7 @@ type ButtonProps = {
 	children: ReactNode
 	width: number
 	height: number
+	color: string
 }
 
 const buttonStyle: CSSProperties = {
@@ -18,18 +19,28 @@ const buttonStyle: CSSProperties = {
 	left: 0,
 }
 
-function Edges({width, height}: {width: number, height: number}) {
+function Skin({width, height, color, hover, pressed, active}:
+	{width: number, height: number, color: string, hover: boolean, pressed: boolean, active: boolean}) {
+
+	function getColor(rgba: string) {
+
+		if(pressed) {
+
+		}
+		return `rgba(${160}, ${160}, ${160})`
+	}
+
 	return (
 		<g>
 			{
 				[100, 110, 120, 130, 140, 150].map((i, ix) => {
 					return (
-						<>
+						<g key={ix}>
 							<line x1={ix} y1={ix} x2={width -ix} y2={ix} stroke={`rgba(${i +20}, ${i +40}, ${i +40})`} />
 							<line x1={ix} y1={ix} x2={ix} y2={height -ix} stroke={`rgba(${i +20}, ${i +40}, ${i +40})`} />
 							<line x1={ix} y1={height -ix} x2={width -ix} y2={height -ix} stroke={`rgba(${i}, ${i}, ${i})`} />
 							<line x1={width -ix} y1={ix} x2={width -ix} y2={height -ix} stroke={`rgba(${i}, ${i}, ${i})`} />
-						</>
+						</g>
 					)
 				})
 
@@ -40,7 +51,7 @@ function Edges({width, height}: {width: number, height: number}) {
 	)
 }
 
-export function Button({width, height, style, children}: ButtonProps) {
+export function Button({width, height, color, style, children}: ButtonProps) {
 
 	const [state, setState] = useState({
 		hover: false,
@@ -57,7 +68,7 @@ export function Button({width, height, style, children}: ButtonProps) {
 							<rect x={0} y={0} width={width} height={height} fill={'#3a7486'} />
 						</g>
 						:
-						<Edges width={width} height={height} />
+						<Skin width={width} height={height} color={'#456'} hover={state.hover} pressed={state.pressed} active={state.active} />
 					}
 				</Panel>
 				<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute',

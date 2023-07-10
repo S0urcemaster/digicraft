@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">-->
+<!--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" height="80px" width="100%"-->
+<!--	 viewBox="0 0 80 100"-->
+<!--&gt;-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+	 viewBox="0 0 2000 80"
+>
+	<title>digicraft punchcard logo</title>
+    <defs>
+		<linearGradient id="punchcard-gradient" x1="100%" y1="100%" x2="0%" y2="100%">
+			<stop offset="0%" style="stop-color:rgb(228,228,228);stop-opacity:0" />
+			<stop offset="100%" style="stop-color:rgb(69,69,69);stop-opacity:1" />
+<!--			<stop offset="100%" style="stop-color:rgb(169,169,169);stop-opacity:1" />-->
+		</linearGradient>
+        <pattern id="punchcard-pattern-v" x="0" y="0" width="11" height="11" patternUnits="userSpaceOnUse">
+        	<rect x="0" y="0" width="10" height="10" fill="white" />
+        </pattern>
+        <pattern id="punchcard-pattern-h" x="0" y="-3" width="11" height="72" patternUnits="userSpaceOnUse">
+        	<rect x="0" y="0" width="11" height="10" fill="skyblue" />
+        	<rect x="0" y="11" width="10" height="44" fill="url(#punchcard-pattern-v)" />
+        	<rect x="0" y="55" width="10" height="10" fill="white" />
+        	<rect x="0" y="66" width="11" height="10" fill="skyblue" />
+        </pattern>
+        <mask id="punchcard-mask" width="11" height="100%">
+        	<rect width="100%" height="70" fill="url(#punchcard-pattern-h)" />
+        </mask>
+    </defs>
+    <g id="logo">
+	    <!-- <rect x="0" y="0" width="20" height="146" fill="rgba(128,128,128, 1)" /> -->
+	    <rect x="0" y="0" width="100%" height="100%" fill="url(#punchcard-gradient)" mask="url(#punchcard-mask)" />
+	    <g id="digi">
+	    	<!--D-->
+	    	<circle cx="27" cy="13" r="4" fill="white"/>
+	    	<circle cx="27" cy="24" r="4" fill="white"/>
+	    	<circle cx="27" cy="35" r="4" fill="#FFF5EE"/>
+	    	<circle cx="27" cy="46" r="4" fill="white"/>
+	    	<circle cx="27" cy="57" r="4" fill="white"/>
+	    	<circle cx="38" cy="13" r="4" fill="white"/>
+			<circle cx="38" cy="57" r="4" fill="white"/>
+			<circle cx="49" cy="13" r="4" fill="white"/>
+			<circle cx="49" cy="57" r="4" fill="white"/>
+			<circle cx="60" cy="24" r="4" fill="white"/>
+			<circle cx="60" cy="35" r="4" fill="#FFF5EE"/>
+			<circle cx="60" cy="46" r="4" fill="white"/>
+	    	<!--I-->
+	    	<circle cx="82" cy="13" r="4" fill="white"/>
+	    	<circle cx="82" cy="24" r="4" fill="white"/>
+	    	<circle cx="82" cy="35" r="4" fill="#FFF5EE"/>
+	    	<circle cx="82" cy="46" r="4" fill="white"/>
+	    	<circle cx="82" cy="57" r="4" fill="white"/>
+	    	<!--G-->
+	    	<circle cx="104" cy="24" r="4" fill="white"/>
+	    	<circle cx="104" cy="35" r="4" fill="#FFF5EE"/>
+	    	<circle cx="104" cy="46" r="4" fill="white"/>
+	    	<circle cx="115" cy="13" r="4" fill="white"/>
+	    	<circle cx="115" cy="57" r="4" fill="white"/>
+	    	<circle cx="126" cy="13" r="4" fill="white"/>
+	    	<circle cx="126" cy="35" r="4" fill="#FFF5EE"/>
+	    	<circle cx="126" cy="57" r="4" fill="white"/>
+	    	<circle cx="137" cy="35" r="4" fill="#FFF5EE"/>
+	    	<circle cx="137" cy="46" r="4" fill="white"/>
+	    	<!--I-->
+	    	<circle cx="159" cy="13" r="4" fill="white"/>
+	    	<circle cx="159" cy="24" r="4" fill="white"/>
+	    	<circle cx="159" cy="35" r="4" fill="#FFF5EE"/>
+	    	<circle cx="159" cy="46" r="4" fill="white"/>
+	    	<circle cx="159" cy="57" r="4" fill="white"/>
+	    	<!-- - -->
+<!--	    	<circle cx="326" cy="73" r="4" fill="white"/>-->
+<!--	    	<circle cx="347" cy="73" r="4" fill="white"/>-->
+	    	<!--C-->
+	    	<circle cx="203" cy="24" r="4" fill="white"/>
+	    	<circle cx="203" cy="35" r="4" fill="#FFF5EE"/>
+	    	<circle cx="203" cy="46" r="4" fill="white"/>
+	    	<circle cx="214" cy="13" r="4" fill="white"/>
+	    	<circle cx="214" cy="57" r="4" fill="white"/>
+	    	<circle cx="225" cy="13" r="4" fill="white"/>
+	    	<circle cx="225" cy="57" r="4" fill="white"/>
+	    	<!--R-->
+	    	<circle cx="247" cy="13" r="4" fill="white"/>
+	    	<circle cx="247" cy="24" r="4" fill="white"/>
+	    	<circle cx="247" cy="35" r="4" fill="#FFF5EE"/>
+	    	<circle cx="247" cy="46" r="4" fill="white"/>
+	    	<circle cx="247" cy="57" r="4" fill="white"/>
+	    	<circle cx="258" cy="13" r="4" fill="white"/>
+			<circle cx="258" cy="35" r="4" fill="#FFF5EE"/>
+			<circle cx="269" cy="13" r="4" fill="white"/>
+			<circle cx="269" cy="35" r="4" fill="#FFF5EE"/>
+			<circle cx="280" cy="24" r="4" fill="white"/>
+			<circle cx="280" cy="46" r="4" fill="white"/>
+			<circle cx="280" cy="57" r="4" fill="white"/>
+	    	<!--A-->
+	    	<circle cx="302" cy="24" r="4" fill="white"/>
+	    	<circle cx="302" cy="35" r="4" fill="#FFF5EE"/>
+	    	<circle cx="302" cy="46" r="4" fill="white"/>
+	    	<circle cx="302" cy="57" r="4" fill="white"/>
+			<circle cx="313" cy="13" r="4" fill="white"/>
+			<circle cx="313" cy="35" r="4" fill="#FFF5EE"/>
+			<circle cx="324" cy="13" r="4" fill="white"/>
+			<circle cx="324" cy="35" r="4" fill="#FFF5EE"/>
+			<circle cx="335" cy="24" r="4" fill="white"/>
+			<circle cx="335" cy="35" r="4" fill="#FFF5EE"/>
+	    	<circle cx="335" cy="46" r="4" fill="white"/>
+	    	<circle cx="335" cy="57" r="4" fill="white"/>
+	    	<!-- F -->
+	    	<circle cx="357" cy="13" r="4" fill="white"/>
+	    	<circle cx="357" cy="24" r="4" fill="white"/>
+	    	<circle cx="357" cy="35" r="4" fill="#FFF5EE"/>
+	    	<circle cx="357" cy="46" r="4" fill="white"/>
+	    	<circle cx="357" cy="57" r="4" fill="white"/>
+			<circle cx="368" cy="13" r="4" fill="white"/>
+			<circle cx="368" cy="35" r="4" fill="#FFF5EE"/>
+	    	<circle cx="379" cy="13" r="4" fill="white"/>
+	    	<!--I-->
+			<circle cx="401" cy="13" r="4" fill="white"/>
+			<circle cx="412" cy="13" r="4" fill="white"/>
+			<circle cx="412" cy="24" r="4" fill="white"/>
+			<circle cx="412" cy="35" r="4" fill="#FFF5EE"/>
+			<circle cx="412" cy="46" r="4" fill="white"/>
+			<circle cx="412" cy="57" r="4" fill="white"/>
+	    	<circle cx="423" cy="13" r="4" fill="white"/>
+	    </g>
+    </g>
+</svg>

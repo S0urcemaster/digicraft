@@ -18,21 +18,7 @@ type Environment = {
 export type Model = {
 	contentTitle: string
 	environment: Environment
-	cssVars: {}
-}
-
-const initialState = {
-	contentTitle: 'Digi Craft',
-	environment: {
-		clientWidth: 1921,
-		clientHeight: 1080,
-		headerHeight: 30,
-		contrast: 0,
-		mainFont: 'Sans-serif',
-		monoFont: 'Monospace',
-		specialFont: 'Fantasy',
-	},
-	cssVars: {}
+	cssVars: {readonly [key: string]: string}
 }
 
 export type Context = {
@@ -40,13 +26,12 @@ export type Context = {
 	getMainHeight: () => number
 	setContentTitle: (title: string) => void
 	setEnvironment: (environment: Environment) => void
-	setCSSVars: (vars: {}) => void
 	update: () => void
 }
 
 const DigiContext = createContext<Context>({} as Context)
 
-export function DigiContextProvider({children}: { children: ReactNode}) {
+export function DigiContextProvider({initialState, children}: { initialState: Model, children: ReactNode}) {
 
 	const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -59,17 +44,11 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 	}, [state])
 
 	function setContentTitle(title: string) {
-		clog("setContentTitle", title)
-		dispatch({type: DigiActionTypes.initialized, payload: {contentTitle: title}})
+		dispatch({type: DigiActionTypes.contentTitle, payload: {contentTitle: title}})
 	}
 
 	function setEnvironment(environment: Environment) {
-		clog("setEnvironment", environment)
-		dispatch({type: DigiActionTypes.initialized, payload: {environment: environment}})
-	}
-
-	function setCSSVars(vars: {}) {
-		dispatch({type: DigiActionTypes.initialized, payload: {vars}})
+		dispatch({type: DigiActionTypes.environment, payload: {environment: {...state.environment, environment}}})
 	}
 
 	function getMainHeight() {
@@ -87,7 +66,6 @@ export function DigiContextProvider({children}: { children: ReactNode}) {
 			getMainHeight,
 			update,
 			setContentTitle,
-			setCSSVars,
 		}}>
 			{children}
 		</DigiContext.Provider>

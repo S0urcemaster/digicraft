@@ -11,9 +11,13 @@
     "build:context": "pnpm -F @digicraft/context build",
     "build:svg": "pnpm -F @digicraft/svg build",
     "build:ui": "pnpm -F @digicraft/ui build",
-    "build:app": "pnpm -F @digicraft/digicraft3 build",
+    "build:dc3": "pnpm -F @digicraft/digicraft3 build",
+    "build:dc2": "pnpm -F @digicraft/digicraft2 build",
     "clean": "pnpm  -F ./packages/** clean",
-    "dev": "pnpm -F @digicraft/digicraft3 run dev"
+    "dev": "pnpm -F @digicraft/digicraft3 run dev",
+    "dev:dc2": "pnpm -F @digicraft/digi-craft2 run dev",
+    "start": "pnpm -F @digicraft/digicraft3 start",
+    "start:dc2": "pnpm -F @digicraft/digicraft2 start"
   },
   "workspaces": [
     "packages/*",

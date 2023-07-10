@@ -16,6 +16,5 @@ type TextProps = {
 
 export function Text({x, y, fontSize, color, smooth, style, children, fontWeight}: TextProps) {
 	const stroke = smooth ? chroma.mix(color, 'rgba(255,255,255,1)', smooth).hex() : color
-	clog('fontSize', y +fontSize)
 	return <text x={x} y={y +fontSize -5} fontSize={fontSize} fontWeight={fontWeight ?? 400} fill={color} stroke={stroke} style={style}>{children}</text>
 }

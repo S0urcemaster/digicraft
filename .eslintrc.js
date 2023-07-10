@@ -14,6 +14,7 @@ module.exports = {
     "no-undef": "off",
     "no-unused-vars": "off",
     "no-empty": "off",
+    "no-case-declarations": "off",
   },
   globals: {
     window: true,

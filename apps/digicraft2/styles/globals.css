@@ -1,0 +1,246 @@
+
+
+html {
+	/*font-family: 'Share Tech Mono', monospace;*/
+	/*font-family: 'LCD Solid', monospace;*/
+}
+
+body {
+	/*font-family: "vt323", sans-serif;*/
+	/*font-family: "Share Tech Mono", monospace;*/
+	font-family: "JetBrains Mono", monospace;
+	/*font-weight: lighter;*/
+	font-size: 11pt;
+	margin: 0;
+	box-sizing: border-box;
+	color: black;
+	background-color: white;
+}
+
+li {
+	margin-bottom: 3pt;
+}
+
+input {
+	/*font-family: "Share Tech Mono", monospace;*/
+	font-family: "JetBrains Mono", monospace;
+	margin: 0
+}
+
+
+select {
+	/*font-family: "Share Tech Mono", monospace;*/
+	font-family: "JetBrains Mono", monospace;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	/* Set the hr color */
+	/*background-color: #bbb; !* Modern Browsers *!*/
+}
+
+.logo {
+	height: 1em;
+	margin-left: 0.5rem;
+}
+
+
+.footer {
+	display: flex;
+	flex: 1;
+	padding: 2rem 0;
+	border-top: 1px solid #eaeaea;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+}
+
+table {
+	font-size: 11pt;
+	margin-top: 1rem;
+}
+
+thead {
+	font-weight: bold;
+}
+
+td {
+	padding: 0.2em 0.5em 0.2em 0.5em;
+	vertical-align: top;
+}
+
+td:first-child {
+	padding-left: 0;
+}
+
+hr {
+	margin-top: 2rem;
+}
+
+header {
+}
+
+#content {
+	margin-left: 2rem;
+	margin-right: 2rem;
+}
+
+/*#logo-space-top {*/
+/*	background: linear-gradient(to bottom, #e2e2e2, white);*/
+/*}*/
+
+main {
+	background-color: white;
+	padding: 40px 0 0 0;
+}
+
+/*nav {*/
+/*	margin-top: -10px;*/
+/*	background-image: linear-gradient(to top, #e2e2e2, white);*/
+/*}*/
+
+#footer {
+	margin-left: 3rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+ul.columns {
+	list-style-type: none;
+}
+
+ul.columns > li > div {
+	display: flex;
+}
+
+/* Keyboard key */
+kbd {
+	background-color: #eee;
+	border-radius: 3px;
+	border: 1px solid #b4b4b4;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+	color: #333;
+	display: inline-block;
+	font-size: 1em;
+	font-weight: 600;
+	line-height: 1;
+	padding: 2px 4px;
+	white-space: nowrap;
+}
+
+p {
+	margin-top: 1rem;
+}
+
+p:first-child {
+	margin-top: 0;
+}
+
+a {
+	color: black
+}
+
+code {
+	padding: 0
+}
+
+pre {
+	margin: 0
+}
+
+nav a {
+	font-size: 12pt;
+	white-space: nowrap;
+}
+
+nav a:link {
+	text-decoration: none;
+}
+
+a:link {
+	text-decoration: underline;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+.backgroundLight {
+	background-image: url('../public/pattern-light.svg');
+	background-repeat: repeat;
+}
+
+.backgroundLightLight {
+	background-image: url('../public/pattern-medium-light.svg');
+	background-repeat: repeat;
+}
+
+.backgroundDarkLight {
+	background-image: url('../public/pattern-medium-dark.svg');
+	background-repeat: repeat;
+}
+
+.backgroundDark {
+	background-image: url('../public/pattern-dark.svg');
+	background-repeat: repeat;
+}
+
+input.svgEditor::-webkit-outer-spin-button,
+input.svgEditor::-webkit-inner-spin-button {
+	/* display: none; <- Crashes Chrome on hover */
+	-webkit-appearance: none;
+	margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input.svgEditor[type=number] {
+	-moz-appearance:textfield; /* Firefox */
+}
+
+.svgSelection {
+	stroke-dasharray: 10;
+	animation: dashdraw 2s linear infinite;
+	mix-blend-mode: difference;
+}
+@keyframes dashdraw {to {stroke-dashoffset: 100;}}
+
+@media screen and (max-width: 850px) {
+	#body {
+		flex-direction: column;
+	}
+
+	#content {
+		margin-top: 1rem;
+		padding-top: 2rem;
+		border-top: 1px solid black;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	ul.columns > li > div {
+		flex-direction: column;
+	}
+	.right {
+		margin-left: 0;
+	}
+}
+
+@media print {
+	.no-print, .no-print * {
+		display: none !important;
+	}
+}
