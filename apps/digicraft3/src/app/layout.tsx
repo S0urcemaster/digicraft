@@ -9,7 +9,7 @@ import vars from '../vars.module.scss'
 
 
 const initialState: Model = {
-	contentTitle: 'Digi Craft',
+	contentTitle: 'Frontpage',
 	environment: {
 		clientWidth: 1921,
 		clientHeight: 1080,
