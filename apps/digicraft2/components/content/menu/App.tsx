@@ -35,7 +35,7 @@ function MenuItem(props: {href: string, image?: StaticImageData, children: React
 export default function App(props: {}) {
 	return (
 		<>
-			<MenuItem href={routes.apps.svgEditor} image={svgEditor}>SVG Editor</MenuItem>
+			<MenuItem href={routes.apps.svgEditorx} image={svgEditor}>SVG Editor</MenuItem>
 			<MenuItem href={routes.apps.radio} image={radio}>Digi Radio</MenuItem>
 			<MenuItem href={routes.apps.worktime} image={worktime}>Arbeitszeiterfassung</MenuItem>
 			<MenuItem href={routes.apps.decider} image={decider}>Der Entscheider</MenuItem>

@@ -20,7 +20,7 @@ export function Dev() {
 
 	return (
 		<div style={devStyle}>
-			<H1 underline>Development Page</H1>
+			{/*<H1 underline>Development Page</H1>*/}
 			<h2>Creating an Edged Button</h2>
 			<Button width={200} height={200} color={'#464'}>Click Me!</Button>
 		</div>

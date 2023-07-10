@@ -15,7 +15,7 @@
     "build:dc2": "pnpm -F @digicraft/digicraft2 build",
     "clean": "pnpm  -F ./packages/** clean",
     "dev": "pnpm -F @digicraft/digicraft3 run dev",
-    "dev:dc2": "pnpm -F @digicraft/digi-craft2 run dev",
+    "dev:dc2": "pnpm -F @digicraft/digicraft2 run dev",
     "start": "pnpm -F @digicraft/digicraft3 start",
     "start:dc2": "pnpm -F @digicraft/digicraft2 start"
   },

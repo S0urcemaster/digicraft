@@ -27,3 +27,11 @@ h2 {
 hr {
 	background: $dark-color-alt;
 }
+
+@media screen and (min-width: 600px) {
+	h1 {
+		font-size: 36px;
+		letter-spacing: 15px;
+		word-spacing: 5px;
+	}
+}
