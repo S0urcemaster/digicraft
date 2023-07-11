@@ -39,7 +39,7 @@ instead of ```import { clog } from '@digicraft/lib'```
 ... @digicraft/digicraft3@1.0.0 build: `next build`  
 The same as above  
 *Solution:*  
-Check imports
+Check imports - Must be the name declared in package.json
 
 
 ### SVG Implementation

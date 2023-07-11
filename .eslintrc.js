@@ -18,6 +18,9 @@ module.exports = {
   },
   globals: {
     window: true,
-    module: true // [module].exports
+    module: true, // [module].exports
+    require: true, // require()
+    __dirname: true,
+    process: true,
   }
 }

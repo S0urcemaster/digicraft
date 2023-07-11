@@ -12,14 +12,12 @@
     "compile": "tsc -p tsconfig.build.json",
     "prepublishOnly": "pnpm run build"
   },
-  "peerDependencies": {
-  },
   "dependencies": {
     "@digicraft/lib": "*"
   },
   "devDependencies": {
-    "react": "~18.2.0",
     "@types/react": "~18.2.0",
+    "react": "~18.2.0",
     "react-dom": "~18.2.0",
     "rimraf": "~5.0.0"
   }

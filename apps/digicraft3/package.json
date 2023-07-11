@@ -8,11 +8,11 @@
     "build": "next build"
   },
   "dependencies": {
+    "@digicraft/context": "*",
+    "@digicraft/dev": "*",
     "@digicraft/lib": "*",
     "@digicraft/svg": "*",
     "@digicraft/ui": "*",
-    "@digicraft/context": "*",
-    "@digicraft/dev": "*",
     "next": "~13.4.6",
     "react": "~18.2.0",
     "react-dom": "~18.2.0"

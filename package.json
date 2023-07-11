@@ -17,6 +17,7 @@
     "clean": "pnpm  -F ./packages/** clean",
     "dev": "pnpm -F @digicraft/digicraft3 run dev",
     "dev:dc2": "pnpm -F @digicraft/digicraft2 run dev",
+    "dev:payload": "pnpm -F @digicraft/payload run dev",
     "start": "pnpm -F @digicraft/digicraft3 start",
     "start:dc2": "pnpm -F @digicraft/digicraft2 start"
   },
@@ -26,8 +27,6 @@
   ],
   "devDependencies": {
     "typescript": "~4.9.5"
-  },
-  "dependencies": {
   },
   "keywords": [],
   "license": "ISC"
