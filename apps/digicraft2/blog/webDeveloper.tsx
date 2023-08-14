@@ -1,8 +1,8 @@
-import {H1, P} from '../../components/ui/Typography'
-import {Box} from '../../components/ui/Box'
+import {H1, P} from '../components/ui/Typography'
+import {Box} from '../components/ui/Box'
 import * as React from 'react'
-import ContentLayout from '../../components/content/ContentLayout'
-import {default as BlogMenu} from '../../components/content/menu/Blog'
+import ContentLayout from '../components/content/ContentLayout'
+import {default as BlogMenu} from '../components/content/menu/Blog'
 
 export default function WebDeveloper() {
 	return (

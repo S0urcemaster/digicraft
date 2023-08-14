@@ -1,9 +1,9 @@
 import * as React from 'react'
-import {H1, P} from '../../components/ui/Typography'
-import {Box} from '../../components/ui/Box'
-import {HR} from '../../components/ui/Layout'
-import {default as BlogMenu} from '../../components/content/menu/Blog'
-import ContentLayout from '../../components/content/ContentLayout'
+import {H1, P} from '../components/ui/Typography'
+import {Box} from '../components/ui/Box'
+import {HR} from '../components/ui/Layout'
+import {default as BlogMenu} from '../components/content/menu/Blog'
+import ContentLayout from '../components/content/ContentLayout'
 
 export default function AfdUndCo() {
 	return (

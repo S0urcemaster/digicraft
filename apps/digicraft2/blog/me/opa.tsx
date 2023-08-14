@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {DevBox} from '../../../components/ui/Box'
-import {P} from '../../../components/ui/Typography'
-import {BR} from '../../../components/ui/Layout'
+import {DevBox} from '../../components/ui/Box'
+import {P} from '../../components/ui/Typography'
+import {BR} from '../../components/ui/Layout'
 
 export default function Opa() {
 	return (

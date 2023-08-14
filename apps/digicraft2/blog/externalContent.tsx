@@ -1,8 +1,8 @@
 import * as React from 'react'
-import {H1, P} from '../../components/ui/Typography'
-import {Box, ExpandButtonBox} from '../../components/ui/Box'
-import Table, {TableContent} from '../../components/ui/Table'
-import ExternalLink from '../../components/ui/ExternalLink'
+import {H1, P} from '../components/ui/Typography'
+import {Box, ExpandButtonBox} from '../components/ui/Box'
+import Table, {TableContent} from '../components/ui/Table'
+import ExternalLink from '../components/ui/ExternalLink'
 
 const externalContentTable: TableContent = {
 	head: ['Account', 'Bemerkungen'],

@@ -2,7 +2,9 @@
   "extends": "../../tsconfig.build.json",
 
   "compilerOptions": {
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "jsx": "react",
+    "esModuleInterop": true
   },
 
   "include": [

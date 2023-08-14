@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {DevBox} from '../../components/ui/Box'
-import {H1, P} from '../../components/ui/Typography'
+import {DevBox} from '../components/ui/Box'
+import {H1, P} from '../components/ui/Typography'
 
 export default function NoSports() {
 	return (

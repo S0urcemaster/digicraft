@@ -1,10 +1,10 @@
 import * as React from 'react'
-import Meta, {metas} from '../../components/content/Meta'
-import {H1, P} from '../../components/ui/Typography'
-import {Box} from '../../components/ui/Box'
-import {BR, HR} from '../../components/ui/Layout'
-import ContentLayout from '../../components/content/ContentLayout'
-import {default as BlogMenu} from '../../components/content/menu/Blog'
+import Meta, {metas} from '../components/content/Meta'
+import {H1, P} from '../components/ui/Typography'
+import {Box} from '../components/ui/Box'
+import {BR, HR} from '../components/ui/Layout'
+import ContentLayout from '../components/content/ContentLayout'
+import {default as BlogMenu} from '../components/content/menu/Blog'
 
 export default function ApplicationRedesign() {
 	return (

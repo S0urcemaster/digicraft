@@ -1,5 +1,6 @@
-import {H1, P} from '../../components/ui/Typography'
-import {DevBox} from '../../components/ui/Box'
+import {H1, P} from '../components/ui/Typography'
+import {DevBox} from '../components/ui/Box'
+import React from 'react'
 
 export default function Addiction() {
 	return (

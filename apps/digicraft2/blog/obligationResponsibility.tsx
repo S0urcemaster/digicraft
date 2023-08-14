@@ -1,5 +1,5 @@
-import {H1, H2, P} from '../../components/ui/Typography'
-import {DevBox} from '../../components/ui/Box'
+import {H1, H2, P} from '../components/ui/Typography'
+import {DevBox} from '../components/ui/Box'
 
 export default function Developer() {
 	return (

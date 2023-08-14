@@ -1,11 +1,11 @@
-import {H1, H2, H3, P} from '../../components/ui/Typography'
-import ExternalLink from '../../components/ui/ExternalLink'
+import {H1, H2, H3, P} from '../components/ui/Typography'
+import ExternalLink from '../components/ui/ExternalLink'
 import Head from 'next/head'
-import {Box} from '../../components/ui/Box'
-import Meta, {metas} from '../../components/content/Meta'
+import {Box} from '../components/ui/Box'
+import Meta, {metas} from '../components/content/Meta'
 import * as React from 'react'
-import ContentLayout from '../../components/content/ContentLayout'
-import {default as BlogMenu} from '../../components/content/menu/Blog'
+import ContentLayout from '../components/content/ContentLayout'
+import {default as BlogMenu} from '../components/content/menu/Blog'
 
 export default function PasswordSecurity() {
 	return (

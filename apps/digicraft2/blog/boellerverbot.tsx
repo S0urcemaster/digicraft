@@ -1,10 +1,10 @@
 import * as React from 'react'
-import {H1, P} from '../../components/ui/Typography'
-import ExternalLink from '../../components/ui/ExternalLink'
-import {Box} from '../../components/ui/Box'
-import Meta, {metas} from '../../components/content/Meta'
-import ContentLayout from '../../components/content/ContentLayout'
-import {default as BlogMenu} from '../../components/content/menu/Blog'
+import {H1, P} from '../components/ui/Typography'
+import ExternalLink from '../components/ui/ExternalLink'
+import {Box} from '../components/ui/Box'
+import Meta, {metas} from '../components/content/Meta'
+import ContentLayout from '../components/content/ContentLayout'
+import {default as BlogMenu} from '../components/content/menu/Blog'
 
 type Props = {};
 

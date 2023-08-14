@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {H1, P} from '../../components/ui/Typography'
-import {Box} from '../../components/ui/Box'
+import {H1, P} from '../components/ui/Typography'
+import {Box} from '../components/ui/Box'
 
 export default function Notes() {
 	return (

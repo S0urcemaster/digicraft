@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {H1, H2, P} from '../../components/ui/Typography'
-import {Box, DevBox} from '../../components/ui/Box'
+import {H1, H2, P} from '../components/ui/Typography'
+import {Box, DevBox} from '../components/ui/Box'
 
 export default function ReactNextExpress() {
 	return (

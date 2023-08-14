@@ -9,7 +9,7 @@ type H1Props = {
 
 export function H1({style, children, underline = false}: H1Props) {
 	const borderStyle = underline ? {
-		borderBottom: '1px solid',
+		borderBottom: '1px solid black',
 		borderColor: '#465',
 	} : {}
 	return (

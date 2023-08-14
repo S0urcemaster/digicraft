@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {H1, P} from '../../components/ui/Typography'
-import {Box, DevBox} from '../../components/ui/Box'
-import {HR} from '../../components/ui/Layout'
+import {H1, P} from '../components/ui/Typography'
+import {Box, DevBox} from '../components/ui/Box'
+import {HR} from '../components/ui/Layout'
 
 export default function PathOfHumanKind() {
 	return (

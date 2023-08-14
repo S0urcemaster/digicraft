@@ -5,9 +5,8 @@
 - ```pnpm build```
 - ```pnpm dev```
 
-### File Watchers
-There are watchers instead of build scripts for the packages that invoke tsc which
-in turn trigger the next dev watcher that also checks the dist directories.
+### Watch
+Use ```tsc -w``` in root dir to watch package changes. (Only works on windows.)
 
 ### Create New Package
 - copy/paste ```/_templates/repo/<name>``` to new name into ```/packages/<new name>```

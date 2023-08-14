@@ -1,8 +1,8 @@
 import * as React from 'react'
-import {H1, P} from '../../components/ui/Typography'
-import {Box} from '../../components/ui/Box'
-import ContentLayout from '../../components/content/ContentLayout'
-import {default as BlogMenu} from '../../components/content/menu/Blog'
+import {H1, P} from '../components/ui/Typography'
+import {Box} from '../components/ui/Box'
+import ContentLayout from '../components/content/ContentLayout'
+import {default as BlogMenu} from '../components/content/menu/Blog'
 
 type Props = {};
 

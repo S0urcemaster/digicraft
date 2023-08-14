@@ -7,5 +7,6 @@
       "@digicraft/*": ["packages/*/src"],
     },
     "noEmit": true
-  }
+  },
+  "exclude": ["apps", "_templates"],
 }
