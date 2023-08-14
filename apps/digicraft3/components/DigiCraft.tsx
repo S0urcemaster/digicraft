@@ -4,7 +4,6 @@ import * as React from 'react'
 import DigiHead from './DigiHead'
 import DigiMain from './DigiMain'
 import { ReactNode, useEffect } from 'react'
-// @ts-ignore
 import { useDigiContext } from '@digicraft/context'
 import { clog } from '@digicraft/lib'
 
@@ -46,7 +45,7 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 	}, [])
 
 	return (
-		<div style={{fontFamily: state.environment.mainFont}}>
+		<div style={{fontFamily: state.environment.mainFont}} className={'bp3-dark'}>
 			<DigiHead/>
 			<DigiMain>
 				{children}

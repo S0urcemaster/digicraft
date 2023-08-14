@@ -26,6 +26,9 @@ const initialState: Model = {
 export default function RootLayout({children}: { children: ReactNode }) {
 	return (
 		<html lang="en">
+		<head>
+			<title>Digi Craft</title>
+		</head>
 		<body>
 		<DigiContextProvider initialState={initialState}>
 			<DigiCraft>

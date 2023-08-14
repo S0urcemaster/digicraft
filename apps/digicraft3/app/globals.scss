@@ -1,19 +1,23 @@
 @import '../vars.module.scss';
+@import '../node_modules/@blueprintjs/core/lib/css/blueprint.css';
 
 * {
-	margin: 0;
-	padding: 0;
-	position: relative;
-	overflow: hidden;
+	//position: relative;
+	//overflow: hidden;
 	box-sizing: border-box;
 }
 
 html {
-	background: $dark-bg;
+	background: $gray5;
 	color: $dark-color;
 }
 
 body {
+	margin: 0;
+	padding: 0;
+}
+
+div {
 }
 
 h1 {

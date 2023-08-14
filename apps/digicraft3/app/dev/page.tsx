@@ -1,6 +1,6 @@
 
 import * as React from 'react'
-import { Dev } from '../../components/dev/Dev'
+import { Dev } from './Dev'
 
 export default function() {
 	return (
