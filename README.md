@@ -41,6 +41,11 @@ The same as above
 *Solution:*  
 Check imports - Must be the name declared in package.json
 
+#### None of the selected packages has a "./packages/digi-dev" script
+Running ```pnpm build:packages```  
+*Solution:*
+```"build:packages": "pnpm -F ./packages/** build"``` -> ```"build:packages": "pnpm -F \"./packages/**\" build"```
+
 
 ### SVG Implementation
 | Panel | &lt;svg> |
