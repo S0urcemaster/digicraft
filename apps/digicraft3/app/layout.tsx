@@ -4,7 +4,7 @@ import './globals.scss'
 import { DigiCraftContextProvider, Model } from './DigiCraftContext'
 import { ReactNode } from 'react'
 import DigiCraft from './DigiCraft'
-import vars from '../vars.module.scss'
+import cssVars from './vars.module.scss'
 
 import { Open_Sans as FontHeading, Inter as FontText, Noto_Sans_Mono as FontCode } from 'next/font/google'
 
@@ -31,14 +31,15 @@ const initialState: Model = {
 	environment: {
 		clientWidth: 1921,
 		clientHeight: 1080,
-		headerHeight: 25,
+		headerHeight: Number.parseInt(cssVars.headerHeight),
+		footerHeight: Number.parseInt(cssVars.footerHeight),
 		// headerHeight: parseInt(vars.headerHeight.replace('px', '')),
 		contrast: 0,
 		mainFont: '',
 		monoFont: '',
 		specialFont: '',
 	},
-	cssVars: vars,
+	cssVars: cssVars,
 }
 
 

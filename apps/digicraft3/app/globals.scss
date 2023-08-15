@@ -1,4 +1,4 @@
-@import '../vars.module.scss';
+@import './vars.module.scss';
 @import '../node_modules/@blueprintjs/core/lib/css/blueprint.css';
 
 * {
@@ -14,6 +14,30 @@ html {
 body {
 	margin: 0;
 	padding: 0;
+}
+
+header {
+	height: $header-height+px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	margin: 0 0 20px 0;
+	background: linear-gradient(to right, $color, $page-bg);
+	padding: 0 20px 0 20px;
+	cursor: pointer;
+}
+
+main {
+	height: 100%;
+	max-width: 1080px;
+	margin: 0 auto 0 auto;
+	padding: 45px 20px 20px 20px;
+	overflow: auto;
+}
+
+footer {
+	height: $footer-height+px;
+	background: linear-gradient(to right, $color, $page-bg);
 }
 
 div {
@@ -41,6 +65,8 @@ code {
 
 .bp5-card {
 	background: #dee3ea;
+	padding-top: 15px;
+	font-weight: 500;
 }
 
 .main-menu-container {

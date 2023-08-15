@@ -7,6 +7,10 @@ import { ReactNode, useEffect } from 'react'
 import { clog } from '@digicraft/lib'
 
 import { useDigiCraftContext } from './DigiCraftContext'
+import { DigiFoot } from './DigiFoot'
+
+import cssVars from './vars.module.scss'
+
 
 export default function DigiCraft({children}: { children: ReactNode }) {
 
@@ -18,6 +22,7 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 
 	useEffect(() => { // add resize listener
 		function resize() {
+			clog('resize', window.innerWidth, window.innerHeight)
 			setEnvironment({...state.environment, clientWidth: window.innerWidth, clientHeight: window.innerHeight})
 		}
 		if(state) {
@@ -25,6 +30,8 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 			setEnvironment({...state.environment,
 				mainFont: '',
 				specialFont: '',
+				headerHeight: Number.parseInt(cssVars.headerHeight),
+				footerHeight: Number.parseInt(cssVars.footerHeight),
 				clientWidth: window.innerWidth,
 				clientHeight: window.innerHeight
 			})
@@ -33,11 +40,12 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 	}, [])
 
 	return (
-		<div>
+		<>
 			<DigiHead/>
 			<DigiMain>
 				{children}
 			</DigiMain>
-		</div>
+			<DigiFoot/>
+		</>
 	)
 }

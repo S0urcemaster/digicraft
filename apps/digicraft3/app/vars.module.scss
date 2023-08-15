@@ -1,0 +1,13 @@
+@import 'node_modules/@blueprintjs/core/lib/scss/variables';
+
+$page-bg: #c5cbd3;
+$card-bg: #dee3ea;
+$color: #1a2f44;
+
+$header-height: 25;
+$footer-height: 25;
+
+:export {
+	headerHeight: $header-height;
+	footerHeight: $footer-height;
+}

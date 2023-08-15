@@ -1,7 +1,7 @@
 import * as React from 'react'
-import Text from './Text'
-import { letterCoords } from './letterCoords'
-import {LetterType} from './Letter'
+import Text from '../components/svg/Text'
+import { letterCoords } from '../components/svg/letterCoords'
+import {LetterType} from '../components/svg/Letter'
 
 type Props = {
 	text: string

@@ -12,6 +12,7 @@ type Environment = {
 	clientWidth: number
 	clientHeight: number
 	headerHeight: number
+	footerHeight: number
 	contrast: number // 0- dark theme, 1- light theme
 }
 
@@ -48,11 +49,12 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 	}
 
 	function setEnvironment(environment: Environment) {
-		dispatch({type: DigiActionTypes.environment, payload: {environment: {...state.environment, environment}}})
+		dispatch({type: DigiActionTypes.environment, payload: {environment: environment}})
 	}
 
 	function getMainHeight() {
-		return state.environment.clientHeight - state.environment.headerHeight
+		clog('getMainHeight()', state.environment.clientHeight, state.environment.headerHeight, state.environment.footerHeight)
+		return state.environment.clientHeight - state.environment.headerHeight +25 - state.environment.footerHeight
 	}
 
 	function update() {
