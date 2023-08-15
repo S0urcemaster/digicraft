@@ -45,6 +45,8 @@ Running ```pnpm build:packages```
 *Solution:*
 ```"build:packages": "pnpm -F ./packages/** build"``` -> ```"build:packages": "pnpm -F \"./packages/**\" build"```
 
+#### rimraf not found
+WSL dosn't seem to work properly.
 
 ### SVG Implementation
 | Panel | &lt;svg> |

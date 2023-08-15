@@ -1,6 +1,13 @@
 import * as React from 'react'
 import Dot from './Dot'
-import {Letter as LetterType} from './Text'
+
+export type LetterType = {
+	char: string
+	coords: number[][]
+	width: number
+	visible: boolean
+	offset: number
+}
 
 export default function Letter(props: {
 	letter: LetterType

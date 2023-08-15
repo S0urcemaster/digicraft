@@ -1,17 +1,16 @@
 'use client'
 
 import { useDigiContext } from '@digicraft/context'
-import { colorWithContrast } from '@digicraft/lib'
-import { HtmlContent } from '@digicraft/ui'
-import {H1} from '@digicraft/ui'
 import { useEffect } from 'react'
 import { clog } from '@digicraft/lib'
+import { MainMenu } from './MainMenu'
 
 export default function Home() {
 
 	const {state, setContentTitle} = useDigiContext()
 
 	useEffect(() => {
+		setContentTitle('')
 		clog('page', state)
 		// if(state) {
 		// 	setContentTitle('Welcomex')
@@ -20,9 +19,7 @@ export default function Home() {
 
 	return (
 		<>
-			<HtmlContent>
-				<H1>Welcome</H1>
-			</HtmlContent>
+			<MainMenu />
 		</>
 	)
 }

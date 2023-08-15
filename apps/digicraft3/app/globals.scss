@@ -2,14 +2,12 @@
 @import '../node_modules/@blueprintjs/core/lib/css/blueprint.css';
 
 * {
-	//position: relative;
-	//overflow: hidden;
 	box-sizing: border-box;
 }
 
 html {
 	background: $gray5;
-	color: $dark-color;
+	color: $color;
 }
 
 body {
@@ -21,24 +19,46 @@ div {
 }
 
 h1 {
-	font-size: 24px;
-	letter-spacing: 10px;
-	word-spacing: 4px;
-	text-align: center;
+
 }
 
 h2 {
-	//margin: -13px 0 0 0;
 }
 
 hr {
-	background: $dark-color-alt;
 }
 
-@media screen and (min-width: 600px) {
-	h1 {
-		font-size: 36px;
-		letter-spacing: 15px;
-		word-spacing: 5px;
+.bp5-card {
+	background: #dee3ea;
+}
+
+.bp5-heading {
+	color: $color;
+}
+
+.main-menu-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	column-gap: 20px;
+	row-gap: 20px;
+}
+
+@media screen and (max-width: 1100px) {
+	.main-menu-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 20px;
+		row-gap: 20px;
 	}
+
+}
+
+@media screen and (max-width: 800px) {
+	.main-menu-container {
+		display: grid;
+		grid-template-columns: 1fr;
+		column-gap: 20px;
+		row-gap: 20px;
+	}
+
 }

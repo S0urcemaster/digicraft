@@ -13,7 +13,7 @@ export function Dev() {
 	const {setContentTitle} = useDigiContext()
 
 	useEffect(() => {
-		setContentTitle('Development Page')
+		setContentTitle('DEVELOPMENT PAGE')
 	}, [])
 
 	return (

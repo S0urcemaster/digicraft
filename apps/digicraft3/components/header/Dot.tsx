@@ -1,8 +1,6 @@
 import * as React from 'react'
-import {Position, usePosition} from './hooks'
 
 type Props = {
-	position?: Position
 	coords: number[]
 	visible: boolean
 	size: number
@@ -13,7 +11,7 @@ export const maxX = 30
 export default function Dot(props: Props) {
 
 	function getPositionX(x: number) {
-		return (x -1) * props.size + 5 +33
+		return (x -1) * props.size + 5
 	}
 
 	function getPositionY(y: number) {

@@ -9,11 +9,12 @@ import vars from '../vars.module.scss'
 
 
 const initialState: Model = {
-	contentTitle: 'Frontpage',
+	contentTitle: '',
 	environment: {
 		clientWidth: 1921,
 		clientHeight: 1080,
-		headerHeight: parseInt(vars.headerHeight.replace('px', '')),
+		headerHeight: 25,
+		// headerHeight: parseInt(vars.headerHeight.replace('px', '')),
 		contrast: 0,
 		mainFont: 'Sans-serif',
 		monoFont: 'Monospace',

@@ -1,20 +1,8 @@
 @import './node_modules/@blueprintjs/core/lib/scss/variables.scss';
 
-$color-rust-dark: #987;
-$color-rust-bright: #fde9d5;
-$color-blue-dark: #21349a;
-$color-blue-bright: #a9c9f9;
-
-
-$header-height: 25px;
-
-$dark-bg: $color-rust-dark;
-$dark-color: $color-rust-bright;
-$dark-bg-alt: $color-blue-dark;
-$dark-color-alt: $color-blue-bright;
+$page-bg: #c5cbd3;
+$card-bg: #dee3ea;
+$color: #1a2f44;
 
 :export {
-	headerHeight: $header-height;
-	darkBg: $dark-bg;
-	darkColor: $dark-color;
 }

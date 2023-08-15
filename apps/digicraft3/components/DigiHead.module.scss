@@ -3,4 +3,8 @@
 .header {
 	height: 25px;
 	position: relative;
+	margin: 0 0 20px 0;
+	background: linear-gradient(to right, $color, $page-bg);
+	padding: 0 20px 0 20px;
+	cursor: pointer;
 }
