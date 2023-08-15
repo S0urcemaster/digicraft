@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import { useDigiContext } from '@digicraft/context'
 import { useEffect } from 'react'
 
 const devStyle = {
@@ -9,12 +8,6 @@ const devStyle = {
 }
 
 export function Dev() {
-
-	const {setContentTitle} = useDigiContext()
-
-	useEffect(() => {
-		setContentTitle('DEVELOPMENT PAGE')
-	}, [])
 
 	return (
 		<div style={devStyle}>

@@ -3,6 +3,7 @@ import { Card, Elevation } from '@blueprintjs/core'
 import { Icon, IconSize } from "@blueprintjs/core";
 import { routes } from './routes'
 import { useRouter } from 'next/navigation'
+import { useDigiCraftContext } from './DigiCraftContext'
 
 type MenuItem = {
 	heading: string
@@ -29,10 +30,11 @@ die anderen Farben weg.
 
 const mainMenu: MenuItem[] = [
 	{heading: 'News',
-		lines: ['01.09.2023 - Digi Craft Redesign', '24.07.2023 - Swinging Over to Rust', '28.06.2023 - Reload -&gt; Digi Craft 3'],
+		lines: ['01.09.2023 - Digi Craft Redesign', '24.07.2023 - Swinging Over to Rust', '28.06.2023 - Reload -> Digi Craft 3'],
 		mediaIcons: ['desktop', 'mobile-phone'], route: routes.news
 	},
 	{heading: 'SVG Editor', lines: ['An App to train chess notation.'], mediaIcons: ['desktop'], route: routes.svgEditor},
+	{heading: 'Development Page', lines: ['dev page'], mediaIcons: ['desktop', 'mobile-phone'], route: routes.dev},
 	{heading: 'Digi Radio', lines: ['A radio streamer'], mediaIcons: ['desktop', 'mobile-phone'], route: routes.radio},
 	{heading: 'Arbeitszeiterfassung', lines: ['Eine App, um Arbeitszeiten zu erfassen.'], mediaIcons: ['desktop'], route: routes.news},
 	{heading: 'Schach-Notationstrainer', lines: ['Eine App, um Schach-Notation zu trainieren.'], mediaIcons: ['desktop'], route: routes.notationTrainer},
@@ -57,7 +59,7 @@ export function MainMenu() {
 	const router = useRouter()
 
 	function onClick(menuItem: MenuItem) {
-		const [route] = menuItem.route
+		const [route, title] = menuItem.route
 		router.push(route)
 	}
 

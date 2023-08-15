@@ -491,4 +491,25 @@ export const letterCoords: Record<string, LetterType> = {
 		visible: false,
 		offset: 0,
 	},
+	'-': {
+		char: '-',
+		coords: [
+			[0, 2],
+			[1, 2],
+			[2, 2],
+		],
+		width: 3,
+		visible: false,
+		offset: 0,
+	},
+	'\'': {
+		char: '\'',
+		coords: [
+			[0, 0],
+			[0, 1],
+		],
+		width: 1,
+		visible: false,
+		offset: 0,
+	},
 }

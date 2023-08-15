@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { createContext, ReactNode, useContext, useEffect, useReducer, useState } from 'react'
 import { clog } from '@digicraft/lib'
-import { DigiActionTypes, reducer } from './reducer'
+import { DigiActionTypes, digiCraftReducer } from './DigiCraftReducer'
 
 type Environment = {
 	mainFont: string
@@ -21,7 +21,7 @@ export type Model = {
 	cssVars: {readonly [key: string]: string}
 }
 
-export type Context = {
+export type DigiCraftContext = {
 	state: Model
 	getMainHeight: () => number
 	setContentTitle: (title: string) => void
@@ -29,11 +29,11 @@ export type Context = {
 	update: () => void
 }
 
-const DigiContext = createContext<Context>({} as Context)
+const DigiCraftContext = createContext<DigiCraftContext>({} as DigiCraftContext)
 
-export function DigiContextProvider({initialState, children}: { initialState: Model, children: ReactNode}) {
+export function DigiCraftContextProvider({initialState, children}: { initialState: Model, children: ReactNode}) {
 
-	const [state, dispatch] = useReducer(reducer, initialState)
+	const [state, dispatch] = useReducer(digiCraftReducer, initialState)
 
 	useEffect(() => {
 		clog("Context[]")
@@ -60,7 +60,7 @@ export function DigiContextProvider({initialState, children}: { initialState: Mo
 	}
 
 	return (
-		<DigiContext.Provider value={{
+		<DigiCraftContext.Provider value={{
 			state,
 			setEnvironment,
 			getMainHeight,
@@ -68,10 +68,10 @@ export function DigiContextProvider({initialState, children}: { initialState: Mo
 			setContentTitle,
 		}}>
 			{children}
-		</DigiContext.Provider>
+		</DigiCraftContext.Provider>
 	)
 }
 
-export function useDigiContext() {
-	return useContext(DigiContext)
+export function useDigiCraftContext() {
+	return useContext(DigiCraftContext)
 }

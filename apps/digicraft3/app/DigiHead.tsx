@@ -1,15 +1,15 @@
 'use client'
 
 import * as React from 'react'
-import { useDigiContext } from '@digicraft/context'
+import { useDigiCraftContext } from './DigiCraftContext'
 import styles from './DigiHead.module.scss'
 import DigiText from './header/DigiText'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 
 export default function DigiHead() {
 
-	const {state} = useDigiContext()
-	console.log('logsntr', 'state.contentTitle', state.contentTitle)
+	const {state} = useDigiCraftContext()
 	const router = useRouter()
 
 	function back() {

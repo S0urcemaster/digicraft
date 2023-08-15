@@ -4,25 +4,13 @@ import * as React from 'react'
 import DigiHead from './DigiHead'
 import DigiMain from './DigiMain'
 import { ReactNode, useEffect } from 'react'
-import { useDigiContext } from '@digicraft/context'
 import { clog } from '@digicraft/lib'
 
-// import { Noto_Sans_Display, Montserrat, Nunito, Quicksand } from 'next/font/google'
-import { Montserrat, Quicksand } from 'next/font/google'
-
-export const font_main = Quicksand({
-	subsets: ['latin'],
-	display: 'swap',
-})
-
-export const font_special = Montserrat({
-	subsets: ['latin'],
-	display: 'swap',
-})
+import { useDigiCraftContext } from './DigiCraftContext'
 
 export default function DigiCraft({children}: { children: ReactNode }) {
 
-	const {state, setEnvironment} = useDigiContext()
+	const {state, setEnvironment} = useDigiCraftContext()
 
 	useEffect(() => {
 	}, [])
@@ -35,8 +23,8 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 		if(state) {
 			window.addEventListener('resize', resize)
 			setEnvironment({...state.environment,
-				mainFont: font_main.style.fontFamily,
-				specialFont: font_special.style.fontFamily,
+				mainFont: '',
+				specialFont: '',
 				clientWidth: window.innerWidth,
 				clientHeight: window.innerHeight
 			})
@@ -45,7 +33,7 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 	}, [])
 
 	return (
-		<div style={{fontFamily: state.environment.mainFont}} className={'bp3-dark'}>
+		<div>
 			<DigiHead/>
 			<DigiMain>
 				{children}

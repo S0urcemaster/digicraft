@@ -1,7 +1,6 @@
 // 'use client'
 import * as React from 'react'
 import { CSSProperties, ReactNode, useEffect } from 'react'
-import { useDigiContext } from '@digicraft/context'
 
 type PanelProps = {
 	x?: number

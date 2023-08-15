@@ -1,13 +1,13 @@
 'use client'
 
-import { useDigiContext } from '@digicraft/context'
+import { useDigiCraftContext } from './DigiCraftContext'
 import { useEffect } from 'react'
 import { clog } from '@digicraft/lib'
 import { MainMenu } from './MainMenu'
 
 export default function Home() {
 
-	const {state, setContentTitle} = useDigiContext()
+	const {state, setContentTitle} = useDigiCraftContext()
 
 	useEffect(() => {
 		setContentTitle('')

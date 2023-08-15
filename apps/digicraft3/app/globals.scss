@@ -8,6 +8,7 @@
 html {
 	background: $gray5;
 	color: $color;
+	font-family: var(--font-default);
 }
 
 body {
@@ -28,12 +29,18 @@ h2 {
 hr {
 }
 
-.bp5-card {
-	background: #dee3ea;
+code {
+	font-family: var(--font-code);
+}
+
+.bp5-ui-text {
 }
 
 .bp5-heading {
-	color: $color;
+}
+
+.bp5-card {
+	background: #dee3ea;
 }
 
 .main-menu-container {
