@@ -6,25 +6,26 @@ import { ReactNode } from 'react'
 import DigiCraft from './DigiCraft'
 import cssVars from './vars.module.scss'
 
-import { Open_Sans as FontHeading, Inter as FontText, Noto_Sans_Mono as FontCode } from 'next/font/google'
+import { Open_Sans as FontDefault } from 'next/font/google'
 
-const fontHeading = FontHeading({
+// const fontHeading = FontHeading({
+// 	subsets: ['latin'],
+// 	variable: '--font-heading',
+// 	display: 'swap',
+// })
+
+// numbers are monospaced -> dates are justified
+const fontDefault = FontDefault({
 	subsets: ['latin'],
-	variable: '--font-heading',
+	variable: '--font-default',
 	display: 'swap',
 })
 
-const fontText = FontText({
-	subsets: ['latin'],
-	variable: '--font-text',
-	display: 'swap',
-})
-
-const fontCode = FontCode({
-	subsets: ['latin'],
-	variable: '--font-code',
-	display: 'swap',
-})
+// const fontCode = FontCode({
+// 	subsets: ['latin'],
+// 	variable: '--font-code',
+// 	display: 'swap',
+// })
 
 const initialState: Model = {
 	contentTitle: '',
@@ -45,7 +46,7 @@ const initialState: Model = {
 
 export default function RootLayout({children}: { children: ReactNode }) {
 	return (
-		<html lang="en" className={`${fontHeading.variable} ${fontText.variable} ${fontCode.variable}`}>
+		<html lang="en" className={`${fontDefault.variable}`}>
 		<head>
 			<title>Digi Craft</title>
 		</head>

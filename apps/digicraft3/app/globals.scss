@@ -1,5 +1,5 @@
 @import './vars.module.scss';
-@import '../node_modules/@blueprintjs/core/lib/css/blueprint.css';
+@import '@blueprintjs/core/lib/css/blueprint.css';
 
 * {
 	box-sizing: border-box;
@@ -8,12 +8,12 @@
 html {
 	background: $gray5;
 	color: $color;
-	font-family: var(--font-default);
 }
 
 body {
 	margin: 0;
 	padding: 0;
+	font-family: var(--font-default);
 }
 
 header {
@@ -65,9 +65,13 @@ code {
 .bp5-card {
 	position: relative;
 	background: #dee3ea;
-	padding-top: 15px;
 	font-weight: 500;
 	overflow: hidden;
+}
+
+.bp5-section-header-title {
+	font-size: 1.5rem;
+	font-weight: 500;
 }
 
 .page {
@@ -77,7 +81,6 @@ code {
 .page-center {
 	background: #c5cbd3;
 	max-width: 1080px;
-	//height: calc(100vh + 20px);
 	margin: 0 auto 0 auto;
 	padding: 45px 40px 40px 40px;
 }

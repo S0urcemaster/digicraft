@@ -48,6 +48,9 @@ Running ```pnpm build:packages```
 #### rimraf not found
 WSL dosn't seem to work properly.
 
+#### Blueprint not working
+```'use client'```?
+
 ### SVG Implementation
 | Panel | &lt;svg> |
 |-------|----------|

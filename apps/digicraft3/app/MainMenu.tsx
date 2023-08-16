@@ -32,8 +32,8 @@ die anderen Farben weg.
 `
 
 const bgSvg = {
-	text: <svg width="500" height="500" viewBox="0 0 43 42" xmlns="http://www.w3.org/2000/svg"
-				  transform={'translate(20 10)'}>
+	text: <svg height="150" viewBox="0 0 11 11" xmlns="http://www.w3.org/2000/svg"
+				  transform={'translate(20 20)'}>
 		<g stroke={'#eee'} strokeWidth={0.8}>
 			<ellipse fill={'none'}
 						id="path3630"
@@ -46,7 +46,7 @@ const bgSvg = {
 			</text>
 		</g>
 	</svg>,
-	app: <svg width="500" height="500" viewBox="0 0 116 115" transform={'translate(20 20)'}
+	app: <svg height="150" viewBox="0 0 30 30" transform={'translate(20 20)'}
 				 xmlns="http://www.w3.org/2000/svg">
 		<g fill={'none'} stroke={'#eee'} strokeWidth={1.299583} strokeLinecap={'round'} strokeOpacity={1}>
 			<rect
@@ -142,7 +142,7 @@ const bgSvg = {
 		</g>
 	</svg>,
 	game:
-		<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox={'0 0 50 50'}>
+		<svg xmlns="http://www.w3.org/2000/svg" height="150" viewBox={'0 0 40 40'}>
 			<g fill="none" fillRule="evenodd" stroke="#eee" strokeLinecap="round" strokeLinejoin="round"
 				strokeWidth="2.5">
 				<path strokeLinejoin="miter" d="M22.5 11.63V6M20 8h5"/>
@@ -154,7 +154,7 @@ const bgSvg = {
 			</g>
 		</svg>,
 	settings:
-		<svg fill="#eee" stroke={'none'} height="200" width="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" transform={'translate(10 20)'}>
+		<svg fill="#eee" stroke={'none'} height="150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" transform={'translate(20 20)'}>
 			<g>
 				<g>
 					<path d="M486.4,204.8h-32.299c-4.779-18.466-12.134-36.233-21.82-52.676l22.835-22.844c10.001-10.001,10.001-26.206,0-36.207
@@ -288,7 +288,7 @@ export function MainMenu() {
 	const router = useRouter()
 
 	function onClick(menuItem: MenuItem) {
-		const [route, title] = menuItem.route
+		const [route] = menuItem.route
 		router.push(route)
 	}
 
@@ -301,7 +301,7 @@ export function MainMenu() {
 							{m.svg}
 						</div>
 						<div style={{display: 'flex', justifyContent: 'space-between', position: 'relative'}}>
-							<h3 className={'bp5-heading'}>{m.heading}</h3>
+							<h3 className={'bp5-heading'} style={{marginTop: -5}}>{m.heading}</h3>
 							<div style={{color: 'gray'}}>
 								{
 									// @ts-ignore (icon={i})

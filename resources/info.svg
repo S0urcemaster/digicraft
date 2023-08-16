@@ -2,33 +2,21 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="11.310488mm"
-   height="11.021297mm"
-   viewBox="0 0 11.310488 11.021297"
-   version="1.1"
-   id="svg3509"
+   width="42px"
+   height="42px"
+   viewBox="0 0 11 11"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs3506" />
-  <g
-     id="layer1">
+  <g>
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.899583;stroke-linecap:round"
-       id="path3630"
+       style="fill:none;stroke:#000000;stroke-width:0.899583"
        cx="5.6552444"
        cy="5.5106483"
        rx="5.2054529"
        ry="5.0608568" />
     <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.43029px;font-family:Arial;-inkscape-font-specification:'Arial, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.285226;stroke-linecap:round"
+       style="font-weight:bold;font-size:8.43029px;font-family:Arial;fill:#000000;stroke-width:0.285226"
        x="4.5199156"
-       y="8.4716091"
-       id="text3688"><tspan
-         id="tspan3686"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.43029px;font-family:Arial;-inkscape-font-specification:'Arial, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.285226"
-         x="4.5199156"
-         y="8.4716091">i</tspan></text>
+       y="8.4716091">i</text>
   </g>
 </svg>

@@ -6,7 +6,7 @@ import { ReactNode, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { routes } from '../app/routes'
 
-export function Page({children, center}: { children: ReactNode, center: boolean }) {
+export function Page({children, center}: { children: ReactNode, center?: boolean }) {
 
 	const {setContentTitle} = useDigiCraftContext()
 	const path = usePathname()
