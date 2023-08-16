@@ -30,8 +30,8 @@ header {
 
 main {
 	height: 100%;
-	padding: 45px 20px 20px 20px;
 	overflow: auto;
+	background: #c5cbd3;
 }
 
 footer {
@@ -71,11 +71,15 @@ code {
 }
 
 .page {
+	background: #c5cbd3;
 }
 
 .page-center {
+	background: #c5cbd3;
 	max-width: 1080px;
+	//height: calc(100vh + 20px);
 	margin: 0 auto 0 auto;
+	padding: 45px 40px 40px 40px;
 }
 
 .main-menu-container {

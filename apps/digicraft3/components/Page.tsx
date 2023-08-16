@@ -13,9 +13,7 @@ export function Page({children, center}: { children: ReactNode, center: boolean 
 
 	useEffect(() => {
 		const routeArr = Object.values(routes)
-		const [_, title] = routeArr.find(([route, title]) => {
-			return route === path
-		}) ?? ['', 'NOOO']
+		const [_, title] = routeArr.find(([route, title]) => route === path) ?? ['', 'PATH NOT FOUND']
 		setContentTitle(path ? title.toUpperCase() : '')
 	}, [])
 
