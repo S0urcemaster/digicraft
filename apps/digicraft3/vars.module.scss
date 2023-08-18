@@ -9,6 +9,10 @@ $header-height: 25;
 $footer-height: 25;
 
 :export {
+	pageBg: $page-bg;
+	cardBg: $card-bg;
+	cream: $cream;
+	color: $color;
 	headerHeight: $header-height;
 	footerHeight: $footer-height;
 }

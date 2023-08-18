@@ -5,35 +5,27 @@ import React, { ReactNode, useState } from 'react'
 import svgEditorPrototype from '../../public/pictures/svgEditor-prototype.png'
 import digicraft3layout from '../../public/pictures/digicraft3layout.png'
 import Image from 'next/image'
+import { DateCircle } from '../../components/svg/DateCircle'
 
-function NewsContent({children}: { children: ReactNode }) {
-	return (
-		<div style={{margin: '0 20 0 20'}}>
-			{children}
-		</div>
-	)
-}
-
-function NewsCard({
-							title,
-							date,
-							shortDesc,
-							first,
-							children
-						}: { title: string, date: string, shortDesc: string, first?: boolean, children: ReactNode }) {
+function NewsCard({title, date, shortDesc, first, children}:
+							{ title: string, date: string, shortDesc: string, first?: boolean, children: ReactNode }) {
 
 	const [contentVisible, setContentVisible] = useState(false)
+	const [day, month, year] = date.split('.').map(s => parseInt(s))
 
 	return (
 		<>
 			<Card interactive={true} elevation={Elevation.TWO} onClick={() => setContentVisible(!contentVisible)}
 					style={{margin: first ? '0 0 0 0' : '20px 0 0 0'}}>
-				<div style={{display: 'flex', justifyContent: 'space-between'}}>
-					<h4 className={'bp5-heading'} style={{marginTop: -5}}>{title}</h4>
-					<h5 className={'bp5-heading'}>{date}</h5>
-				</div>
-				<div style={{position: 'relative', fontWeight: 500}}>
-					{shortDesc}
+				<div style={{display: 'flex', justifyContent: 'space-between', position: 'relative'}}>
+					<div>
+						<h4 className={'bp5-heading'} style={{marginTop: -5}}>{title}</h4>
+						<div style={{fontWeight: 500}}>
+							{shortDesc}
+						</div>
+					</div>
+					{/*<h5 className={'bp5-heading'}>{date}</h5>*/}
+					<div title={date} style={{margin: '-10px -10px 0 0'}}><DateCircle year={year} month={month} day={day}/></div>
 				</div>
 			</Card>
 			<Collapse isOpen={contentVisible}>
@@ -48,7 +40,7 @@ function NewsCard({
 export function News() {
 	return (
 		<>
-			<NewsCard first title={'Neues Layout'} date={'17.08.2023'}
+			<NewsCard first title={'Neues Layout'} date={'01.08.2023'}
 						 shortDesc={'Ein simples, responsives Layout mit großen Menü-Buttons.'}>
 				<p>
 					Ein simples, responsives Layout mit großen Menü-Buttons, die auf einen Blick zeigen, was es hier alles gibt.

@@ -4,7 +4,7 @@ import './globals.scss'
 import { DigiCraftContextProvider, Model } from './DigiCraftContext'
 import { ReactNode } from 'react'
 import DigiCraft from './DigiCraft'
-import cssVars from './vars.module.scss'
+import cssVars from '../vars.module.scss'
 
 import { Open_Sans as FontDefault } from 'next/font/google'
 

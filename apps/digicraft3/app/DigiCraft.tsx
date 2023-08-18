@@ -9,7 +9,7 @@ import { clog } from '@digicraft/lib'
 import { useDigiCraftContext } from './DigiCraftContext'
 import { DigiFoot } from './DigiFoot'
 
-import cssVars from './vars.module.scss'
+import cssVars from '../vars.module.scss'
 
 
 export default function DigiCraft({children}: { children: ReactNode }) {
