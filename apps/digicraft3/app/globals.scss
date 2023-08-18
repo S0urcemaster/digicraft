@@ -52,6 +52,9 @@ h2 {
 hr {
 }
 
+pre {
+}
+
 code {
 	font-family: var(--font-code);
 }
@@ -64,9 +67,14 @@ code {
 
 .bp5-card {
 	position: relative;
-	background: #dee3ea;
+	background: $card-bg;
 	font-weight: 500;
 	overflow: hidden;
+}
+
+.bp5-collapse {
+	background: $cream;
+	z-index: -1;
 }
 
 .bp5-section-header-title {
