@@ -4,7 +4,7 @@ import { News } from './News'
 
 export default function() {
 	return (
-		<Page center>
+		<Page center width={1080}>
 			<News />
 		</Page>
 	)

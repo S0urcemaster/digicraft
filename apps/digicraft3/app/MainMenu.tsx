@@ -100,18 +100,6 @@ const mainMenu: MenuItem[] = [
 		route: routes.about, svg: bgSvg.text
 	},
 	{
-		heading: 'Impressum',
-		lines: ['Impressum von Digi Craft.'],
-		mediaIcons: ['desktop', 'mobile-phone'],
-		route: routes.imprint, svg: bgSvg.text
-	},
-	{
-		heading: 'Datenschutz',
-		lines: ['Datenschutz von Digi Craft.'],
-		mediaIcons: ['desktop', 'mobile-phone'],
-		route: routes.privacy, svg: bgSvg.text
-	},
-	{
 		heading: 'Einstellungen',
 		lines: ['Einstellungen für Digi Craft.'],
 		mediaIcons: ['desktop', 'mobile-phone'],
@@ -143,7 +131,7 @@ export function MainMenu() {
 			<div className={'main-menu-container'}>
 				{mainMenu.map((m, idx) =>
 					<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => onClick(m)}>
-						<div style={{position: 'absolute', top: 0, left: 0}}>
+						<div style={{position: 'absolute', top: 0, right: -10}}>
 							{m.svg}
 						</div>
 						<div style={{display: 'flex', justifyContent: 'space-between', position: 'relative'}}>

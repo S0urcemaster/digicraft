@@ -6,7 +6,13 @@ import { ReactNode, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { routes } from '../app/routes'
 
-export function Page({children, center}: { children: ReactNode, center?: boolean }) {
+type Props = {
+	width?: number
+	center?: boolean
+	children: ReactNode
+}
+
+export function Page({children, center, width}: Props) {
 
 	const {setContentTitle} = useDigiCraftContext()
 	const path = usePathname()
@@ -18,7 +24,7 @@ export function Page({children, center}: { children: ReactNode, center?: boolean
 	}, [])
 
 	return (
-		<div className={center ? 'page-center' : 'page'}>
+		<div className={center ? 'page-center' : 'page'} style={{maxWidth: width}}>
 			{children}
 		</div>
 	)

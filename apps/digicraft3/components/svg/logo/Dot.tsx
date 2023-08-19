@@ -4,29 +4,24 @@ type Props = {
 	coords: number[]
 	visible: boolean
 	size: number
+	color: string
 }
 
-export const maxX = 30
-
-export default function Dot(props: Props) {
+export default function Dot({coords, visible, size, color}: Props) {
 
 	function getPositionX(x: number) {
-		return (x -1) * props.size + 5
+		return x * size +size/2
 	}
 
 	function getPositionY(y: number) {
-		return y * props.size + 2 +7
-	}
-
-	function getColor() {
-		return '#fff'
+		return y * size + size/2
 	}
 
 	return (
 		<>
-			{props.visible ?
-				<circle cx={getPositionX(props.coords[0])} cy={getPositionY(props.coords[1])} r={props.size/2}
-				fill={getColor()}/>
+			{visible ?
+				<circle cx={getPositionX(coords[0])} cy={getPositionY(coords[1])} r={size/2}
+				fill={color}/>
 				: ''}
 		</>
 	)

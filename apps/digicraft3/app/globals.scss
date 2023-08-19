@@ -23,7 +23,7 @@ header {
 	width: 100%;
 	margin: 0 0 20px 0;
 	background: linear-gradient(to right, $color, $page-bg);
-	padding: 0 20px 0 20px;
+	padding: 4px 20px 0 20px;
 	cursor: pointer;
 	z-index: 99;
 }
@@ -37,6 +37,8 @@ main {
 footer {
 	height: $footer-height+px;
 	background: linear-gradient(to right, $color, $page-bg);
+	z-index: 99;
+	padding: 6px 20px 0 20px;
 }
 
 div {
@@ -84,11 +86,12 @@ code {
 
 .page {
 	background: #c5cbd3;
+	padding: 45px 40px 40px 40px;
 }
 
 .page-center {
 	background: #c5cbd3;
-	max-width: 1080px;
+	max-width: 1580px;
 	margin: 0 auto 0 auto;
 	padding: 45px 40px 40px 40px;
 }

@@ -6,14 +6,15 @@ type Props = {
 	size: number
 	letters: LetterType[]
 	visible: boolean
+	color: string
 }
 
-export default function Text(props: Props) {
+export default function Text({x, size, letters, color}: Props) {
 
 	return (
 		<>
-			{props.letters.map((l, idx) => {
-				return <Letter key={idx} letter={l} size={props.size}/>
+			{letters.map((l, idx) => {
+				return <Letter key={idx} letter={l} size={size} color={color}/>
 			})}
 		</>
 	)

@@ -2,8 +2,9 @@
 
 import * as React from 'react'
 import { useDigiCraftContext } from './DigiCraftContext'
-import DigiText from './DigiText'
+import DigiText from '../components/svg/logo/DigiText'
 import { useRouter } from 'next/navigation'
+import cssVars from '../vars.module.scss'
 
 export default function DigiHead() {
 
@@ -18,9 +19,9 @@ export default function DigiHead() {
 		<header onClick={back}>
 			{/*<DigiText text={'ABCDEFGHIJKLMNOPQRSTUVWXYZ'} />*/}
 			{state.contentTitle ?
-				<DigiText text={`DIGI CRAFT/${state.contentTitle}`}/>
+				<DigiText text={`DIGI CRAFT/${state.contentTitle}`} height={17} color={cssVars.cream}/>
 				:
-				<DigiText text={`DIGI CRAFT`}/>
+				<DigiText text={`DIGICR`} height={19} color={cssVars.cream}/>
 			}
 		</header>
 	)
