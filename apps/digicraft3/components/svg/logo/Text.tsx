@@ -5,7 +5,6 @@ type Props = {
 	x: number
 	size: number
 	letters: LetterType[]
-	visible: boolean
 	color: string
 }
 

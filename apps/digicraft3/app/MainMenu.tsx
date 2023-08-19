@@ -55,7 +55,7 @@ const mainMenu: MenuItem[] = [
 		heading: 'Arbeitszeiterfassung',
 		lines: ['Eine App, um Arbeitszeiten zu erfassen.'],
 		mediaIcons: ['desktop'],
-		route: routes.news, svg: bgSvg.app
+		route: routes.worktime, svg: bgSvg.app
 	},
 	{
 		heading: 'Schach-Notationstrainer',

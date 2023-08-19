@@ -1,23 +1,5 @@
-'use client'
-
-import * as React from 'react'
-import { createContext, ReactNode, useContext, useEffect, useReducer, useState } from 'react'
-import { clog } from '@digicraft/lib'
-import { DigiActionTypes, digiCraftReducer } from './DigiCraftReducer'
-import { Worktime } from './worktime/components/worktimeContext'
-
-type Environment = {
-	clientWidth: number
-	clientHeight: number
-	headerHeight: number
-	footerHeight: number
-}
-
-export type Model = {
-	contentTitle: string
-	environment: Environment
-	cssVars: {readonly [key: string]: string}
-}
+import {createContext, ReactNode, useContext, useEffect, useState} from 'react'
+import {Worktime} from './worktime/components/worktimeContext'
 
 export type LocalStorage = {
 	download: Function
@@ -68,31 +50,12 @@ function saveStorage(storage: StorageState) {
 	localStorage.setItem('digicraft', JSON.stringify(storage))
 }
 
-export type DigiCraftContext = {
-	state: Model
+const LocalStorageContext = createContext<LocalStorage>({} as LocalStorage)
 
-	downloadStorage: Function
-	uploadStorage: Function
-	storageLoaded: boolean
-	worktime: Worktime
-	setWorktime: (worktime: Worktime) => void
-	downloadWorktime: (year: number) => void
-	uploadWorktime: (file: any, year: number) => void
-
-	getMainHeight: () => number
-	setContentTitle: (title: string) => void
-	setEnvironment: (environment: Environment) => void
-	update: () => void
-}
-
-const DigiCraftContext = createContext<DigiCraftContext>({} as DigiCraftContext)
-
-export function DigiCraftContextProvider({initialState, children}: { initialState: Model, children: ReactNode}) {
-
-	const [state, dispatch] = useReducer(digiCraftReducer, initialState)
+export function LocalStorageProvider(props: {children: ReactNode}) {
 
 	const [storage, setStorage] = useState<StorageState|undefined>()
-	const [storageLoaded, setStorageLoaded] = useState(false)
+	const [loaded, setLoaded] = useState(false)
 
 	const [worktime, setWorktime] = useState<Worktime>(initialStorageState.worktime)
 
@@ -104,7 +67,7 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 		const storage = loadStorage()
 		updateState(storage)
 		setStorage(storage)
-		setStorageLoaded(true)
+		setLoaded(true)
 	}, [])
 
 	useEffect(() => {
@@ -120,12 +83,7 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 		}
 	}, [worktime])
 
-	useEffect(() => {
-		clog("Context[state]", state)
-	}, [state])
-
-
-	function downloadStorage() {
+	function download() {
 		const dataStr = "data:text/jsoncharset=utf-8," + encodeURIComponent(JSON.stringify(localStorage))
 		const downloadAnchorNode = document.createElement('a')
 		downloadAnchorNode.setAttribute("href", dataStr)
@@ -150,7 +108,7 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 		}
 	}
 
-	function uploadStorage(file: any) {
+	function upload(file: any) {
 		const reader = new FileReader()
 		reader.readAsText(file)
 		reader.onload = function() {
@@ -161,36 +119,17 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 		}
 	}
 
-	function setContentTitle(title: string) {
-		dispatch({type: DigiActionTypes.contentTitle, payload: {contentTitle: title}})
-	}
-
-	function setEnvironment(environment: Environment) {
-		dispatch({type: DigiActionTypes.environment, payload: {environment: environment}})
-	}
-
-	function getMainHeight() {
-		return state.environment.clientHeight - state.environment.headerHeight +25 - state.environment.footerHeight
-	}
-
-	function update() {
-
-	}
-
 	return (
-		<DigiCraftContext.Provider value={{
-			state,
-			setEnvironment,
-			getMainHeight,
-			update,
-			setContentTitle,
-			downloadStorage, downloadWorktime, setWorktime, storageLoaded, uploadStorage, uploadWorktime, worktime
+		<LocalStorageContext.Provider value={{
+			download, upload,
+			worktime, setWorktime, downloadWorktime, uploadWorktime,
+			storageLoaded: loaded,
 		}}>
-			{children}
-		</DigiCraftContext.Provider>
+			{props.children}
+		</LocalStorageContext.Provider>
 	)
 }
 
-export function useDigiCraftContext() {
-	return useContext(DigiCraftContext)
+export function useLocalStorage() {
+	return useContext(LocalStorageContext)
 }

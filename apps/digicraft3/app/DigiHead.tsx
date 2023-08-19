@@ -21,7 +21,7 @@ export default function DigiHead() {
 			{state.contentTitle ?
 				<DigiText text={`DIGI CRAFT/${state.contentTitle}`} height={17} color={cssVars.cream}/>
 				:
-				<DigiText text={`DIGICR`} height={19} color={cssVars.cream}/>
+				<DigiText text={`DIGI CRAFT`} height={17} color={cssVars.cream}/>
 			}
 		</header>
 	)

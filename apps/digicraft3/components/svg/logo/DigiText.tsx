@@ -37,7 +37,7 @@ export default function DigiText({text, height, color}: Props) {
 	return (
 		<svg height={height} viewBox={`0 0 ${xWidth} ${xHeight}`}>
 			<title>digicraft logo & path</title>
-			<Text x={0} size={dotSize} letters={letters} visible={true} color={color} />
+			<Text x={0} size={dotSize} letters={letters} color={color} />
 		</svg>
 	)
 }
