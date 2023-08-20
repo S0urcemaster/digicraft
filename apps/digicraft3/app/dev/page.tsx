@@ -1,6 +1,6 @@
 
 import * as React from 'react'
-import { Dev } from './Dev'
+import { Dev } from './components/Dev'
 import { Page } from '../../components/Page'
 
 export default function() {

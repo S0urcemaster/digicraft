@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Page } from '../../components/Page'
-import { News } from './News'
+import { News } from './components/News'
 
 export default function() {
 	return (

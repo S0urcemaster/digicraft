@@ -3,7 +3,16 @@ import {Day as DayType, useWorktimeContext} from './worktimeContext'
 import {getShortDay, padZero} from './lib'
 import {useState} from 'react'
 
-export default function Day(props: { x: number, y: number, day: DayType, onClick: Function, future: boolean }) {
+type DayProps = {
+	x: number
+	y: number
+	day: DayType
+	onClick: Function
+	future: boolean
+	selected: boolean
+}
+
+export default function Day({x, y, day, onClick, future, selected}: DayProps) {
 
 	const {dayWidth, dayHeight} = useWorktimeContext()
 
@@ -11,11 +20,11 @@ export default function Day(props: { x: number, y: number, day: DayType, onClick
 
 	function getDayOfMonth() {
 		return (
-			props.day.date.getDate() > 9 ?
-				<text x={props.x + 6} y={props.y + 39} fontSize={16} style={{cursor: 'default'}}
-						fill={'#e0e0e0'}>{props.day.date.getDate()}</text> :
-				<text x={props.x + 10} y={props.y + 39} fontSize={16} style={{cursor: 'default'}}
-						fill={'#e0e0e0'}>{props.day.date.getDate()}</text>
+			day.date.getDate() > 9 ?
+				<text x={x + 6} y={y + 39} fontSize={16} style={{cursor: 'default'}}
+						fill={'#e0e0e0'}>{day.date.getDate()}</text> :
+				<text x={x + 10} y={y + 39} fontSize={16} style={{cursor: 'default'}}
+						fill={'#e0e0e0'}>{day.date.getDate()}</text>
 		)
 	}
 
@@ -26,14 +35,14 @@ export default function Day(props: { x: number, y: number, day: DayType, onClick
 	}
 
 	function getHours(color: string) {
-		const hours = Math.floor(props.day.hoursWorked)
+		const hours = Math.floor(day.hoursWorked)
 		return (
 			<>
 				{hours < 10 ?
-					<text x={props.x + 11} y={props.y + 33} fontSize={16} style={{cursor: 'default'}}
+					<text x={x + 11} y={y + 33} fontSize={16} style={{cursor: 'default'}}
 							fill={color}>{hours}</text>
 					:
-					<text x={props.x + 5} y={props.y + 33} fontSize={16} style={{cursor: 'default'}}
+					<text x={x + 5} y={y + 33} fontSize={16} style={{cursor: 'default'}}
 							fill={'#159f12'}>{hours}</text>
 				}
 			</>
@@ -43,24 +52,24 @@ export default function Day(props: { x: number, y: number, day: DayType, onClick
 	function getMinutes(color: string) {
 		return (
 			<>
-				<text x={props.x + 8} y={props.y + 48} fontSize={12} style={{cursor: 'default'}}
-						fill={color}>{padZero(Math.floor((props.day.hoursWorked * 60) % 60))}</text>
+				<text x={x + 8} y={y + 48} fontSize={12} style={{cursor: 'default'}}
+						fill={color}>{padZero(Math.floor((day.hoursWorked * 60) % 60))}</text>
 			</>
 		)
 	}
 
 	function getHoursWorked() {
 		return (
-			props.day.hoursWorked >= 5 ?
+			day.hoursWorked >= 5 ?
 				<>
 					{getHours('#159f12')}
-					<Line x={props.x + 8} y={props.y + 36} color={'#159f12'}/>
+					<Line x={x + 8} y={y + 36} color={'#159f12'}/>
 					{getMinutes('#159f12')}
 				</>
 				:
 				<>
 					{getHours('#ab3b21')}
-					<Line x={props.x + 8} y={props.y + 36} color={'#ab3b21'}/>
+					<Line x={x + 8} y={y + 36} color={'#ab3b21'}/>
 					{getMinutes('#ab3b21')}
 				</>
 		)
@@ -68,12 +77,12 @@ export default function Day(props: { x: number, y: number, day: DayType, onClick
 
 	return (
 		<g onMouseEnter={() => setMouseIn(true)} onMouseLeave={() => setMouseIn(false)}
-			onClick={props.future ? () => {} : () => props.onClick(props.day)}>
-			<rect x={props.x} y={props.y} width={dayWidth} height={dayHeight} style={{}}
-					fill={mouseIn ? '#d3edff' : props.future ? '#c2c2c2' : '#fff'}/>
-			<text x={props.x + 8} y={props.y + 12} fontSize={10}
-					style={{cursor: 'default'}}>{getShortDay(props.day.date)}</text>
-			{props.day && props.day.hoursWorked > 0 ?
+			onClick={future ? () => {} : () => onClick(day)}>
+			<rect x={x} y={y} width={dayWidth} height={dayHeight} style={{}}
+					fill={mouseIn || selected ? '#d3edff' : future ? '#c2c2c2' : '#fff'}/>
+			<text x={x + 8} y={y + 12} fontSize={10}
+					style={{cursor: 'default'}}>{getShortDay(day.date)}</text>
+			{day && day.hoursWorked > 0 ?
 				getHoursWorked()
 				:
 				getDayOfMonth()

@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import DigiText from '../../components/svg/logo/DigiText'
+import DigiText from '../../../components/svg/logo/DigiText'
 
 const devStyle = {
 	margin: '10px 10px 10px 10px',

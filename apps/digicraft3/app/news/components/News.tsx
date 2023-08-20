@@ -2,10 +2,10 @@
 
 import { Card, Collapse, Elevation } from '@blueprintjs/core'
 import React, { ReactNode, useState } from 'react'
-import svgEditorPrototype from '../../public/pictures/svgEditor-prototype.png'
-import digicraft3layout from '../../public/pictures/digicraft3layout.png'
+import svgEditorPrototype from '../../../public/pictures/svgEditor-prototype.png'
+import digicraft3layout from '../../../public/pictures/digicraft3layout.png'
 import Image from 'next/image'
-import { DateCircle } from '../../components/svg/DateCircle'
+import { DateCircle } from '../../../components/svg/DateCircle'
 
 function NewsCard({title, date, shortDesc, first, children}:
 							{ title: string, date: string, shortDesc: string, first?: boolean, children: ReactNode }) {

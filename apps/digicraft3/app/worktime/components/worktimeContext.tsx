@@ -4,6 +4,7 @@ import * as React from 'react'
 import {createContext, ReactNode, useContext, useEffect, useRef, useState} from 'react'
 import {getCalendar, getElapsedDays, valuesToCalendar} from './lib'
 import { useDigiCraftContext } from '../../DigiCraftContext'
+import moment from 'moment'
 
 export type Day = {
 	date: Date
@@ -26,12 +27,9 @@ export type Worktime = {
 
 export type WorktimeContext = {
 	calendarWidth: number
-	setCalendarWidth: (width: number) => void
 	calendarHeight: number
 	dayWidth: number
-	setDayWidth: (width: number) => void
 	dayHeight: number
-	setDayHeight: (width: number) => void
 
 	calendar: Year | undefined
 	setCalendar: (calendar: Year) => void
@@ -40,38 +38,38 @@ export type WorktimeContext = {
 	setHoursWorked: (hours: number) => void
 	elapsedDays: number
 	setElapsedDays: (days: number) => void
-	day: Day|undefined
+	day: Day
 	setDay: (day: Day) => void
 	year: number
 	setYear: (year: number) => void
+
+	getMonth: () => string
+	getDate: () => string
 }
 
-const initialDayWidth = 30
-const initialDayHeight = 60
 const initialDayGap = 2
 
 const WorktimeContext = createContext<WorktimeContext>({} as WorktimeContext)
 
 export default function WorktimeContextProvider(props: { children: ReactNode }) {
 
+	const dayWidth = 30
+	const dayHeight = 60
+
 	const {worktime, setWorktime} = useDigiCraftContext()
 
 	const [calendarWidth, setCalendarWidth] = useState(0)
 	const [calendarHeight, setCalendarHeight] = useState(0)
-	const [dayWidth, setDayWidth] = useState(initialDayWidth)
-	const [dayHeight, setDayHeight] = useState(initialDayHeight)
 
 	const [calendar, setCalendar] = useState<Year | undefined>(undefined)
 
 	const [hoursWorked, setHoursWorked] = useState(0)
 	const [elapsedDays, setElapsedDays] = useState(0)
 
-	const [day, setDay] = useState<Day|undefined>()
-	const [year, setYear] = useState<number>(2023)
+	const [day, setDay] = useState<Day>({date: new Date(), hoursWorked: 0})
+	const [year, setYear] = useState<number>(moment().year())
 
 	useEffect(() => {
-		console.log("logsntr", "worktimeContext")
-		// setCalendar(getCalendar(2023))
 	}, [])
 
 	useEffect(() => {
@@ -80,7 +78,6 @@ export default function WorktimeContextProvider(props: { children: ReactNode }) 
 	}, [year])
 
 	useEffect(() => {
-		console.log("logsntr", "calendar, day", calendar, day)
 		if(calendar && day) {
 			calendar.months[day.date.getMonth()].days[day.date.getDate() -1].hoursWorked = day.hoursWorked
 			setCalendar({...calendar})
@@ -107,11 +104,20 @@ export default function WorktimeContextProvider(props: { children: ReactNode }) 
 		setCalendarHeight(dayHeight * 12 + initialDayGap * 12)
 	}, [calendarWidth])
 
+	function getMonth() {
+		return moment().month(day.date.getMonth()).format('MMMM')
+	}
+
+	function getDate() {
+		return moment().date(day.date.getDate()).format('DD.MM.YYYY')
+	}
+
 	return (
 		<WorktimeContext.Provider value={{
-			calendarWidth, setCalendarWidth, dayWidth, setDayWidth, dayHeight, setDayHeight,
+			calendarWidth, dayWidth, dayHeight,
 			calendarHeight, calendar, setCalendar, hoursWorked, setHoursWorked, elapsedDays, setElapsedDays,
-			day, setDay, year, setYear
+			day, setDay, year, setYear,
+			getMonth, getDate
 		}}>
 			{props.children}
 		</WorktimeContext.Provider>

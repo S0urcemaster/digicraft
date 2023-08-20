@@ -4,10 +4,11 @@ import {Fragment, KeyboardEvent, useEffect, useRef, useState} from 'react'
 import Day from './Day'
 import {Day as DayType} from './worktimeContext'
 import {getDecimalFromTime, getLongDay, getMonth, getShortDay, getTimeFromDecimal} from './lib'
+import moment from 'moment'
 
 export default function Calendar(props: {}) {
 
-	const {calendarWidth, calendarHeight, dayWidth, dayHeight, calendar, setDay, elapsedDays} = useWorktimeContext()
+	const {calendarWidth, calendarHeight, dayWidth, dayHeight, calendar, setDay, elapsedDays, day} = useWorktimeContext()
 
 	const [selectedDay, setSelectedDay] = useState<DayType | undefined>()
 	const [modalVisible, setModalVisible] = useState(false)
@@ -40,14 +41,18 @@ export default function Calendar(props: {}) {
 		}
 	}
 
+	function dayEquals(d1: DayType, d2: DayType) {
+		return moment(d1.date).startOf('day').isSame(moment(d2.date).startOf('day'))
+	}
+
 	return (
 		<>
 			{calendar && <svg width={calendarWidth} height={calendarHeight}>
 				{calendar.months?.map((month, monthIdx) => (
 					<Fragment key={monthIdx}>
-						{month.days.map((day, dayIdx) => (
-							<Day x={dayIdx * dayWidth + dayIdx} y={monthIdx * dayHeight + monthIdx} day={day}
-								  onClick={showDialogFor} key={dayIdx} future={day.date >new Date()}/>
+						{month.days.map((d, dayIdx) => (
+							<Day x={dayIdx * dayWidth + dayIdx} y={monthIdx * dayHeight + monthIdx} day={d}
+								  onClick={showDialogFor} key={dayIdx} future={d.date >new Date()} selected={dayEquals(d, day)} />
 						))}
 						<text x={4} y={monthIdx * dayHeight + monthIdx + dayHeight - 3} fontSize={18}
 								style={{cursor: 'default', pointerEvents: 'none'}}
