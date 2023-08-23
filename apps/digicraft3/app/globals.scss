@@ -61,6 +61,14 @@ code {
 	font-family: var(--font-code);
 }
 
+.bp5-button {
+	outline: 0;
+}
+
+.bp5-html-select select {
+	outline: 0;
+}
+
 .bp5-ui-text {
 }
 
@@ -72,11 +80,6 @@ code {
 	background: $card-bg;
 	font-weight: 500;
 	overflow: hidden;
-}
-
-.bp5-collapse {
-	background: $cream;
-	z-index: -1;
 }
 
 .bp5-section-header-title {
@@ -113,6 +116,19 @@ code {
 @media screen and (max-width: 800px) {
 	.main-menu-container {
 		grid-template-columns: 1fr;
+	}
+
+}
+
+@media screen and (max-width: 500px) {
+	.main-menu-container {
+		grid-template-columns: 1fr;
+	}
+	.page {
+		padding: 45px 5px 40px 5px;
+	}
+	.page {
+		padding: 45px 5px 40px 5px;
 	}
 
 }
