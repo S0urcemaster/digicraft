@@ -20,11 +20,15 @@ const generateRandomGrid = () => {
 	return grid
 }
 
+let grid = generateRandomGrid()
+let prevGrid = grid
+
 export function GameOfLife() {
 	const canvasRef = useRef<HTMLCanvasElement | null>(null)
-	// const [grid, setGrid] = useState(() => generateRandomGrid());
-	let grid = generateRandomGrid()
-	let prevGrid = grid
+
+	const state = useRef('running')
+
+	let interval: NodeJS.Timer
 
 	useEffect(() => {
 		if (!canvasRef.current) return
@@ -35,6 +39,17 @@ export function GameOfLife() {
 		if (!context) return
 
 		const updateGrid = () => {
+			if(state.current === 'paused') {
+				grid = generateRandomGrid()
+				clearInterval(interval)
+				return
+			}
+			else if(state.current === 'restart') {
+				state.current = 'running'
+				grid = generateRandomGrid()
+				interval = setInterval(drawGrid, 100)
+			}
+
 			const newGrid = [...prevGrid]
 
 			for (let i = 0; i < numRows; i++) {
@@ -81,13 +96,25 @@ export function GameOfLife() {
 			updateGrid() // Rasterzustände aktualisieren
 		}
 
-		const interval = setInterval(drawGrid, 100)
+		interval = setInterval(drawGrid, 100)
 
 		return () => {
 			clearInterval(interval)
 		}
-	}, [grid])
+	}, [])
 
-	return <canvas ref={canvasRef} width={numCols * cellSize} height={numRows * cellSize}/>
+	function toggle() {
+		console.log("logsntr", "toggle")
+		switch(state.current) {
+			case 'running':
+				state.current = 'paused'
+				break
+			case 'paused':
+				state.current = 'restart'
+				break
+		}
+	}
+
+	return <canvas ref={canvasRef} width={numCols * cellSize} height={numRows * cellSize} onClick={toggle}/>
 }
 
