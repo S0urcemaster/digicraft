@@ -5,13 +5,18 @@ import { routes } from './routes'
 import { useRouter } from 'next/navigation'
 import { useDigiCraftContext } from './DigiCraftContext'
 import { ReactNode } from 'react'
-import { Page } from '../components/Page'
+import { Page } from '../components/page/Page'
 import { App, Book, Game, Settings, Text } from '../components/svg/menu'
+
+enum MediaIcon {
+	desktop = 'desktop',
+	mobilePhone = 'mobile-phone'
+}
 
 type MenuItem = {
 	heading: string
 	lines: string[]
-	mediaIcons: string[]
+	mediaIcons: MediaIcon[]
 	route: [string, string]
 	svg: ReactNode
 }
@@ -28,87 +33,94 @@ const mainMenu: MenuItem[] = [
 	{
 		heading: 'News',
 		lines: ['01.09.2023 - Digi Craft Redesign', '24.07.2023 - Swinging Over to Rust', '28.06.2023 - Reload -> Digi Craft 3'],
-		mediaIcons: ['desktop', 'mobile-phone'], route: routes.news, svg: bgSvg.text
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone], route: routes.news, svg: bgSvg.text
+	},
+	{
+		heading: 'Components',
+		lines: ['UI Komponenten zur Verwendung in der eigenen Webapp.'],
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
+		route: routes.svgEditor,
+		svg: bgSvg.app
 	},
 	{
 		heading: 'Coder\'s SVG Editor',
 		lines: ['Erstelle SVG Grafiken per Tastatur und ohne Maus.'],
-		mediaIcons: ['desktop'],
+		mediaIcons: [MediaIcon.desktop],
 		route: routes.svgEditor,
 		svg: bgSvg.app
 	},
 	{
 		heading: 'Development Page',
 		lines: ['dev page'],
-		mediaIcons: ['desktop', 'mobile-phone'],
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.dev,
 		svg: bgSvg.app
 	},
 	{
 		heading: 'Digi Radio',
 		lines: ['A radio streamer'],
-		mediaIcons: ['desktop', 'mobile-phone'],
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.radio,
 		svg: bgSvg.app
 	},
 	{
 		heading: 'Arbeitszeiterfassung',
 		lines: ['Eine App, um Arbeitszeiten zu erfassen.'],
-		mediaIcons: ['desktop'],
+		mediaIcons: [MediaIcon.desktop],
 		route: routes.worktime, svg: bgSvg.app
 	},
 	{
 		heading: 'Schach-Notationstrainer',
 		lines: ['Eine App, um Schach-Notation zu trainieren.'],
-		mediaIcons: ['desktop'],
+		mediaIcons: [MediaIcon.desktop],
 		route: routes.notationTrainer, svg: bgSvg.game
 	},
 	{
 		heading: 'Pass Maker',
 		lines: ['Eine App, um Passwörter zu generieren.'],
-		mediaIcons: ['desktop'],
+		mediaIcons: [MediaIcon.desktop],
 		route: routes.passMaker, svg: bgSvg.app
 	},
 	{
 		heading: 'Erfolge',
 		lines: ['Eine App, um Erfolge zu verwalten.'],
-		mediaIcons: ['desktop'],
+		mediaIcons: [MediaIcon.desktop],
 		route: routes.achievements, svg: bgSvg.app
 	},
 	{
 		heading: 'Zahlenraten Reloaded',
 		lines: ['Eine App, um Zahlen zu raten.'],
-		mediaIcons: ['desktop', 'mobile-phone'],
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.numberGuessing, svg: bgSvg.game
 	},
 	{
 		heading: 'Neo Cortex',
 		lines: ['Eine Sammlung von interessanten Links.'],
-		mediaIcons: ['desktop', 'mobile-phone'],
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.neoCortex, svg: bgSvg.text
 	},
 	{
 		heading: 'Source Code',
 		lines: ['Der Source Code der Apps.'],
-		mediaIcons: ['desktop', 'mobile-phone'],
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.sourceCode, svg: bgSvg.text
 	},
 	{
 		heading: 'Über Digi Craft',
 		lines: ['Allgemeines über Digi Craft.'],
-		mediaIcons: ['desktop', 'mobile-phone'],
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.about, svg: bgSvg.text
 	},
 	{
 		heading: 'Einstellungen',
 		lines: ['Einstellungen für Digi Craft.'],
-		mediaIcons: ['desktop', 'mobile-phone'],
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.settings, svg: bgSvg.settings
 	},
 	{
 		heading: 'Passwortsicherheit früher und heute',
 		lines: ['Die bislang geltenden Regeln für sichere Passwörter gelten als überholt.'],
-		mediaIcons: ['desktop', 'mobile-phone'],
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.settings, svg: bgSvg.blog
 	},
 	// {heading: '', lines: ['']},

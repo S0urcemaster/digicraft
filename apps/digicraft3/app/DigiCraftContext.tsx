@@ -81,6 +81,7 @@ export type DigiCraftContext = {
 
 	getMainHeight: () => number
 	setContentTitle: (title: string) => void
+	environment: Environment | undefined
 	setEnvironment: (environment: Environment) => void
 	update: () => void
 }
@@ -95,6 +96,8 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 	const [storageLoaded, setStorageLoaded] = useState(false)
 
 	const [worktime, setWorktime] = useState<Worktime>(initialStorageState.worktime)
+
+	const [environment, setEnvironment] = useState<Environment|undefined>()
 
 	function updateState(storage: any) {
 		setWorktime(storage.worktime)
@@ -165,9 +168,9 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 		dispatch({type: DigiActionTypes.contentTitle, payload: {contentTitle: title}})
 	}
 
-	function setEnvironment(environment: Environment) {
-		dispatch({type: DigiActionTypes.environment, payload: {environment: environment}})
-	}
+	// function setEnvironment(environment: Environment) {
+	// 	dispatch({type: DigiActionTypes.environment, payload: {environment: environment}})
+	// }
 
 	function getMainHeight() {
 		return state.environment.clientHeight - state.environment.footerHeight
@@ -180,7 +183,7 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 	return (
 		<DigiCraftContext.Provider value={{
 			state,
-			setEnvironment,
+			environment, setEnvironment,
 			getMainHeight,
 			update,
 			setContentTitle,

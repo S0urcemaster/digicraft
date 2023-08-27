@@ -1,10 +1,10 @@
 'use client'
 
 import * as React from 'react'
-import { useDigiCraftContext } from '../app/DigiCraftContext'
+import { useDigiCraftContext } from '../../app/DigiCraftContext'
 import { ReactNode, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { routes } from '../app/routes'
+import { routes } from '../../app/routes'
 
 type Props = {
 	width?: number

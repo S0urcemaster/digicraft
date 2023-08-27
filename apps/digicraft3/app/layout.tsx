@@ -35,10 +35,6 @@ const initialState: Model = {
 		headerHeight: Number.parseInt(cssVars.headerHeight),
 		footerHeight: Number.parseInt(cssVars.footerHeight),
 		// headerHeight: parseInt(vars.headerHeight.replace('px', '')),
-		contrast: 0,
-		mainFont: '',
-		monoFont: '',
-		specialFont: '',
 	},
 	cssVars: cssVars,
 }

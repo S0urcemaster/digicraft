@@ -1,34 +1,39 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-const numRows = 220
-const numCols = 360
-const cellSize = 5
-
-const generateEmptyGrid = () => {
-	const grid = []
-	for (let i = 0; i < numRows; i++) {
-		grid.push(Array.from(Array(numCols), () => 0))
-	}
-	return grid
+type Props = {
+	bgColor: string
+	lifeColor: string
+	width: number
+	height: number
+	cellSize: number
 }
 
-const generateRandomGrid = () => {
-	const grid = []
-	for (let i = 0; i < numRows; i++) {
-		grid.push(Array.from(Array(numCols), () => (Math.random() > 0.95 ? 1 : 0)))
+export function GameOfLife({bgColor, lifeColor, width, height, cellSize}: Props) {
+
+	const numRows = Math.ceil(height /cellSize)
+	const numCols = Math.ceil(width /cellSize)
+
+	const generateEmptyGrid = () => {
+		const grid = []
+		for (let i = 0; i < numRows; i++) {
+			grid.push(Array.from(Array(numCols), () => 0))
+		}
+		return grid
 	}
-	return grid
-}
 
-let grid = generateRandomGrid()
-let prevGrid = grid
+	const generateRandomGrid = () => {
+		const grid = []
+		for (let i = 0; i < numRows; i++) {
+			grid.push(Array.from(Array(numCols), () => (Math.random() > 0.95 ? 1 : 0)))
+		}
+		return grid
+	}
 
-export function GameOfLife() {
 	const canvasRef = useRef<HTMLCanvasElement | null>(null)
-
 	const state = useRef('running')
 
-	let interval: NodeJS.Timer
+	let grid = generateRandomGrid()
+	let prevGrid = grid
 
 	useEffect(() => {
 		if (!canvasRef.current) return
@@ -36,18 +41,18 @@ export function GameOfLife() {
 		const canvas = canvasRef.current
 		const context = canvas.getContext('2d')
 
+		let currentFrame: number
+
 		if (!context) return
 
 		const updateGrid = () => {
-			if(state.current === 'paused') {
+			if (state.current === 'paused') {
 				grid = generateRandomGrid()
-				clearInterval(interval)
 				return
-			}
-			else if(state.current === 'restart') {
+			} else if (state.current === 'restart') {
 				state.current = 'running'
 				grid = generateRandomGrid()
-				interval = setInterval(drawGrid, 100)
+				currentFrame = requestAnimationFrame(drawGrid)
 			}
 
 			const newGrid = [...prevGrid]
@@ -71,8 +76,8 @@ export function GameOfLife() {
 					}
 
 					if (prevGrid[i][j] === 1) {
-						if(Math.random() > 0.5)
-						newGrid[i][j] = liveNeighbors === 2 || liveNeighbors === 3 ? 1 : 0
+						if (Math.random() > 0.5)
+							newGrid[i][j] = liveNeighbors === 2 || liveNeighbors === 3 ? 1 : 0
 					} else {
 						newGrid[i][j] = liveNeighbors === 3 ? 1 : 0
 					}
@@ -82,30 +87,33 @@ export function GameOfLife() {
 			grid = newGrid
 		}
 
-		const drawGrid = () => {
+		const drawGrid = (timestamp: DOMHighResTimeStamp) => {
+
 			context.clearRect(0, 0, canvas.width, canvas.height)
 
 			for (let i = 0; i < numRows; i++) {
 				for (let j = 0; j < numCols; j++) {
-					context.fillStyle = grid[i][j] === 1 ? '#454a51' : '#1a2f44'
-					// context.fillStyle = grid[i][j] === 1 ? '#454a51' : '#c5cbd3'
+					// context.fillStyle = grid[i][j] === 1 ? lifeColor : bgColor
+					// context.fillStyle = grid[i][j] === 1 ? '#dee3ea' : '#f1f1f1'
+					context.fillStyle = grid[i][j] === 1 ? '#c2c5c9' : '#a1abb6'
 					context.fillRect(j * cellSize, i * cellSize, cellSize, cellSize)
 				}
 			}
 
-			updateGrid() // Rasterzustände aktualisieren
+			updateGrid()
+			currentFrame = requestAnimationFrame(drawGrid)
 		}
 
-		interval = setInterval(drawGrid, 100)
+		currentFrame = requestAnimationFrame(drawGrid)
 
 		return () => {
-			clearInterval(interval)
+			cancelAnimationFrame(currentFrame)
 		}
 	}, [])
 
 	function toggle() {
-		console.log("logsntr", "toggle")
-		switch(state.current) {
+		console.log('logsntr', 'toggle')
+		switch (state.current) {
 			case 'running':
 				state.current = 'paused'
 				break
@@ -115,6 +123,6 @@ export function GameOfLife() {
 		}
 	}
 
-	return <canvas ref={canvasRef} width={numCols * cellSize} height={numRows * cellSize} onClick={toggle}/>
+	return <canvas ref={canvasRef} width={width} height={height} onClick={toggle}/>
 }
 

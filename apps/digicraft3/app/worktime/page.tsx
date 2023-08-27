@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Page } from '../../components/Page'
+import { Page } from '../../components/page/Page'
 import Worktime from './components/Worktime'
 import WorktimeContextProvider from './components/worktimeContext'
 

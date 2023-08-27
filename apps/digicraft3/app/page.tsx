@@ -9,7 +9,7 @@ import { GameOfLife } from '../components/GameOfLiveCanvas'
 
 export default function Home() {
 
-	const {state, setContentTitle} = useDigiCraftContext()
+	const {state, setContentTitle, environment} = useDigiCraftContext()
 
 	useEffect(() => {
 		setContentTitle('')
@@ -21,8 +21,12 @@ export default function Home() {
 
 	return (
 		<>
-			<div style={{position: 'absolute', left: 0, top: 0, overflow: 'hidden'}}>
-				<GameOfLife />
+			<div style={{position: 'absolute', left: -10, top: 0, overflow: 'hidden'}}>
+				{environment ?
+					<GameOfLife bgColor={'#1a2f44'} lifeColor={'#454a51'}
+									width={environment.clientWidth +10} height={environment.clientHeight} cellSize={7}/>
+					: null
+				}
 			</div>
 			<div style={{position: 'relative', overflowX: 'hidden', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0)'}}>
 
