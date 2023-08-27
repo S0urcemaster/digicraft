@@ -5,7 +5,7 @@ import cssVars from '../vars.module.scss'
 export function DigiFoot() {
 	return (
 		<footer style={{display: 'flex', justifyContent: 'flex-end'}}>
-			<DigiText text={`IMPRESSUM/DATENSCHUTZ`} height={13} color={cssVars.color}/>
+			<DigiText text={`IMPRESSUM/DATENSCHUTZ`} height={10} color={cssVars.cream}/>
 		</footer>
 	)
 }

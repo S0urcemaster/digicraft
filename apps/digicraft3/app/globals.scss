@@ -29,6 +29,8 @@ header {
 }
 
 main {
+	position: relative;
+	top: $header-height+px;
 	height: 100%;
 	overflow: auto;
 	background: #c5cbd3;
@@ -37,10 +39,12 @@ main {
 footer {
 	position: fixed;
 	height: $footer-height+px;
+	bottom:0;
+	right: 0;
 	width: 100%;
-	background: linear-gradient(to right, $color, $page-bg);
+	background: linear-gradient(to right, $page-bg, $color);
 	z-index: 99;
-	padding: 6px 20px 0 20px;
+	padding: 4px 20px 0 20px;
 }
 
 div {

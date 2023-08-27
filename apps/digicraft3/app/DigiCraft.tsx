@@ -22,14 +22,11 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 
 	useEffect(() => { // add resize listener
 		function resize() {
-			clog('resize', window.innerWidth, window.innerHeight)
 			setEnvironment({...state.environment, clientWidth: window.innerWidth, clientHeight: window.innerHeight})
 		}
 		if(state) {
 			window.addEventListener('resize', resize)
 			setEnvironment({...state.environment,
-				mainFont: '',
-				specialFont: '',
 				headerHeight: Number.parseInt(cssVars.headerHeight),
 				footerHeight: Number.parseInt(cssVars.footerHeight),
 				clientWidth: window.innerWidth,

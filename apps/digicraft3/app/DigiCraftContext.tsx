@@ -170,7 +170,7 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 	}
 
 	function getMainHeight() {
-		return state.environment.clientHeight - state.environment.headerHeight +25 - state.environment.footerHeight
+		return state.environment.clientHeight - state.environment.footerHeight
 	}
 
 	function update() {
