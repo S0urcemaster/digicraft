@@ -35,7 +35,9 @@ main {
 }
 
 footer {
+	position: fixed;
 	height: $footer-height+px;
+	width: 100%;
 	background: linear-gradient(to right, $color, $page-bg);
 	z-index: 99;
 	padding: 6px 20px 0 20px;
@@ -93,7 +95,7 @@ code {
 }
 
 .page-center {
-	background: #c5cbd3;
+	//background: #c5cbd3;
 	max-width: 1580px;
 	margin: 0 auto 0 auto;
 	padding: 45px 40px 40px 40px;
@@ -106,18 +108,33 @@ code {
 	row-gap: 20px;
 }
 
+.news-columns {
+	column-count: 4;
+	column-gap: 20px;
+}
+
 @media screen and (max-width: 1100px) {
 	.main-menu-container {
 		grid-template-columns: 1fr 1fr;
 	}
+}
 
+@media screen and (max-width: 950px) {
+	.news-columns {
+		column-count: 3;
+	}
 }
 
 @media screen and (max-width: 800px) {
 	.main-menu-container {
 		grid-template-columns: 1fr;
 	}
+}
 
+@media screen and (max-width: 800px) {
+	.news-columns {
+		column-count: 2;
+	}
 }
 
 @media screen and (max-width: 500px) {
@@ -127,8 +144,11 @@ code {
 	.page {
 		padding: 45px 5px 40px 5px;
 	}
-	.page {
-		padding: 45px 5px 40px 5px;
+}
+
+@media screen and (max-width: 500px) {
+	.news-columns {
+		column-count: 1;
 	}
 
 }

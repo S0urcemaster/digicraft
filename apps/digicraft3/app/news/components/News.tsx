@@ -25,7 +25,8 @@ function NewsCard({title, date, shortDesc, first, children}:
 						</div>
 					</div>
 					{/*<h5 className={'bp5-heading'}>{date}</h5>*/}
-					<div title={date} style={{margin: '-10px -10px 0 0'}}><DateCircle year={year} month={month} day={day}/></div>
+					<div title={date} style={{margin: '-10px -10px 0 0'}}><DateCircle year={year} month={month} day={day}/>
+					</div>
 				</div>
 			</Card>
 			<Collapse isOpen={contentVisible}>
@@ -42,10 +43,12 @@ export function News() {
 		<>
 			<NewsCard first title={'Re-Kill'} date={'27.08.2023'}
 						 shortDesc={'Wie weiter?'}>
-				<div style={{columnCount: 3, columnGap: 20}}>
+				<div className={'news-columns'}>
 					<p>
 						Ich habe mich entschieden, den aktuellen Projektstand zu killen und den neuen, noch sehr
 						groben Zustand online zu bringen.
+					</p>
+					<p>
 						Zum einen war die Frage, ob ich die aktuelle Webseite so lasse und mich anderen Themen
 						zuwende oder eine Modernisierung in eine nächste Iteration wage.
 						In fortgeschrittenerem Stand ist immer schwieriger ein Redesign zu machen, weil die Gefahr
@@ -56,29 +59,32 @@ export function News() {
 						die mit den angefangenen Apps konkurrieren. Es sollte irgendein Show-Effekt an den
 						Anfang, damit auch Nicht-Kenner einen Eindruck bekommen.
 						Eine ganz gute Idee habe ich schon, die Frage ist aber etwas, ob sie am Ende funktioniert
-						und ob der Aufwand sich lohnen oder vorher entschieden, die Idee aufzugeben.
+						und ob der Aufwand sich lohnen oder vorher entschieden wird, die Idee aufzugeben.
 						Nur wegen der Show... Eine Demo für eine experimentelle Menüsteuerung...
 						Eine Studie.
 					</p>
 					<p>
-						Das aufwändige Grafikfeature wird fallengelassen. Stattdessen gibt es eine Keyboard-/
-						Mouse-Free- Steuerung für die gesamte Webseite.
+						Das aufwändige Grafikfeature wird fallengelassen. Stattdessen gibt es eine Keyboard-Steuerung
+						für die gesamte Webseite.
 					</p>
-					</div>
+				</div>
 			</NewsCard>
 			<NewsCard title={'Neues Layout'} date={'01.08.2023'}
 						 shortDesc={'Ein simples, responsives Layout mit großen Menü-Buttons.'}>
 				<p>
-					Ein simples, responsives Layout mit großen Menü-Buttons, die auf einen Blick zeigen, was es hier alles gibt.
+					Ein simples, responsives Layout mit großen Menü-Buttons, die auf einen Blick zeigen, was es hier alles
+					gibt.
 					Keine Content hinter versteckten, kleinen Menüs, sondern Schaltflächen, bei denen man keine Angst hat,
-					ob man sie auf Anhieb trifft und deshalb gerne darauf zeigt und die Hervorhebung bewundert (Blueprint JS).
+					ob man sie auf Anhieb trifft und deshalb gerne darauf zeigt und die Hervorhebung bewundert (Blueprint
+					JS).
 					Die Icons rechts oben zeigen an, ob der Content hinter der Schaltfläche für Mobile verfügbar
-					(responsiv) ist oder es sich um eine Anwendung für den Desktop handelt, für den es noch keine Mobilversion gibt.
+					(responsiv) ist oder es sich um eine Anwendung für den Desktop handelt, für den es noch keine
+					Mobilversion gibt.
 					Die Grafiken im Hintergrund bezeichnen den Typ des Contents, der sich hinter der Schaltfläche verbirgt,
 					also Text, App, Spiel oder Einstellungen.
 				</p>
 				<p>
-					<Image src={digicraft3layout} alt={'SVG Editor'} style={{width: '100%', height: 'auto'}} />
+					<Image src={digicraft3layout} alt={'SVG Editor'} style={{width: '100%', height: 'auto'}}/>
 				</p>
 			</NewsCard>
 			<NewsCard title={'Digi Craft Redesign'} date={'13.08.2023'}
@@ -87,13 +93,17 @@ export function News() {
 				<p>
 					Nach dem Ausflug zu Rust, einer wirklich guten Programmiersprache, die jedoch noch kaum eingesetzt wird
 					und Web Assembly (WASM), was es erst seit 2019 gibt und wo das entsprechende Rust Framework Yew erst bei
-					Version 0.20 ist, kehre ich nun zu meinem vorherigen Plan, dem Redesign meiner Homepage und dem SVG Editor zurück.
+					Version 0.20 ist, kehre ich nun zu meinem vorherigen Plan, dem Redesign meiner Homepage und dem SVG
+					Editor zurück.
 				</p>
 				<p>
 					Die Umgestaltung des Repos zu einem Monorepo habe ich bereits gemacht. Im neuen Repo sind jetzt die neue
-					Webseite, der alte Server und Palyoad CMS beheimatet (was ich wohl erst mal nicht brauche) sowie gemeinsam
-					verwendbare Packages für context, lib und svg. Außerdem habe ich diesmal Blueprint JS als Design System gewählt, da
-					es sehr technisch und platzsparend rüberkommt, im Gegensatz zu anderen bekannten, die eher voluminös veranlagt
+					Webseite, der alte Server und Palyoad CMS beheimatet (was ich wohl erst mal nicht brauche) sowie
+					gemeinsam
+					verwendbare Packages für context, lib und svg. Außerdem habe ich diesmal Blueprint JS als Design System
+					gewählt, da
+					es sehr technisch und platzsparend rüberkommt, im Gegensatz zu anderen bekannten, die eher voluminös
+					veranlagt
 					sind.
 				</p>
 				<p>
@@ -158,7 +168,7 @@ export function News() {
 					fertigen Teile werden angepasst und nach und nach umgezogen.
 				</p>
 				<p>
-					<Image src={svgEditorPrototype} alt={'SVG Editor'} style={{width: '100%', height: 'auto'}} />
+					<Image src={svgEditorPrototype} alt={'SVG Editor'} style={{width: '100%', height: 'auto'}}/>
 				</p>
 			</NewsCard>
 			<NewsCard title={'Ein Moment zum Festhalten'} date={'28.03.2023'}

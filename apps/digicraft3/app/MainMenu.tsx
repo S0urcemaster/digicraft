@@ -127,9 +127,8 @@ export function MainMenu() {
 	}
 
 	function href(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-		console.log("logsntr", "news")
-		event.preventDefault()
-		event.stopPropagation()
+		// event.preventDefault()
+		// event.stopPropagation()
 	}
 
 	return (
