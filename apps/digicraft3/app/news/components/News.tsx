@@ -40,7 +40,33 @@ function NewsCard({title, date, shortDesc, first, children}:
 export function News() {
 	return (
 		<>
-			<NewsCard first title={'Neues Layout'} date={'01.08.2023'}
+			<NewsCard first title={'Re-Kill'} date={'27.08.2023'}
+						 shortDesc={'Wie weiter?'}>
+				<div style={{columnCount: 3, columnGap: 20}}>
+					<p>
+						Ich habe mich entschieden, den aktuellen Projektstand zu killen und den neuen, noch sehr
+						groben Zustand online zu bringen.
+						Zum einen war die Frage, ob ich die aktuelle Webseite so lasse und mich anderen Themen
+						zuwende oder eine Modernisierung in eine nächste Iteration wage.
+						In fortgeschrittenerem Stand ist immer schwieriger ein Redesign zu machen, weil die Gefahr
+						besteht, sehr viel vom Vorstand zu verlieren und man zusätzlich noch keine großen
+						Fortschritte macht.
+					</p>
+					<p>Die andere Frage ist, wieviel Potenzial in den Apps steckt. Auch tauchen neue Ideen auf,
+						die mit den angefangenen Apps konkurrieren. Es sollte irgendein Show-Effekt an den
+						Anfang, damit auch Nicht-Kenner einen Eindruck bekommen.
+						Eine ganz gute Idee habe ich schon, die Frage ist aber etwas, ob sie am Ende funktioniert
+						und ob der Aufwand sich lohnen oder vorher entschieden, die Idee aufzugeben.
+						Nur wegen der Show... Eine Demo für eine experimentelle Menüsteuerung...
+						Eine Studie.
+					</p>
+					<p>
+						Das aufwändige Grafikfeature wird fallengelassen. Stattdessen gibt es eine Keyboard-/
+						Mouse-Free- Steuerung für die gesamte Webseite.
+					</p>
+					</div>
+			</NewsCard>
+			<NewsCard title={'Neues Layout'} date={'01.08.2023'}
 						 shortDesc={'Ein simples, responsives Layout mit großen Menü-Buttons.'}>
 				<p>
 					Ein simples, responsives Layout mit großen Menü-Buttons, die auf einen Blick zeigen, was es hier alles gibt.

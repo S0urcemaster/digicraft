@@ -126,6 +126,12 @@ export function MainMenu() {
 		router.push(route)
 	}
 
+	function href(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+		console.log("logsntr", "news")
+		event.preventDefault()
+		event.stopPropagation()
+	}
+
 	return (
 		<Page center>
 			<div className={'main-menu-container'}>
@@ -144,7 +150,7 @@ export function MainMenu() {
 							</div>
 						</div>
 						<div style={{position: 'relative', fontWeight: 600}}>
-							{m.lines.map((l, idx) => <div key={idx}>{l}</div>)}
+							{m.lines.map((l, idx) => <div onClick={href} key={idx}>{l}</div>)}
 						</div>
 					</Card>
 				)}

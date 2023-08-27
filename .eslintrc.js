@@ -15,6 +15,7 @@ module.exports = {
     "no-unused-vars": "off",
     "no-empty": "off",
     "no-case-declarations": "off",
+    'no-mixed-spaces-and-tabs': 0,
   },
   globals: {
     window: true,
