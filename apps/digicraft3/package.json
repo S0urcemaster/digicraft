@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@blueprintjs/core": "^5.2.0",
+    "@blueprintjs/icons": "^5.1.5",
     "@digicraft/dev": "*",
     "@digicraft/lib": "*",
     "@digicraft/svg": "*",
