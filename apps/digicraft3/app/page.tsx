@@ -9,23 +9,19 @@ import { GameOfLife } from '../components/GameOfLiveCanvas'
 
 export default function Home() {
 
-	const {state, setContentTitle, environment} = useDigiCraftContext()
+	const {state, setContentTitle} = useDigiCraftContext()
 	const [cycleState, setCycleState] = useState(0)
 
 	useEffect(() => {
-		setContentTitle('')
-		clog('page', state)
-		// if(state) {
-		// 	setContentTitle('Welcomex')
-		// }
+		// setContentTitle('')
 	}, [])
 
 	return (
 		<div onClick={() => setCycleState(prevState => prevState +1)}>
 			<div style={{position: 'absolute', left: -10, top: 0, overflow: 'hidden'}}>
-				{environment ?
+				{state.environment ?
 					<GameOfLife bgColor={'#1a2f44'} lifeColor={'#454a51'}
-									width={environment.clientWidth +10} height={environment.clientHeight} cellSize={6}
+									width={state.environment.clientWidth +10} height={state.environment.clientHeight} cellSize={6}
 									cycleState={cycleState}
 					/>
 					: null

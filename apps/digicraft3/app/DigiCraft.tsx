@@ -9,9 +9,6 @@ import { clog } from '@digicraft/lib'
 import { useDigiCraftContext } from './DigiCraftContext'
 import { DigiFoot } from './DigiFoot'
 
-import cssVars from '../vars.module.scss'
-
-
 export default function DigiCraft({children}: { children: ReactNode }) {
 
 	const {state, setEnvironment} = useDigiCraftContext()
@@ -27,8 +24,6 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 		if(state) {
 			window.addEventListener('resize', resize)
 			setEnvironment({...state.environment,
-				headerHeight: Number.parseInt(cssVars.headerHeight),
-				footerHeight: Number.parseInt(cssVars.footerHeight),
 				clientWidth: window.innerWidth,
 				clientHeight: window.innerHeight
 			})

@@ -5,6 +5,7 @@ import { createContext, ReactNode, useContext, useEffect, useReducer, useState }
 import { clog } from '@digicraft/lib'
 import { DigiActionTypes, digiCraftReducer } from './DigiCraftReducer'
 import { Worktime } from './worktime/components/worktimeContext'
+import cssVars from '../vars.module.scss'
 
 type Environment = {
 	clientWidth: number
@@ -81,7 +82,6 @@ export type DigiCraftContext = {
 
 	getMainHeight: () => number
 	setContentTitle: (title: string) => void
-	environment: Environment | undefined
 	setEnvironment: (environment: Environment) => void
 	update: () => void
 }
@@ -97,8 +97,6 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 
 	const [worktime, setWorktime] = useState<Worktime>(initialStorageState.worktime)
 
-	const [environment, setEnvironment] = useState<Environment|undefined>()
-
 	function updateState(storage: any) {
 		setWorktime(storage.worktime)
 	}
@@ -108,6 +106,11 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 		updateState(storage)
 		setStorage(storage)
 		setStorageLoaded(true)
+		setEnvironment({
+			...state.environment,
+			headerHeight: Number.parseInt(cssVars.headerHeight),
+			footerHeight: Number.parseInt(cssVars.footerHeight),
+		})
 	}, [])
 
 	useEffect(() => {
@@ -168,9 +171,9 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 		dispatch({type: DigiActionTypes.contentTitle, payload: {contentTitle: title}})
 	}
 
-	// function setEnvironment(environment: Environment) {
-	// 	dispatch({type: DigiActionTypes.environment, payload: {environment: environment}})
-	// }
+	function setEnvironment(environment: Environment) {
+		dispatch({type: DigiActionTypes.environment, payload: {environment: environment}})
+	}
 
 	function getMainHeight() {
 		return state.environment.clientHeight - state.environment.footerHeight
@@ -183,7 +186,7 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 	return (
 		<DigiCraftContext.Provider value={{
 			state,
-			environment, setEnvironment,
+			setEnvironment,
 			getMainHeight,
 			update,
 			setContentTitle,
