@@ -39,7 +39,7 @@ const mainMenu: MenuItem[] = [
 		heading: 'Components',
 		lines: ['UI Komponenten zur Verwendung in der eigenen Webapp.'],
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.svgEditor,
+		route: routes.components,
 		svg: bgSvg.app
 	},
 	{

@@ -2,6 +2,7 @@
 export const routes: {[key: string]: [route: string, title: string]} = {
 	about: ['/about', 'Über Digi Craft'],
 	achievements: ['/apps/achievements', 'Erfolge'],
+	components: ['/components', 'Components'],
 	decider: ['/decider', 'Der Entscheider'],
 	dev: ['/dev', 'Development Page'],
 	digiCraft: ['/', ''],

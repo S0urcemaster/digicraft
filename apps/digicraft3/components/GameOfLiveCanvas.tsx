@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, MutableRefObject } from 'react'
 
 type Props = {
 	bgColor: string
@@ -6,9 +6,11 @@ type Props = {
 	width: number
 	height: number
 	cellSize: number
+	cycleState: number
+	startAmount?: number
 }
 
-export function GameOfLife({bgColor, lifeColor, width, height, cellSize}: Props) {
+export function GameOfLife({bgColor, lifeColor, width, height, cellSize, cycleState}: Props) {
 
 	const numRows = Math.ceil(height /cellSize)
 	const numCols = Math.ceil(width /cellSize)
@@ -24,16 +26,25 @@ export function GameOfLife({bgColor, lifeColor, width, height, cellSize}: Props)
 	const generateRandomGrid = () => {
 		const grid = []
 		for (let i = 0; i < numRows; i++) {
-			grid.push(Array.from(Array(numCols), () => (Math.random() > 0.95 ? 1 : 0)))
+			grid.push(Array.from(Array(numCols), () => (Math.random() > 0.55 ? 1 : 0)))
 		}
 		return grid
 	}
 
 	const canvasRef = useRef<HTMLCanvasElement | null>(null)
 	const state = useRef('running')
-
+	let restart = true
 	let grid = generateRandomGrid()
 	let prevGrid = grid
+
+	useEffect(() => {
+		if(state.current === 'running') {
+			state.current = 'paused'
+		} else {
+			state.current = 'running'
+			restart = true
+		}
+	}, [cycleState])
 
 	useEffect(() => {
 		if (!canvasRef.current) return
@@ -41,20 +52,12 @@ export function GameOfLife({bgColor, lifeColor, width, height, cellSize}: Props)
 		const canvas = canvasRef.current
 		const context = canvas.getContext('2d')
 
-		let currentFrame: number
-
 		if (!context) return
 
-		const updateGrid = () => {
-			if (state.current === 'paused') {
-				grid = generateRandomGrid()
-				return
-			} else if (state.current === 'restart') {
-				state.current = 'running'
-				grid = generateRandomGrid()
-				currentFrame = requestAnimationFrame(drawGrid)
-			}
+		let currentFrame: number
 
+		const updateGrid = () => {
+			return
 			const newGrid = [...prevGrid]
 
 			for (let i = 0; i < numRows; i++) {
@@ -76,7 +79,7 @@ export function GameOfLife({bgColor, lifeColor, width, height, cellSize}: Props)
 					}
 
 					if (prevGrid[i][j] === 1) {
-						if (Math.random() > 0.5)
+						if (Math.random() > 0.6)
 							newGrid[i][j] = liveNeighbors === 2 || liveNeighbors === 3 ? 1 : 0
 					} else {
 						newGrid[i][j] = liveNeighbors === 3 ? 1 : 0
@@ -87,7 +90,16 @@ export function GameOfLife({bgColor, lifeColor, width, height, cellSize}: Props)
 			grid = newGrid
 		}
 
-		const drawGrid = (timestamp: DOMHighResTimeStamp) => {
+		const drawGrid = (timestamp: DOMHighResTimeStamp, state: MutableRefObject<string>) => {
+
+			if(state.current === 'paused') {
+				cancelAnimationFrame(currentFrame)
+				return
+			}
+			if (restart) {
+				grid = generateRandomGrid()
+				restart = false
+			}
 
 			context.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -95,34 +107,24 @@ export function GameOfLife({bgColor, lifeColor, width, height, cellSize}: Props)
 				for (let j = 0; j < numCols; j++) {
 					// context.fillStyle = grid[i][j] === 1 ? lifeColor : bgColor
 					// context.fillStyle = grid[i][j] === 1 ? '#dee3ea' : '#f1f1f1'
-					context.fillStyle = grid[i][j] === 1 ? '#c2c5c9' : '#a1abb6'
+					// context.fillStyle = grid[i][j] === 1 ? '#c2c5c9' : '#a1abb6'
+					context.fillStyle = grid[i][j] === 1 ? '#bec4cc' : '#c5cbd3'
 					context.fillRect(j * cellSize, i * cellSize, cellSize, cellSize)
 				}
 			}
+			grid = generateRandomGrid()
 
-			updateGrid()
-			currentFrame = requestAnimationFrame(drawGrid)
+			// updateGrid()
+			currentFrame = requestAnimationFrame((timestamp) => drawGrid(timestamp, state))
 		}
 
-		currentFrame = requestAnimationFrame(drawGrid)
+		currentFrame = requestAnimationFrame((timestamp) => drawGrid(timestamp, state))
 
 		return () => {
 			cancelAnimationFrame(currentFrame)
 		}
-	}, [])
+	}, [cycleState])
 
-	function toggle() {
-		console.log('logsntr', 'toggle')
-		switch (state.current) {
-			case 'running':
-				state.current = 'paused'
-				break
-			case 'paused':
-				state.current = 'restart'
-				break
-		}
-	}
-
-	return <canvas ref={canvasRef} width={width} height={height} onClick={toggle}/>
+	return <canvas ref={canvasRef} width={width} height={height} />
 }
 
