@@ -6,19 +6,7 @@ import { clog } from '@digicraft/lib'
 import { DigiActionTypes, digiCraftReducer } from './DigiCraftReducer'
 import { Worktime } from './worktime/components/worktimeContext'
 import cssVars from '../vars.module.scss'
-
-type Environment = {
-	clientWidth: number
-	clientHeight: number
-	headerHeight: number
-	footerHeight: number
-}
-
-export type Model = {
-	contentTitle: string | undefined
-	environment: Environment
-	cssVars: {readonly [key: string]: string}
-}
+import { Environment, Model } from '../core/model'
 
 export type LocalStorage = {
 	download: Function
@@ -84,6 +72,9 @@ export type DigiCraftContext = {
 	setContentTitle: (title: string | undefined) => void
 	setEnvironment: (environment: Environment) => void
 	update: () => void
+
+	contextLoaded: boolean
+	setContextLoaded: (contextLoaded: boolean) => void
 }
 
 const DigiCraftContext = createContext<DigiCraftContext>({} as DigiCraftContext)
@@ -97,6 +88,8 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 
 	const [worktime, setWorktime] = useState<Worktime>(initialStorageState.worktime)
 
+	const [contextLoaded, setContextLoaded] = useState(false)
+
 	function updateState(storage: any) {
 		setWorktime(storage.worktime)
 	}
@@ -106,11 +99,11 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 		updateState(storage)
 		setStorage(storage)
 		setStorageLoaded(true)
-		setEnvironment({
-			...state.environment,
-			headerHeight: Number.parseInt(cssVars.headerHeight),
-			footerHeight: Number.parseInt(cssVars.footerHeight),
-		})
+		dispatch({type: DigiActionTypes.environment, payload: {environment: {...state.environment,
+					headerHeight: Number.parseInt(cssVars.headerHeight),
+					footerHeight: Number.parseInt(cssVars.footerHeight)}
+		}})
+		// dispatch({type: DigiActionTypes.contextLoaded, payload: {contextLoaded: true}})
 	}, [])
 
 	useEffect(() => {
@@ -190,7 +183,8 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 			getMainHeight,
 			update,
 			setContentTitle,
-			downloadStorage, downloadWorktime, setWorktime, storageLoaded, uploadStorage, uploadWorktime, worktime
+			downloadStorage, downloadWorktime, setWorktime, storageLoaded, uploadStorage, uploadWorktime, worktime,
+			contextLoaded, setContextLoaded
 		}}>
 			{children}
 		</DigiCraftContext.Provider>

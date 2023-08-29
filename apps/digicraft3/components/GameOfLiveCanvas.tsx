@@ -8,10 +8,9 @@ type Props = {
 	cellSize: number
 	cycleState: number
 	startAmount?: number
-	loaded: boolean
 }
 
-export function GameOfLife({bgColor, lifeColor, width, height, cellSize, cycleState, loaded}: Props) {
+export function GameOfLife({bgColor, lifeColor, width, height, cellSize, cycleState}: Props) {
 
 	const numRows = Math.ceil(height /cellSize)
 	const numCols = Math.ceil(width /cellSize)
@@ -37,16 +36,6 @@ export function GameOfLife({bgColor, lifeColor, width, height, cellSize, cycleSt
 	let restart = true
 	let grid = generateRandomGrid()
 	let prevGrid = grid
-	// const [opacity, setOpacity] = useState(1)
-	const opacity = useRef(1)
-	const [visible, setVisible] = useState(true)
-
-	useEffect(() => {
-	}, [])
-
-	useEffect(() => {
-		loaded && setVisible(false)
-	}, [loaded])
 
 	useEffect(() => {
 		if(state.current === 'running') {
@@ -68,7 +57,7 @@ export function GameOfLife({bgColor, lifeColor, width, height, cellSize, cycleSt
 		let currentFrame: number
 
 		const updateGrid = () => {
-			return
+			// return
 			const newGrid = [...prevGrid]
 
 			for (let i = 0; i < numRows; i++) {
@@ -123,27 +112,10 @@ export function GameOfLife({bgColor, lifeColor, width, height, cellSize, cycleSt
 					context.fillRect(j * cellSize, i * cellSize, cellSize, cellSize)
 				}
 			}
-			grid = generateRandomGrid()
+			// grid = generateRandomGrid()
 
-			// updateGrid()
-
-			if(visible) {
-				console.log("logsntr", "visible")
-				currentFrame = requestAnimationFrame((timestamp) => drawGrid(timestamp, state))
-			} else {
-				console.log("logsntr", "cancel")
-				cancelAnimationFrame(currentFrame)
-			}
-
-			// if(opacity.current > 0.7) {
-			// 	opacity.current = opacity.current - 0.001
-			// 	// console.log("logsntr", "opacity", opacity)
-			// 	currentFrame = requestAnimationFrame((timestamp) => drawGrid(timestamp, state))
-			// } else {
-			// 	// console.log("logsntr", "done")
-			// 	opacity.current = 0
-			// 	setVisible(false)
-			// }
+			updateGrid()
+			currentFrame = requestAnimationFrame((timestamp) => drawGrid(timestamp, state))
 		}
 
 		currentFrame = requestAnimationFrame((timestamp) => drawGrid(timestamp, state))
@@ -153,13 +125,6 @@ export function GameOfLife({bgColor, lifeColor, width, height, cellSize, cycleSt
 		}
 	}, [cycleState])
 
-	return <canvas ref={canvasRef} width={width} height={height} style={{
-		opacity: opacity.current,
-		display: visible ? 'block' : 'none',
-		position: 'absolute',
-		left: -10,
-		top: 0,
-		overflow: 'hidden',
-		zIndex: 0}} />
+	return <canvas ref={canvasRef} width={width} height={height} />
 }
 

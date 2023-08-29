@@ -1,12 +1,14 @@
 'use client'
 
 import './globals.scss'
-import { DigiCraftContextProvider, Model } from './DigiCraftContext'
+import { DigiCraftContextProvider } from './DigiCraftContext'
 import { ReactNode } from 'react'
 import DigiCraft from './DigiCraft'
 import cssVars from '../vars.module.scss'
 
 import { Open_Sans as FontDefault } from 'next/font/google'
+import { Model } from '../core/model'
+import Image from 'next/image'
 
 // const fontHeading = FontHeading({
 // 	subsets: ['latin'],
@@ -34,9 +36,11 @@ const initialState: Model = {
 		clientHeight: 1080,
 		headerHeight: Number.parseInt(cssVars.headerHeight),
 		footerHeight: Number.parseInt(cssVars.footerHeight),
-		// headerHeight: parseInt(vars.headerHeight.replace('px', '')),
 	},
 	cssVars: cssVars,
+	images: {
+		// newsThumb: <Image src={} alt={}
+	},
 }
 
 

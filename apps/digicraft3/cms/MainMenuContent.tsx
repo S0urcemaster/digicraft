@@ -4,7 +4,7 @@ import { routes } from '../app/routes'
 import componentsThumb from './images/bricks.png'
 import digiCraftThumb from './images/digi-craft.png'
 import * as React from 'react'
-import { bgSvg, MediaIcon, MenuItem } from '../core/mainMenu'
+import { bgSvg, MediaIcon, MenuItem } from '../core/model'
 
 const NewsImage = <Image alt={''} src={newsThumb} width={100} height={100} style={{marginRight: 20}} />
 const ComponentsImage = <Image alt={''} src={componentsThumb} width={100} height={100} style={{marginRight: 20}} />

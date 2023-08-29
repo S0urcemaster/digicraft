@@ -8,10 +8,11 @@ import cssVars from '../vars.module.scss'
 
 export default function DigiHead() {
 
-	const {state, setContentTitle} = useDigiCraftContext()
+	const {state, setContentTitle, setContextLoaded} = useDigiCraftContext()
 	const router = useRouter()
 
 	function top() {
+		setContextLoaded(false)
 		setContentTitle(undefined)
 		router.push('/')
 	}

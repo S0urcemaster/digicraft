@@ -1,10 +1,11 @@
-import { Model } from './DigiCraftContext'
 import { clog } from '@digicraft/lib'
+import { Model } from '../core/model'
 
 export enum DigiActionTypes {
 	environment = 'environment',
 	contentTitle = 'contentTitle',
 	cssVars = 'cssVars',
+	contextLoaded = 'contextLoaded',
 }
 
 export type DigiAction = {
@@ -23,6 +24,10 @@ export function digiCraftReducer(state: Model, action: DigiAction): Model {
 		case DigiActionTypes.contentTitle:
 			return {
 				...state, contentTitle: payload.contentTitle
+			}
+		case DigiActionTypes.contextLoaded:
+			return {
+				...state, contextLoaded: payload.contextLoaded
 			}
 	}
 	return state

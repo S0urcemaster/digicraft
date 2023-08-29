@@ -14,18 +14,20 @@ type Props = {
 
 export function Page({children, center, width}: Props) {
 
-	const {setContentTitle} = useDigiCraftContext()
+	const {setContentTitle, contextLoaded, setContextLoaded} = useDigiCraftContext()
 	const path = usePathname()
 
 	useEffect(() => {
 		const routeArr = Object.values(routes)
 		const [_, title] = routeArr.find(([route, title]) => route === path) ?? ['', undefined]
 		setContentTitle(path && title ? title.toUpperCase() : undefined)
+		setContextLoaded(true)
 	}, [])
 
 	return (
-		<div className={center ? 'page-center' : 'page'} style={{maxWidth: width}}>
+		contextLoaded ? <div className={center ? 'page-center' : 'page'} style={{maxWidth: width}}>
 			{children}
-		</div>
+		</div> : null
+
 	)
 }

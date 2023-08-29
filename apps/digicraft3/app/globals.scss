@@ -33,7 +33,8 @@ main {
 	top: $header-height+px;
 	height: 100%;
 	overflow: auto;
-	background: #c5cbd3;
+	background: rgba(0,0,0,0);
+	//background: #c5cbd3;
 }
 
 footer {
