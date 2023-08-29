@@ -19,8 +19,8 @@ export function Page({children, center, width}: Props) {
 
 	useEffect(() => {
 		const routeArr = Object.values(routes)
-		const [_, title] = routeArr.find(([route, title]) => route === path) ?? ['', 'PATH NOT FOUND']
-		setContentTitle(path ? title.toUpperCase() : '')
+		const [_, title] = routeArr.find(([route, title]) => route === path) ?? ['', undefined]
+		setContentTitle(path && title ? title.toUpperCase() : undefined)
 	}, [])
 
 	return (

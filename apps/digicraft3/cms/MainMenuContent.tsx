@@ -31,7 +31,7 @@ export const mainMenuContent: MenuItem[] = [
 	{
 		heading: 'Waypoints',
 		body: <>
-			<strong>Release Digi Craft 3</strong>
+			<strong>Release Digi Craft 3 Early Access</strong>
 			<ul>
 				<li>Loading Screen/ Noise on Button Down</li>
 				<li>Routes and Components for all Menu Items</li>
@@ -45,14 +45,30 @@ export const mainMenuContent: MenuItem[] = [
 	{
 		heading: 'Digi Craft',
 		icon: DigiCraftImage,
-		body: <><div>Über dieses Projekt</div></>,
+		body: <><div>
+			Digi Craft ist Anbieter von Ideen, Prototypen, Bauteilen und Anwendungen.
+		</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.svgEditor,
+		route: routes.digicraft,
+		svg: bgSvg.text
+	},
+	{
+		heading: 'Jobs',
+		body: <><div>Arbeit gegen Geld</div></>,
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
+		route: routes.jobs,
 		svg: bgSvg.text
 	},
 	{
 		heading: 'Digi Clock',
 		body: <><div>Online Performance Test</div></>,
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
+		route: routes.svgEditor,
+		svg: bgSvg.app
+	},
+	{
+		heading: 'Auf dem Bullen reiten',
+		body: <><div>Yoga Übung</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.svgEditor,
 		svg: bgSvg.app
@@ -135,6 +151,12 @@ export const mainMenuContent: MenuItem[] = [
 	{
 		heading: 'Passwortsicherheit früher und heute',
 		body: <><div>Die bislang geltenden Regeln für sichere Passwörter gelten als überholt.</div></>,
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
+		route: routes.settings, svg: bgSvg.blog
+	},
+	{
+		heading: 'Stadtberatung',
+		body: <><div></div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.settings, svg: bgSvg.blog
 	},

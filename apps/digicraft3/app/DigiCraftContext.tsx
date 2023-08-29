@@ -15,7 +15,7 @@ type Environment = {
 }
 
 export type Model = {
-	contentTitle: string
+	contentTitle: string | undefined
 	environment: Environment
 	cssVars: {readonly [key: string]: string}
 }
@@ -81,7 +81,7 @@ export type DigiCraftContext = {
 	uploadWorktime: (file: any, year: number) => void
 
 	getMainHeight: () => number
-	setContentTitle: (title: string) => void
+	setContentTitle: (title: string | undefined) => void
 	setEnvironment: (environment: Environment) => void
 	update: () => void
 }
@@ -167,7 +167,7 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 		}
 	}
 
-	function setContentTitle(title: string) {
+	function setContentTitle(title: string | undefined) {
 		dispatch({type: DigiActionTypes.contentTitle, payload: {contentTitle: title}})
 	}
 

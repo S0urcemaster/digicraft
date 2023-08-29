@@ -8,20 +8,19 @@ import cssVars from '../vars.module.scss'
 
 export default function DigiHead() {
 
-	const {state} = useDigiCraftContext()
+	const {state, setContentTitle} = useDigiCraftContext()
 	const router = useRouter()
 
-	function back() {
-		router.back()
+	function top() {
+		setContentTitle(undefined)
+		router.push('/')
 	}
 
 	return (
-		<header onClick={back}>
-			{/*<DigiText text={'ABCDEFGHIJKLMNOPQRSTUVWXYZ'} />*/}
+		<header onClick={top}>
 			{state.contentTitle ?
 				<DigiText text={`DIGI CRAFT/${state.contentTitle}`} height={17} color={cssVars.cream}/>
 				:
-				// <DigiText text={`DIGI CRAFT WORKSHOP`} height={17} color={cssVars.cream}/>
 				<DigiText text={`DIGI CRAFT WORKSHOP`} height={17} color={cssVars.cream}/>
 			}
 		</header>

@@ -45,8 +45,7 @@ export function GameOfLife({bgColor, lifeColor, width, height, cellSize, cycleSt
 	}, [])
 
 	useEffect(() => {
-		// console.log("logsntr", "loaded", loaded)
-		setVisible(!loaded)
+		loaded && setVisible(false)
 	}, [loaded])
 
 	useEffect(() => {
@@ -129,7 +128,11 @@ export function GameOfLife({bgColor, lifeColor, width, height, cellSize, cycleSt
 			// updateGrid()
 
 			if(visible) {
+				console.log("logsntr", "visible")
 				currentFrame = requestAnimationFrame((timestamp) => drawGrid(timestamp, state))
+			} else {
+				console.log("logsntr", "cancel")
+				cancelAnimationFrame(currentFrame)
 			}
 
 			// if(opacity.current > 0.7) {

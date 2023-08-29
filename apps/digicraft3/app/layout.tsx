@@ -28,7 +28,7 @@ const fontDefault = FontDefault({
 // })
 
 const initialState: Model = {
-	contentTitle: '',
+	contentTitle: undefined,
 	environment: {
 		clientWidth: 1921,
 		clientHeight: 1080,

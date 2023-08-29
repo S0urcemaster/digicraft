@@ -29,7 +29,7 @@ export default function MainMenu() {
 			<div className={'main-menu-container'}>
 				<>
 					{mainMenuContent.map((m, idx) => {
-							return idx < 3 ?
+							return idx < 6 ?
 								<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => onClick(m)}
 										style={{borderRadius: 30}}>
 									<div style={{position: 'absolute', top: 0, right: -10}}>
