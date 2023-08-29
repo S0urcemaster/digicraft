@@ -1,6 +1,6 @@
 'use client'
 
-import { Card, Collapse, Elevation } from '@blueprintjs/core'
+import { Card, Collapse, Elevation, Tooltip } from '@blueprintjs/core'
 import React, { ReactNode, useState } from 'react'
 import svgEditorPrototype from '../../../public/pictures/svgEditor-prototype.png'
 import digicraft3layout from '../../../public/pictures/digicraft3layout.png'
@@ -25,7 +25,15 @@ function NewsCard({title, date, shortDesc, first, children}:
 						</div>
 					</div>
 					{/*<h5 className={'bp5-heading'}>{date}</h5>*/}
-					<div title={date} style={{margin: '-10px -10px 0 0'}}><DateCircle year={year} month={month} day={day}/>
+					<div title={date} style={{margin: '-10px -10px 0 0'}}>
+						<Tooltip
+							content={<span>{date}</span>}
+							openOnTargetFocus={false}
+							placement="right"
+							usePortal={false}
+						>
+							<DateCircle year={year} month={month} day={day}/>
+						</Tooltip>
 					</div>
 				</div>
 			</Card>
@@ -41,35 +49,22 @@ function NewsCard({title, date, shortDesc, first, children}:
 export function News() {
 	return (
 		<>
-			<NewsCard first title={'Re-Kill'} date={'27.08.2023'}
-						 shortDesc={'Wie weiter?'}>
+			<NewsCard first title={'Digi Craft Workshop'} date={'29.08.2023'}
+						 shortDesc={'Frischer Wind'}>
 				<div className={'news-columns'}>
 					<p>
 						Ich habe mich entschieden, den aktuellen Projektstand zu killen und den neuen, noch sehr
 						groben Zustand online zu bringen.
 					</p>
 					<p>
-						Zum einen war die Frage, ob ich die aktuelle Webseite so lasse und mich anderen Themen
-						zuwende oder eine Modernisierung in eine nächste Iteration wage.
-						In fortgeschrittenerem Stand ist immer schwieriger ein Redesign zu machen, weil die Gefahr
-						besteht, sehr viel vom Vorstand zu verlieren und man zusätzlich noch keine großen
-						Fortschritte macht.
-					</p>
-					<p>Die andere Frage ist, wieviel Potenzial in den Apps steckt. Auch tauchen neue Ideen auf,
-						die mit den angefangenen Apps konkurrieren. Es sollte irgendein Show-Effekt an den
-						Anfang, damit auch Nicht-Kenner einen Eindruck bekommen.
-						Eine ganz gute Idee habe ich schon, die Frage ist aber etwas, ob sie am Ende funktioniert
-						und ob der Aufwand sich lohnen oder vorher entschieden wird, die Idee aufzugeben.
-						Nur wegen der Show... Eine Demo für eine experimentelle Menüsteuerung...
-						Eine Studie.
-					</p>
-					<p>
-						Das aufwändige Grafikfeature wird fallengelassen. Stattdessen gibt es eine Keyboard-Steuerung
-						für die gesamte Webseite.
+						Die Zeiten fehlenden Contents sind nicht mehr. Es gibt jede Menge
+						Sachen zum Herzeigen. Aus der Tatsache, dass Vieles noch nicht fertig ist, mache ich einfach
+						eine Tugend: Digi Craft wird zur Werkstatt, zum Labor, zum Workshop, wo alles, auch Unfertige,
+						begutachtet werden kann.
 					</p>
 				</div>
 			</NewsCard>
-			<NewsCard title={'Neues Layout'} date={'01.08.2023'}
+			<NewsCard title={'Neues Layout'} date={'14.08.2023'}
 						 shortDesc={'Ein simples, responsives Layout mit großen Menü-Buttons.'}>
 				<p>
 					Ein simples, responsives Layout mit großen Menü-Buttons, die auf einen Blick zeigen, was es hier alles

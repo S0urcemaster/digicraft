@@ -2,13 +2,13 @@
 import * as React from 'react'
 import {useWorktimeContext} from './worktimeContext'
 import Calendar from './Calendar'
-import {useEffect, useRef, useState} from 'react'
+import { CSSProperties, ReactNode, useEffect, useRef, useState } from 'react'
 import {daysHoursString, getFreeTime} from './lib'
 import {toLocale} from '../../../lib/math'
 import {workingDaysEffective, workingHours} from './year2023'
-import {useLocalStorage} from '../../LocalStorageContext'
-import { Button, HTMLSelect, Icon } from '@blueprintjs/core'
+import { Button as BPButton, HTMLSelect, Icon, MaybeElement } from '@blueprintjs/core'
 import moment from 'moment'
+import { BlueprintIcons_16Id } from '@blueprintjs/icons/lib/esnext/generated/16px/blueprint-icons-16'
 
 function OverviewItem(props: {heading: string, rows: [string, number|string][]}) {
 	return (
@@ -24,8 +24,19 @@ function OverviewItem(props: {heading: string, rows: [string, number|string][]})
 	)
 }
 
-function PrevButton() {
+type ButtonProps = {
+	text?: string | ReactNode
+	icon?: BlueprintIcons_16Id | MaybeElement
+	rightIcon?: BlueprintIcons_16Id | MaybeElement
+	style?: CSSProperties
+	onClick?: () => void
+}
 
+function Button({text, icon, rightIcon, style, onClick}: ButtonProps) {
+	return (
+		<BPButton text={text} icon={icon} rightIcon={rightIcon} alignText={'left'} className={'worktime-button'}
+					 style={style} onClick={onClick} />
+	)
 }
 
 export default function Worktime() {
@@ -35,7 +46,7 @@ export default function Worktime() {
 	const [modalVisible, setModalVisible] = useState(false)
 	const [selectValue, setSelectValue] = useState('2023')
 
-	const {downloadWorktime, uploadWorktime} = useLocalStorage()
+	// const {downloadWorktime, uploadWorktime} = useLocalStorage()
 	const fileInputRef = useRef<HTMLInputElement>(null)
 
 	useEffect(() => {
@@ -62,23 +73,33 @@ export default function Worktime() {
 			</div>
 			<div>
 				<div style={{minWidth: 400}}>
-					<Button text={getDate()} style={{padding: '10px 20px 10px 20px', fontSize: 30, width: '100%'}} />
-					<div style={{display: 'grid', gridTemplateColumns: 'auto auto'}}>
-						<Button text={moment(day.date).subtract(1, 'days').format('DD.MM.YYYY')} icon={'arrow-left'} alignText={'left'} />
-						<Button text={moment(day.date).add(1, 'days').format('DD.MM.YYYY')} rightIcon={'arrow-right'} alignText={'right'} />
-						<Button text={'Juli'} icon={'arrow-left'} alignText={'left'} />
-						<Button text={'September'} rightIcon={'arrow-right'} alignText={'right'} />
-						<Button text={year -1} icon={'arrow-left'} alignText={'left'} />
-						<Button text={year +1} rightIcon={'arrow-right'} alignText={'right'} />
+					<div style={{display: 'grid', gridTemplateColumns: 'auto auto auto'}}>
+						<div style={{display: 'flex', flexDirection: 'column', justifyContent: 'stretch'}}>
+							<Button text={moment(day.date).subtract(1, 'days').format('DD.MM.YYYY')} icon={'arrow-left'} />
+							<Button text={'Juli'} icon={'arrow-left'} />
+							<Button text={year -1} icon={'arrow-left'} />
+						</div>
+						<Button text={
+							<div style={{textAlign: 'center'}}>
+								<div>{moment(day.date).format('dddd')} {moment(day.date).format('DD.MM.')}</div>
+								<div>&nbsp;</div>
+								<div>{moment(day.date).format('MMMM')} {moment(day.date).format('YYYY')}</div>
+							</div>
+						} style={{padding: '10px 20px 10px 20px', fontSize: 24, width: '100%'}} />
+						<div style={{display: 'flex', flexDirection: 'column', justifyContent: 'stretch'}}>
+							<Button text={moment(day.date).add(1, 'days').format('DD.MM.YYYY')} rightIcon={'arrow-right'} />
+							<Button text={'September'} rightIcon={'arrow-right'} />
+							<Button text={year +1} rightIcon={'arrow-right'} />
+						</div>
 					</div>
 					<div style={{display: 'grid', gridTemplateColumns: 'auto auto auto'}}>
 						<Button icon={'play'} />
 						<Button icon={'pause'} />
 						<Button icon={'stop'} />
 					</div>
-					<div style={{display: 'grid', gridTemplateColumns: '30px auto auto 28px auto auto 55px'}}>
+					<div style={{display: 'grid', gridTemplateColumns: '50px auto auto 48px auto auto 75px'}}>
 						<Button icon={'delete'} />
-						<HTMLSelect>
+						<HTMLSelect className={'worktime-select'}>
 							<option value="00">00</option>
 							<option value="01">01</option>
 							<option value="02">02</option>
@@ -150,10 +171,10 @@ export default function Worktime() {
 				<OverviewItem heading={'Geleistet'} rows={[['Tage:', daysHoursString(hoursWorked, 1)], ['Stunden:', toLocale(hoursWorked, 1)]]} />
 				<OverviewItem heading={'Freizeit'} rows={[['Tage:', daysHoursString(getFreeTime(hoursWorked), 1)], ['Stunden:', toLocale(getFreeTime(hoursWorked), 1)]]} />
 				<div style={{display: 'flex'}}>
-					<Button text={'Export'} onClick={() => downloadWorktime(Number(selectValue))} style={{width: 70, height: 20, padding: 0, fontWeight: 'normal'}}/>
+					{/*<Button text={'Export'} onClick={() => downloadWorktime(Number(selectValue))} style={{width: 70, height: 20, padding: 0, fontWeight: 'normal'}}/>*/}
 					<Button text={'Import'} onClick={() => fileInputRef.current!.click()} style={{width: 70, height: 20, padding: 0, fontWeight: 'normal'}}/>
-					<input type={'file'} style={{display: 'none'}}
-							 onChange={event => uploadWorktime(event.target.files && event.target.files[0], Number(selectValue))} ref={fileInputRef}/>
+					{/*<input type={'file'} style={{display: 'none'}}*/}
+					{/*		 onChange={event => uploadWorktime(event.target.files && event.target.files[0], Number(selectValue))} ref={fileInputRef}/>*/}
 					<Button text={'?'} onClick={() => setModalVisible(true)} style={{width: 70, height: 20, padding: 0, fontWeight: 'normal'}}/>
 				</div>
 			</div>

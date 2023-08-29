@@ -81,6 +81,10 @@ code {
 .bp5-heading {
 }
 
+.bp5-button-text {
+	width: 100%;
+}
+
 .bp5-card {
 	position: relative;
 	background: $card-bg;
@@ -104,6 +108,18 @@ code {
 	margin: 0 auto 0 auto;
 	padding: 45px 40px 40px 40px;
 }
+
+.worktime-button {
+	padding: 15px 15px 15px 15px;
+}
+
+.worktime-select {
+	text-indent: 5px;
+	//padding: 15px 15px 15px 15px;
+}
+
+
+// @media |@@@@|@@@@|@@@@|@@@@|@@@@|@@@@|
 
 .main-menu-container {
 	display: grid;
