@@ -1,13 +1,15 @@
 
 export const routes: {[key: string]: [route: string, title: string]} = {
 	about: ['/about', 'Über Digi Craft'],
-	achievements: ['/apps/achievements', 'Erfolge'],
+	achievements: ['/achievements', 'Erfolge'],
+	bodycraft: ['/bodycraft', "Body Craft"],
 	components: ['/components', 'Components'],
 	decider: ['/decider', 'Der Entscheider'],
 	dev: ['/dev', 'Development Page'],
 	digicraft: ['/digicraft', 'Digi Craft'],
 	imprint: ['/meta/imprint', 'Impressum'],
 	jobs: ['/jobs', 'Jobs'],
+	mentalAidKit: ['/mental-aid-kit', 'Mental Aid Kit'],
 	music: ['/music', 'Technoscout Music'],
 	neoCortex: ['/neoCortex', 'Neo Cortex Collection'],
 	news: ['/news', 'News'],

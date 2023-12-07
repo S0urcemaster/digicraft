@@ -40,7 +40,7 @@ export default function MainMenu() {
 				{mainMenuContent.map((m, idx) => {
 						return idx < 6 ?
 							<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => onClick(m)}
-									style={{borderRadius: 30}}>
+									style={{borderRadius: 30, border: '1px solid black'}}>
 								<div style={{position: 'absolute', top: 0, right: -10}}>
 									{m.svg}
 								</div>
@@ -67,7 +67,7 @@ export default function MainMenu() {
 							</Card>
 							:
 							<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => onClick(m)}
-									style={{borderRadius: 2}}>
+									style={{borderRadius: 2, border: '1px solid black'}}>
 								<div style={{position: 'absolute', top: 0, right: -10}}>
 									{m.svg}
 								</div>

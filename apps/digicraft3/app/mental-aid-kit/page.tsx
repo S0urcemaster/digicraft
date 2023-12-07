@@ -1,13 +1,12 @@
 
 import * as React from 'react'
-import { Dev } from './components/Dev'
+import MentalAidKit from './components/MentalAidKit'
 import { Page } from '../../components/page/Page'
-import * as wasm from "game-of-life"
 
 export default function() {
 	return (
 		<Page>
-			<Dev />
+			<MentalAidKit />
 		</Page>
 	)
 }

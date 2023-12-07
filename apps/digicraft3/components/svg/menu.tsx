@@ -1,16 +1,17 @@
 import * as React from 'react'
+import cssVars from '../../vars.module.scss'
 
 export function Text() {
 	return (
 		<svg height="150" viewBox="0 0 11 11" transform={'translate(20 20)'}>
-			<g stroke={'#eeeeee'} strokeWidth={0.8}>
+			<g stroke={cssVars.pageBg} strokeWidth={0.8}>
 				<ellipse fill={'none'}
 							id="path3630"
 							cx="5.6552444"
 							cy="5.5106483"
 							rx="5.2054529"
 							ry="5.0608568"/>
-				<text fill={'#eeeeee'} stroke={'none'} fontFamily={'Arial'} fontWeight={'bold'} fontSize={8.47} x={4.6199156}
+				<text fill={cssVars.pageBg} stroke={'none'} fontFamily={'Arial'} fontWeight={'bold'} fontSize={8.47} x={4.6199156}
 						y={8.4716091}>i
 				</text>
 			</g>
@@ -21,7 +22,7 @@ export function Text() {
 export function App() {
 	return (
 		<svg height="150" viewBox="0 0 30 30" transform={'translate(20 20)'}>
-			<g fill={'none'} stroke={'#eeeeee'} strokeWidth={1.299583} strokeLinecap={'round'} strokeOpacity={1}>
+			<g fill={'none'} stroke={cssVars.pageBg} strokeWidth={1.299583} strokeLinecap={'round'} strokeOpacity={1}>
 				<rect
 					width="23.706627"
 					height="23.815084"
@@ -120,7 +121,7 @@ export function App() {
 export function Game() {
 	return (
 		<svg height="150" viewBox={'0 0 40 40'}>
-			<g fill="none" fillRule="evenodd" stroke="#eee" strokeLinecap="round" strokeLinejoin="round"
+			<g fill="none" fillRule="evenodd" stroke={cssVars.pageBg} strokeLinecap="round" strokeLinejoin="round"
 				strokeWidth="2.5">
 				<path strokeLinejoin="miter" d="M22.5 11.63V6M20 8h5"/>
 				<path fill="none" strokeLinecap="butt" strokeLinejoin="miter"
@@ -136,7 +137,7 @@ export function Game() {
 export function Settings() {
 	return (
 		<svg height="150" viewBox="0 0 512 512" transform={'translate(20 20)'}>
-			<g fill="#eeeeee" stroke={'none'}>
+			<g fill={cssVars.pageBg} stroke={'none'}>
 				<path d="M486.4,204.8h-32.299c-4.779-18.466-12.134-36.233-21.82-52.676l22.835-22.844c10.001-10.001,10.001-26.206,0-36.207
 					L418.91,56.866c-4.804-4.804-11.315-7.501-18.099-7.501c-6.793,0-13.303,2.697-18.099,7.501L359.868,79.71
 					c-16.435-9.677-34.202-17.033-52.668-21.811V25.6c0-14.14-11.46-25.6-25.6-25.6h-51.2c-14.14,0-25.6,11.46-25.6,25.6v32.299
@@ -164,7 +165,7 @@ export function Settings() {
 export function Book() {
 	return (
 		<svg height="110px" viewBox="0 60 463 300" transform={'translate(20 20)'}>
-			<g fill={'#eeeeee'} >
+			<g fill={cssVars.pageBg} >
 				<path
 					d="M439.5,92h-8.622c-0.015-15.242-0.026-24.509-0.026-24.509c-0.005-4.139-3.361-7.491-7.5-7.491   c-110.843,0-176.933,25.047-191.78,31.337C216.711,85.05,150.522,60,39.5,60c-4.139,0-7.495,3.353-7.5,7.491   c0,0-0.01,9.267-0.026,24.509H23.5C10.542,92,0,102.542,0,115.5v264C0,392.458,10.542,403,23.5,403h416   c12.958,0,23.5-10.542,23.5-23.5v-264C463,102.542,452.458,92,439.5,92z M415.932,356.038   c-93.47,0.951-153.82,19.652-176.932,28.346V104.526c16.004-6.445,77.69-28.42,176.86-29.486   C415.96,166.015,416.079,321.073,415.932,356.038z M224,104.469v279.864c-23.245-8.716-83.637-27.35-177.08-28.296   c-0.134-31.924-0.047-163.943,0.046-255.91c0.017-0.207,0.032-0.415,0.032-0.627c0-0.203-0.015-0.403-0.03-0.602   c0.008-8.321,0.017-16.313,0.025-23.858C146.035,76.1,207.749,97.951,224,104.469z M15,379.5v-264c0-4.687,3.813-8.5,8.5-8.5h8.459   c-0.027,28.295-0.062,68.323-0.084,108.371c-0.021,36.981-0.031,73.975-0.016,101.742c0.008,13.89,0.022,25.473,0.044,33.593   c0.012,4.073,0.025,7.277,0.041,9.469c0.034,4.673,0.046,6.421,2.249,8.625c1.407,1.408,3.316,2.2,5.307,2.2   c64.093,0,113.209,8.753,145.26,17H23.5C18.813,388,15,384.187,15,379.5z M448,379.5c0,4.687-3.813,8.5-8.5,8.5H278.319   c32.002-8.247,81.041-17,145.033-17c1.991,0,3.9-0.792,5.307-2.2c2.202-2.204,2.215-3.952,2.249-8.625   c0.016-2.191,0.029-5.396,0.041-9.469c0.023-8.12,0.037-19.703,0.045-33.593c0.016-27.768,0.005-64.76-0.016-101.742   c-0.023-40.048-0.057-80.076-0.085-108.371h8.608c4.687,0,8.5,3.813,8.5,8.5V379.5z"/>
 				<path

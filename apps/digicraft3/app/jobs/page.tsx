@@ -2,10 +2,17 @@
 import * as React from 'react'
 import { H1, H3 } from '@blueprintjs/core'
 import { Page } from '../../components/page/Page'
+import { JobComp, JobsComp } from './components/Jobs'
 
 export default function() {
+
 	return (
 		<Page center>
+			<JobsComp>
+				<JobComp title={'test'} backgroundColor={'#465'}>
+					Test
+				</JobComp>
+			</JobsComp>
 			<H1>Digi Craft Jobs</H1>
 			<div>
 				<H3>news-columns</H3>

@@ -35,5 +35,5 @@ export const bgSvg = {
 	app: <App/>,
 	game: <Game/>,
 	settings: <Settings/>,
-	blog: <Book/>
+	blog: <Book/>,
 }

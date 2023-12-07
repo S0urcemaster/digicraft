@@ -21,6 +21,8 @@ module.exports = {
       rule.include = undefined;
     });
 
+    config.experiments = { asyncWebAssembly: true, layers: true };
+
     return config
   },
   reactStrictMode: true

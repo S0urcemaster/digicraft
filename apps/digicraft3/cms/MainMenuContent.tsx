@@ -53,11 +53,25 @@ export const mainMenuContent: MenuItem[] = [
 		svg: bgSvg.text
 	},
 	{
+		heading: 'Body Craft',
+		body: <><div>Fitness für Zuhause</div></>,
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
+		route: routes.bodycraft,
+		svg: bgSvg.app
+	},
+	{
 		heading: 'Jobs',
 		body: <><div>Arbeit gegen Geld</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.jobs,
 		svg: bgSvg.text
+	},
+	{
+		heading: 'Mental Aid Kit',
+		body: <><div>Get back on the Highway</div></>,
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
+		route: routes.mentalAidKit,
+		svg: bgSvg.app
 	},
 	{
 		heading: 'Digi Clock',
@@ -66,13 +80,13 @@ export const mainMenuContent: MenuItem[] = [
 		route: routes.svgEditor,
 		svg: bgSvg.app
 	},
-	{
-		heading: 'Auf dem Bullen reiten',
-		body: <><div>Yoga Übung</div></>,
-		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.svgEditor,
-		svg: bgSvg.app
-	},
+	// {
+	// 	heading: 'Auf dem Bullen reiten',
+	// 	body: <><div>Yoga Übung</div></>,
+	// 	mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
+	// 	route: routes.svgEditor,
+	// 	svg: bgSvg.app
+	// },
 	{
 		heading: 'Coder\'s SVG Editor',
 		body: <><div>Erstelle SVG Grafiken per Tastatur und ohne Maus.</div></>,

@@ -1,10 +1,27 @@
 @import '@blueprintjs/core/lib/scss/variables';
 @import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 
+// blue
 $page-bg: #c5cbd3;
 $card-bg: #dee3ea;
-$cream: #eeeeee;
+//$cream: #eeeeee;
 $color: #1a2f44;
+
+// brown
+$page-bg: #d3cdc8;
+$card-bg: #e7e3e1;
+$color: #1c1411;
+
+// brown dark
+$page-bg: #584130;
+$card-bg: #352414;
+$color: #e7e3e1;
+
+$logo-bg: #191109;
+
+$date-circle-color: $color;
+$date-circle-bg: $logo-bg;
+$date-circle-mark: #3981d4;
 
 $header-height: 25;
 $footer-height: 18;
@@ -12,8 +29,11 @@ $footer-height: 18;
 :export {
 	pageBg: $page-bg;
 	cardBg: $card-bg;
-	cream: $cream;
+	//cream: $cream;
 	color: $color;
+	dateCircleColor: $date-circle-color;
+	dateCircleBg: $date-circle-bg;
+	dateCircleMark: $date-circle-mark;
 	headerHeight: $header-height;
 	footerHeight: $footer-height;
 }

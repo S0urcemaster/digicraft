@@ -1,4 +1,4 @@
-@import 'vars.module';
+@import '../vars.module';
 @import '@blueprintjs/core/lib/css/blueprint.css';
 
 * {
@@ -6,14 +6,14 @@
 }
 
 html {
-	background: $gray5;
-	color: $color;
 }
 
 body {
 	margin: 0;
 	padding: 0;
 	font-family: var(--font-default);
+	background: $page-bg;
+	color: $color;
 }
 
 header {
@@ -22,7 +22,7 @@ header {
 	top: 0;
 	width: 100%;
 	margin: 0 0 20px 0;
-	background: linear-gradient(to right, $color, $page-bg);
+	background: linear-gradient(to right, $logo-bg, $page-bg);
 	padding: 4px 20px 0 20px;
 	cursor: pointer;
 	z-index: 99;
@@ -80,6 +80,7 @@ code {
 }
 
 .bp5-heading {
+	color: $color;
 }
 
 .bp5-button-text {

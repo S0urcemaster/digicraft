@@ -1,13 +1,11 @@
-
 import * as React from 'react'
-import { Dev } from './components/Dev'
 import { Page } from '../../components/page/Page'
-import * as wasm from "game-of-life"
+import { BodyCraft } from './components/BodyCraft'
 
 export default function() {
 	return (
-		<Page>
-			<Dev />
+		<Page center>
+			<BodyCraft />
 		</Page>
 	)
 }
