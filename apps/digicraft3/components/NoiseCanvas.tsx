@@ -50,7 +50,6 @@ export function Noise({bgColor, lifeColor, width, height, cellSize, loaded}: Pro
 	}, [])
 
 	useEffect(() => {
-		console.log('logsntr', 'loaded', loaded)
 		if(loaded) {
 			running.current = false
 			setVisible(false)
@@ -66,7 +65,6 @@ export function Noise({bgColor, lifeColor, width, height, cellSize, loaded}: Pro
 
 
 	const drawGrid = (timestamp: DOMHighResTimeStamp) => {
-		console.log("logsntr", "running.current, context", running.current, context)
 		if (!running.current) return
 		if(!context) return
 
@@ -87,7 +85,6 @@ export function Noise({bgColor, lifeColor, width, height, cellSize, loaded}: Pro
 
 	useEffect(() => {
 		if (!canvasRef.current) return
-		console.log("logsntr", "running", running.current)
 
 		context = canvasRef.current.getContext('2d')!
 

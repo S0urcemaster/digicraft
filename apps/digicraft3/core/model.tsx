@@ -14,6 +14,7 @@ export type Model = {
 	environment: Environment
 	cssVars: {readonly [key: string]: string}
 	images: {readonly [key: string]: ReactNode}
+	contextLoaded: boolean
 }
 
 export type MenuItem = {

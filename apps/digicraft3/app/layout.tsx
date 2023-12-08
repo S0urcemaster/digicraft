@@ -7,6 +7,7 @@ import DigiCraft from './DigiCraft'
 import cssVars from '../vars.module.scss'
 
 import { Open_Sans as FontDefault } from 'next/font/google'
+// import { Josefin_Sans as FontDefault } from 'next/font/google'
 import { Model } from '../core/model'
 import Image from 'next/image'
 

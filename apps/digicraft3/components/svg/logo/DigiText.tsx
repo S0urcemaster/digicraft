@@ -15,8 +15,8 @@ export default function DigiText({text, height, color}: Props) {
 
 	let offset = 0
 	let prevLetter = {} as LetterType
-	const letters: LetterType[] = text.split('').map((t, idx) => {
-		idx > 0 ? offset += prevLetter.width + 1 : true
+	const letters: LetterType[] = text.split(',').map((t, idx) => {
+		idx > 0 ? offset += prevLetter.width + 1 : false
 		prevLetter = letterCoords[t]
 
 		return {
@@ -36,7 +36,7 @@ export default function DigiText({text, height, color}: Props) {
 
 	return (
 		<svg height={height} viewBox={`0 0 ${xWidth} ${xHeight}`}>
-			<title>digicraft logo & path</title>
+			<title>digicraft text & path</title>
 			<Text x={0} size={dotSize} letters={letters} color={color} />
 		</svg>
 	)

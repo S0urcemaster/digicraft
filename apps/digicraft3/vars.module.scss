@@ -13,14 +13,17 @@ $card-bg: #e7e3e1;
 $color: #1c1411;
 
 // brown dark
-$page-bg: #584130;
-$card-bg: #352414;
+$page-bg: #404040;
+$card-bg: #5d5d5d;
 $color: #e7e3e1;
 
 $logo-bg: #191109;
 
-$date-circle-color: $color;
-$date-circle-bg: $logo-bg;
+$date-circle-color: $page-bg;
+$date-circle-bg: $color;
+$date-circle-border: $page-bg;
+$date-circle-text-border: $page-bg;
+$date-circle-north: $page-bg;
 $date-circle-mark: #3981d4;
 
 $header-height: 25;
@@ -33,6 +36,9 @@ $footer-height: 18;
 	color: $color;
 	dateCircleColor: $date-circle-color;
 	dateCircleBg: $date-circle-bg;
+	dateCircleBorder: $date-circle-border;
+	dateCircleTextBorder: $date-circle-text-border;
+	dateCircleNorth: $date-circle-north;
 	dateCircleMark: $date-circle-mark;
 	headerHeight: $header-height;
 	footerHeight: $footer-height;
