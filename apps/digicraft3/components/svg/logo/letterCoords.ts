@@ -9,6 +9,37 @@ export const letterCoords: Record<string, LetterType> = {
 		visible: false,
 		offset: 0,
 	},
+	'plus': {
+		char: '',
+		coords: [
+			[0, 2],
+			[1, 2],
+			[2, 2],
+			[3, 2],
+			[4, 2],
+			[2, 0],
+			[2, 1],
+			[2, 2],
+			[2, 3],
+			[2, 4],
+		],
+		width: 5,
+		visible: false,
+		offset: 0,
+	},
+	'minus': {
+		char: '',
+		coords: [
+			[0, 2],
+			[1, 2],
+			[2, 2],
+			[3, 2],
+			[4, 2],
+		],
+		width: 5,
+		visible: false,
+		offset: 0,
+	},
 	'stop': {
 		char: '',
 		coords: [

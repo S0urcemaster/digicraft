@@ -9,6 +9,7 @@ import { routes } from '../../app/routes'
 type Props = {
 	width?: number
 	center?: boolean
+	construction?: boolean // content on this page not finished
 	children: ReactNode
 }
 
@@ -25,9 +26,11 @@ export function Page({children, center, width}: Props) {
 	}, [])
 
 	return (
-		contextLoaded ? <div className={center ? 'page-center' : 'page'} style={{maxWidth: width}}>
-			{children}
-		</div> : null
+		contextLoaded ?
+			<div className={center ? 'page-center' : 'page'} style={{maxWidth: width}}>
+				{children}
+			</div>
+			: null
 
 	)
 }

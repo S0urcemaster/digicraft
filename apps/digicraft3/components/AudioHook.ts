@@ -3,7 +3,8 @@ import { useState } from 'react'
 type WebAudio = {
 	htmlAudioElement: HTMLAudioElement | null
 	setStream: (input: string) => void
-	play: (stream: string) => void
+	play: () => void
+	stop: () => void
 	setVolume: (volume: number) => void
 }
 
@@ -12,6 +13,7 @@ export function useWebAudio(): WebAudio {
 		htmlAudioElement: null,
 		setStream: setStream,
 		play: play,
+		stop: stop,
 		setVolume: setVolume
 	})
 

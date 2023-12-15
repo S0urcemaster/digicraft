@@ -2,14 +2,17 @@ import * as React from 'react'
 import Text from './Text'
 import { letterCoords } from './letterCoords'
 import {LetterType} from './Letter'
+import { CSSProperties } from 'react'
 
 type Props = {
 	text: string
 	height: number
 	color: string
+	onClick?: () => void
+	style?: CSSProperties
 }
 
-export default function DigiText({text, height, color}: Props) {
+export default function DigiText({text, height, color, onClick, style}: Props) {
 
 	const dotSize = 5
 
@@ -35,8 +38,7 @@ export default function DigiText({text, height, color}: Props) {
 	const xHeight = dotSize *5
 
 	return (
-		<svg height={height} viewBox={`0 0 ${xWidth} ${xHeight}`}>
-			<title>digicraft text & path</title>
+		<svg height={height} viewBox={`0 0 ${xWidth} ${xHeight}`} onClick={onClick} style={{...style}}>
 			<Text x={0} size={dotSize} letters={letters} color={color} />
 		</svg>
 	)
