@@ -42,6 +42,7 @@ const initialState: Model = {
 	images: {
 		// newsThumb: <Image src={} alt={}
 	},
+	contextLoaded: false,
 }
 
 
