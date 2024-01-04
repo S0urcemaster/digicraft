@@ -11,58 +11,84 @@ export type MenuItem = {
 	mediaIcons: MediaIcon[]
 	route: [string, string]
 	svg: ReactNode
+	dev?: boolean
 }
 
-export function BigMenu({clicked}:{clicked: (menuItem: MenuItem) => void}) {
+export function BigMenu({items, clicked}:{items: MenuItem[], clicked: (menuItem: MenuItem) => void}) {
+
+	function Item({item, idx, dev}: {item:MenuItem, idx: number, dev?: boolean}) {
+		return (
+			<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => clicked(item)}
+					style={{borderRadius: 2, border: dev ? '1px solid orange' : '1px solid black'}}>
+				<div style={{position: 'absolute', top: 0, right: -10}}>
+					{item.svg}
+				</div>
+				<div style={{display: 'flex', justifyContent: 'space-between', position: 'relative'}}>
+					<h3 className={'bp5-heading'} style={{marginTop: -5}}>{item.heading}</h3>
+					<div style={{color: 'gray', whiteSpace: 'nowrap'}}>
+						{
+							// @ts-ignore (icon={i})
+							item.mediaIcons.map((i, idx) => <Icon key={idx} icon={i} size={16}/>)
+						}
+					</div>
+				</div>
+				<div style={{position: 'relative', fontWeight: 600}}>
+					{item.body}
+				</div>
+			</Card>
+		)
+	}
+
+	function ItemPinned({item, idx, dev}: {item:MenuItem, idx: number, dev?:boolean}) {
+		return (
+			<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => clicked(item)}
+					style={{borderRadius: 30, border: dev ? '1px solid orange' : '1px solid black'}}>
+				<div style={{position: 'absolute', top: 0, right: -10}}>
+					{item.svg}
+				</div>
+				<div style={{display: 'flex'}}>
+					<div>
+						{item.icon}
+					</div>
+					<div style={{width: '100%'}}>
+						<div style={{display: 'flex', justifyContent: 'space-between', position: 'relative'}}>
+							<h3 className={'bp5-heading'} style={{marginTop: -5}}>{item.heading}</h3>
+							<div style={{color: 'gray', whiteSpace: 'nowrap'}}>
+								{
+									// @ts-ignore (icon={i})
+									item.mediaIcons.map((i, idx) => <Icon key={idx} icon={i} size={16}/>)
+								}
+							</div>
+						</div>
+						<div style={{position: 'relative'}}>
+							{item.body}
+						</div>
+					</div>
+				</div>
+
+			</Card>
+		)
+	}
+
 	return (
 		<div className={'main-menu-container'}>
-			{mainMenuContent.map((m, idx) => {
-					return idx < 6 ?
-						<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => clicked(m)}
-								style={{borderRadius: 30, border: '1px solid black'}}>
-							<div style={{position: 'absolute', top: 0, right: -10}}>
-								{m.svg}
-							</div>
-							<div style={{display: 'flex'}}>
-								<div>
-									{m.icon}
-								</div>
-								<div style={{width: '100%'}}>
-									<div style={{display: 'flex', justifyContent: 'space-between', position: 'relative'}}>
-										<h3 className={'bp5-heading'} style={{marginTop: -5}}>{m.heading}</h3>
-										<div style={{color: 'gray', whiteSpace: 'nowrap'}}>
-											{
-												// @ts-ignore (icon={i})
-												m.mediaIcons.map((i, idx) => <Icon key={idx} icon={i} size={16}/>)
-											}
-										</div>
-									</div>
-									<div style={{position: 'relative'}}>
-										{m.body}
-									</div>
-								</div>
-							</div>
-
-						</Card>
-						:
-						<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => clicked(m)}
-								style={{borderRadius: 2, border: '1px solid black'}}>
-							<div style={{position: 'absolute', top: 0, right: -10}}>
-								{m.svg}
-							</div>
-							<div style={{display: 'flex', justifyContent: 'space-between', position: 'relative'}}>
-								<h3 className={'bp5-heading'} style={{marginTop: -5}}>{m.heading}</h3>
-								<div style={{color: 'gray', whiteSpace: 'nowrap'}}>
-									{
-										// @ts-ignore (icon={i})
-										m.mediaIcons.map((i, idx) => <Icon key={idx} icon={i} size={16}/>)
-									}
-								</div>
-							</div>
-							<div style={{position: 'relative', fontWeight: 600}}>
-								{m.body}
-							</div>
-						</Card>
+			{mainMenuContent.map((item, idx) => {
+					return (
+						<>
+						{ !item.dev ?
+							idx < 6 ?
+								<ItemPinned item={item} idx={idx}/>
+								:
+								<Item item={item} idx={idx}/>
+							: process.env.NODE_ENV === 'development' ?
+								idx < 6 ?
+									<ItemPinned item={item} idx={idx} dev />
+									:
+									<Item item={item} idx={idx} dev />
+								: null
+						}
+						</>
+					)
 				}
 			)}
 		</div>

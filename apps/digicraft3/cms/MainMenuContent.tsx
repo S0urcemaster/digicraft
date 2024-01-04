@@ -4,7 +4,8 @@ import { routes } from '../app/routes'
 import componentsThumb from './images/bricks.png'
 import digiCraftThumb from './images/digi-craft.png'
 import * as React from 'react'
-import { bgSvg, MediaIcon, MenuItem } from '../core/model'
+import { bgSvg, MediaIcon } from '../core/model'
+import { MenuItem } from '../components/BigMenu'
 
 const NewsImage = <Image alt={''} src={newsThumb} width={100} height={100} style={{marginRight: 20}} />
 const ComponentsImage = <Image alt={''} src={componentsThumb} width={100} height={100} style={{marginRight: 20}} />
@@ -40,7 +41,8 @@ export const mainMenuContent: MenuItem[] = [
 		</>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.svgEditor,
-		svg: bgSvg.text
+		svg: bgSvg.text,
+		dev: true,
 	},
 	{
 		heading: 'Digi Craft',
@@ -50,7 +52,8 @@ export const mainMenuContent: MenuItem[] = [
 		</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.digicraft,
-		svg: bgSvg.text
+		svg: bgSvg.text,
+		dev: true,
 	},
 	{
 		heading: 'Body Craft',
@@ -80,26 +83,29 @@ export const mainMenuContent: MenuItem[] = [
 		route: routes.svgEditor,
 		svg: bgSvg.app
 	},
-	// {
-	// 	heading: 'Auf dem Bullen reiten',
-	// 	body: <><div>Yoga Übung</div></>,
-	// 	mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-	// 	route: routes.svgEditor,
-	// 	svg: bgSvg.app
-	// },
+	{
+		heading: 'Auf dem Bullen reiten',
+		body: <><div>Yoga Übung</div></>,
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
+		route: routes.svgEditor,
+		svg: bgSvg.app,
+		dev: true,
+	},
 	{
 		heading: 'Coder\'s SVG Editor',
 		body: <><div>Erstelle SVG Grafiken per Tastatur und ohne Maus.</div></>,
 		mediaIcons: [MediaIcon.desktop],
 		route: routes.svgEditor,
-		svg: bgSvg.app
+		svg: bgSvg.app,
+		dev: true,
 	},
 	{
 		heading: 'Development Page',
 		body: <><div>dev page</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.dev,
-		svg: bgSvg.app
+		svg: bgSvg.app,
+		dev: true,
 	},
 	{
 		heading: 'Digi Radio',
@@ -112,31 +118,36 @@ export const mainMenuContent: MenuItem[] = [
 		heading: 'Arbeitszeiterfassung',
 		body: <><div>Eine App, um Arbeitszeiten zu erfassen.</div></>,
 		mediaIcons: [MediaIcon.desktop],
-		route: routes.worktime, svg: bgSvg.app
+		route: routes.worktime, svg: bgSvg.app,
+		dev: true,
 	},
 	{
 		heading: 'Schach-Notationstrainer',
 		body: <><div>Eine App, um Schach-Notation zu trainieren.</div></>,
 		mediaIcons: [MediaIcon.desktop],
-		route: routes.notationTrainer, svg: bgSvg.game
+		route: routes.notationTrainer, svg: bgSvg.game,
+		dev: true,
 	},
 	{
 		heading: 'Pass Maker',
 		body: <><div>Eine App, um Passwörter zu generieren.</div></>,
 		mediaIcons: [MediaIcon.desktop],
-		route: routes.passMaker, svg: bgSvg.app
+		route: routes.passMaker, svg: bgSvg.app,
+		dev: true,
 	},
 	{
 		heading: 'Erfolge',
 		body: <><div>Eine App, um Erfolge zu verwalten.</div></>,
 		mediaIcons: [MediaIcon.desktop],
-		route: routes.achievements, svg: bgSvg.app
+		route: routes.achievements, svg: bgSvg.app,
+		dev: true,
 	},
 	{
 		heading: 'Zahlenraten Reloaded',
 		body: <><div>Eine App, um Zahlen zu raten.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.numberGuessing, svg: bgSvg.game
+		route: routes.numberGuessing, svg: bgSvg.game,
+		dev: true,
 	},
 	{
 		heading: 'Neo Cortex',
@@ -148,13 +159,15 @@ export const mainMenuContent: MenuItem[] = [
 		heading: 'Source Code',
 		body: <><div>Der Source Code der Apps.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.sourceCode, svg: bgSvg.text
+		route: routes.sourceCode, svg: bgSvg.text,
+		dev: true,
 	},
 	{
 		heading: 'Über Digi Craft',
 		body: <><div>Allgemeines über Digi Craft.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.about, svg: bgSvg.text
+		route: routes.about, svg: bgSvg.text,
+		dev: true,
 	},
 	{
 		heading: 'Einstellungen',
@@ -166,13 +179,15 @@ export const mainMenuContent: MenuItem[] = [
 		heading: 'Passwortsicherheit früher und heute',
 		body: <><div>Die bislang geltenden Regeln für sichere Passwörter gelten als überholt.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.settings, svg: bgSvg.blog
+		route: routes.settings, svg: bgSvg.blog,
+		dev: true,
 	},
 	{
 		heading: 'Stadtberatung',
 		body: <><div></div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.settings, svg: bgSvg.blog
+		route: routes.settings, svg: bgSvg.blog,
+		dev: true,
 	},
 	// {heading: '', lines: ['']},
 	// {heading: '', lines: ['']},
