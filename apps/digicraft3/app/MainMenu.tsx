@@ -1,14 +1,10 @@
 import * as React from 'react'
-import { Card, Elevation, Icon } from '@blueprintjs/core'
 import { useRouter } from 'next/navigation'
 import { Page } from '../components/page/Page'
 
-import { mainMenuContent } from '../cms/MainMenuContent'
-import { MenuItem } from '../core/model'
 import { useEffect } from 'react'
-import { DigiActionTypes } from './DigiCraftReducer'
 import { useDigiCraftContext } from './DigiCraftContext'
-import { BigMenu } from '../components/BigMenu'
+import { BigMenu, MenuItem } from '../components/BigMenu'
 
 function MenuItem() {
 

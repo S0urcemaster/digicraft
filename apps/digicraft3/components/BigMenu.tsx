@@ -1,7 +1,17 @@
 import * as React from 'react'
 import { mainMenuContent } from '../cms/MainMenuContent'
-import { MenuItem } from '../core/model'
+import { MediaIcon } from '../core/model'
 import { Card, Elevation, Icon } from '@blueprintjs/core'
+import { ReactNode } from 'react'
+
+export type MenuItem = {
+	heading: string
+	icon?: ReactNode
+	body: ReactNode
+	mediaIcons: MediaIcon[]
+	route: [string, string]
+	svg: ReactNode
+}
 
 export function BigMenu({clicked}:{clicked: (menuItem: MenuItem) => void}) {
 	return (

@@ -17,15 +17,6 @@ export type Model = {
 	contextLoaded: boolean
 }
 
-export type MenuItem = {
-	heading: string
-	icon?: ReactNode
-	body: ReactNode
-	mediaIcons: MediaIcon[]
-	route: [string, string]
-	svg: ReactNode
-}
-
 export const enum MediaIcon {
 	desktop = 'desktop',
 	mobilePhone = 'mobile-phone'
