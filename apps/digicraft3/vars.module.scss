@@ -4,7 +4,6 @@
 // blue
 $page-bg: #c5cbd3;
 $card-bg: #dee3ea;
-//$cream: #eeeeee;
 $color: #1a2f44;
 
 // brown
@@ -15,12 +14,20 @@ $color: #1c1411;
 // brown dark
 $page-bg: #404040;
 $card-bg: #5d5d5d;
-$color: #e7e3e1;
+$color: #f3f9ff;
 
+// blue dark
+$page-bg: #334f6e;
+$card-bg: #5678a4;
+$color: #ebf5ff;
+$cyan: #6cd9d9;
+$magenta: #ffc7fc;
+$yellow: #faffd3;
 
-$coloredTitle: #e7e3e1;
-$coloredTitleBorder: #000000;
-$coloredBigMenuItemBorder: #c7eaff;
+$coloredTitle: $yellow;
+$coloredTitleBorder: #252c00;
+$coloredBigMenuItemBorder: $magenta;
+$coloredBigMenuItemIcons: $cyan;
 
 $logo-bg: #191109;
 

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { mainMenuContent } from '../cms/MainMenuContent'
 import { MediaIcon } from '../core/model'
 import { Card, Elevation, Icon } from '@blueprintjs/core'
 import { ReactNode } from 'react'
@@ -42,7 +41,7 @@ export function BigMenu(
 			<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => clicked(item)}
 					style={{
 						borderRadius: 2,
-						border: dev ? `1px solid ${'#ffffff'}` : `1px solid ${colors.menuItemBorder}`
+						border: dev ? `3px solid ${'#ece30f'}` : `1px solid ${colors.title}`
 					}}>
 				<div style={{position: 'absolute', top: 0, right: -10}}>
 					{item.svg}
@@ -56,8 +55,9 @@ export function BigMenu(
 					</svg>
 					<div style={{color: 'gray', whiteSpace: 'nowrap'}}>
 						{
-							// @ts-ignore (icon={i})
-							item.mediaIcons.map((i, idx) => <Icon key={idx} icon={i} size={16}/>)
+							item.mediaIcons.map((i, idx) =>
+								<Icon key={idx} icon={i} size={16} color={'#6cd9d9'}
+										svgProps={{style: {stroke: 'blue', strokeWidth: 0.5}}}/>)
 						}
 					</div>
 				</div>
@@ -73,7 +73,7 @@ export function BigMenu(
 			<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => clicked(item)}
 					style={{
 						borderRadius: 30,
-						border: dev ? `1px solid ${'#ffffff'}` : `1px solid ${colors.menuItemBorder}`
+						border: dev ? `3px solid ${'#ece30f'}` : `1px solid ${colors.menuItemBorder}`
 					}}>
 				<div style={{position: 'absolute', top: 0, right: -10}}>
 					{item.svg}
@@ -92,7 +92,9 @@ export function BigMenu(
 							</svg>
 							<div style={{color: 'gray', whiteSpace: 'nowrap'}}>
 								{
-									item.mediaIcons.map((i, idx) => <Icon key={idx} icon={i} size={16}/>)
+									item.mediaIcons.map((i, idx) =>
+										<Icon key={idx} icon={i} size={16} color={'#6cd9d9'}
+												svgProps={{style: {stroke: 'blue', strokeWidth: 0.5}}}/>)
 								}
 							</div>
 						</div>
@@ -112,12 +114,12 @@ export function BigMenu(
 					return (
 						<>
 							{!item.dev ?
-								idx < 6 ?
+								idx < 4 ?
 									<ItemPinned item={item} idx={idx}/>
 									:
 									<Item item={item} idx={idx}/>
 								: dev ?
-									idx < 6 ?
+									idx < 4 ?
 										<ItemPinned item={item} idx={idx} dev/>
 										:
 										<Item item={item} idx={idx} dev/>

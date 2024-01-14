@@ -1,8 +1,9 @@
 import Image from 'next/image'
-import newsThumb from './images/news.png'
+import newsThumb from './images/digi-newspaper-page.png'
 import { routes } from '../app/routes'
-import componentsThumb from './images/bricks.png'
+import componentsThumb from './images/digi-components-bricks.png'
 import digiCraftThumb from './images/digi-craft.png'
+import digiMusicThumb from './images/digi-music.jpg'
 import * as React from 'react'
 import { bgSvg, MediaIcon } from '../core/model'
 import { MenuItem } from '../components/BigMenu'
@@ -10,6 +11,7 @@ import { MenuItem } from '../components/BigMenu'
 const NewsImage = <Image alt={''} src={newsThumb} width={100} height={100} style={{marginRight: 20}} />
 const ComponentsImage = <Image alt={''} src={componentsThumb} width={100} height={100} style={{marginRight: 20}} />
 const DigiCraftImage = <Image alt={''} src={digiCraftThumb} width={200} height={40} style={{marginRight: 20}} />
+const DigiMusicImage = <Image alt={''} src={digiMusicThumb} width={100} height={100} style={{marginRight: 20}} />
 
 export const mainMenuContent: MenuItem[] = [
 	{
@@ -26,6 +28,14 @@ export const mainMenuContent: MenuItem[] = [
 		body: <><div>UI Komponenten zur Verwendung in der eigenen Webapp.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.components,
+		svg: bgSvg.app
+	},
+	{
+		heading: 'Digi Music',
+		icon: DigiMusicImage,
+		body: <><div>Radio & Technoscout</div></>,
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
+		route: routes.radio,
 		svg: bgSvg.app
 	},
 	{
@@ -52,7 +62,6 @@ export const mainMenuContent: MenuItem[] = [
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.digicraft,
 		svg: bgSvg.text,
-		dev: true,
 	},
 	{
 		heading: 'Body Craft',
@@ -73,14 +82,16 @@ export const mainMenuContent: MenuItem[] = [
 		body: <><div>Get back on the Highway</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.mentalAidKit,
-		svg: bgSvg.app
+		svg: bgSvg.app,
+		dev: true,
 	},
 	{
 		heading: 'Digi Clock',
 		body: <><div>Online Performance Test</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.svgEditor,
-		svg: bgSvg.app
+		svg: bgSvg.app,
+		dev: true,
 	},
 	{
 		heading: 'Auf dem Bullen reiten',
@@ -107,46 +118,34 @@ export const mainMenuContent: MenuItem[] = [
 		dev: true,
 	},
 	{
-		heading: 'Digi Radio',
-		body: <><div>A radio streamer</div></>,
-		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.radio,
-		svg: bgSvg.app
-	},
-	{
 		heading: 'Arbeitszeiterfassung',
 		body: <><div>Eine App, um Arbeitszeiten zu erfassen.</div></>,
 		mediaIcons: [MediaIcon.desktop],
 		route: routes.worktime, svg: bgSvg.app,
-		dev: true,
 	},
 	{
 		heading: 'Schach-Notationstrainer',
 		body: <><div>Eine App, um Schach-Notation zu trainieren.</div></>,
 		mediaIcons: [MediaIcon.desktop],
 		route: routes.notationTrainer, svg: bgSvg.game,
-		dev: true,
 	},
 	{
 		heading: 'Pass Maker',
 		body: <><div>Eine App, um Passwörter zu generieren.</div></>,
 		mediaIcons: [MediaIcon.desktop],
 		route: routes.passMaker, svg: bgSvg.app,
-		dev: true,
 	},
 	{
 		heading: 'Erfolge',
 		body: <><div>Eine App, um Erfolge zu verwalten.</div></>,
 		mediaIcons: [MediaIcon.desktop],
 		route: routes.achievements, svg: bgSvg.app,
-		dev: true,
 	},
 	{
 		heading: 'Zahlenraten Reloaded',
 		body: <><div>Eine App, um Zahlen zu raten.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.numberGuessing, svg: bgSvg.game,
-		dev: true,
 	},
 	{
 		heading: 'Neo Cortex',
@@ -170,7 +169,7 @@ export const mainMenuContent: MenuItem[] = [
 	},
 	{
 		heading: 'Einstellungen',
-		body: <><div>Einstellungen für Digi Craft.</div></>,
+		body: <><div>Einstellungen für Sie.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.settings, svg: bgSvg.settings
 	},
@@ -179,7 +178,6 @@ export const mainMenuContent: MenuItem[] = [
 		body: <><div>Die bislang geltenden Regeln für sichere Passwörter gelten als überholt.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.settings, svg: bgSvg.blog,
-		dev: true,
 	},
 	{
 		heading: 'Stadtberatung',

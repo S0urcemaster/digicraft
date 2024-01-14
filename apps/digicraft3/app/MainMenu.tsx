@@ -50,7 +50,7 @@ export default function MainMenu() {
 				title: cssVars.coloredTitle,
 				titleBorder: cssVars.coloredTitleBorder,
 				menuItemBorder: cssVars.coloredBigMenuItemBorder,
-			}} dev={true && process.env.NODE_ENV === 'development'} />
+			}} dev={false && process.env.NODE_ENV === 'development'} />
 		</Page>
 	)
 }
