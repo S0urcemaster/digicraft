@@ -5,6 +5,9 @@ import { Page } from '../components/page/Page'
 import { useEffect } from 'react'
 import { useDigiCraftContext } from './DigiCraftContext'
 import { BigMenu, MenuItem } from '../components/BigMenu'
+import { mainMenuContent } from '../cms/MainMenuContent'
+
+import cssVars from '../vars.module.scss'
 
 function MenuItem() {
 
@@ -42,7 +45,12 @@ export default function MainMenu() {
 
 	return (
 		<Page center>
-			<BigMenu clicked={onClick} />
+			<BigMenu items={mainMenuContent} clicked={onClick} colors={{
+				text: 'white',
+				title: cssVars.coloredTitle,
+				titleBorder: cssVars.coloredTitleBorder,
+				menuItemBorder: cssVars.coloredBigMenuItemBorder,
+			}} dev={true && process.env.NODE_ENV === 'development'} />
 		</Page>
 	)
 }

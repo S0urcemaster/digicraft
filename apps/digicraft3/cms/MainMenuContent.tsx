@@ -15,7 +15,6 @@ export const mainMenuContent: MenuItem[] = [
 	{
 		heading: 'News',
 		icon: NewsImage,
-		// lines: ['01.09.2023 - Digi Craft Redesign', '24.07.2023 - Swinging Over to Rust', '28.06.2023 - Reload -> Digi Craft 3'],
 		body: <>
 			<div style={{fontWeight: 700}}>01.09.2023 Re-Kill</div>
 			<div>Ich habe mich entschieden, den aktuellen Projektstand zu killen und den neuen, noch sehr groben Zustand online zu bringen.</div>

@@ -17,6 +17,11 @@ $page-bg: #404040;
 $card-bg: #5d5d5d;
 $color: #e7e3e1;
 
+
+$coloredTitle: #e7e3e1;
+$coloredTitleBorder: #000000;
+$coloredBigMenuItemBorder: #c7eaff;
+
 $logo-bg: #191109;
 
 $date-circle-color: $page-bg;
@@ -33,6 +38,10 @@ $footer-height: 18;
 	pageBg: $page-bg;
 	cardBg: $card-bg;
 	color: $color;
+	coloredTitle: $coloredTitle;
+	coloredTitleBorder: $coloredTitleBorder;
+	coloredBigMenuItemBorder: $coloredBigMenuItemBorder;
+	goldTitle: $coloredTitle;
 	logoBg: $logo-bg;
 	dateCircleColor: $date-circle-color;
 	dateCircleBg: $date-circle-bg;

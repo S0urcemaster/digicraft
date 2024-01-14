@@ -14,17 +14,46 @@ export type MenuItem = {
 	dev?: boolean
 }
 
-export function BigMenu({items, clicked}:{items: MenuItem[], clicked: (menuItem: MenuItem) => void}) {
+export function BigMenu(
+	{
+		items,
+		colors = {
+			text: 'black',
+			title: 'black',
+			titleBorder: 'black',
+			menuItemBorder: 'black'
+		},
+		clicked,
+		dev = false,
+	}: {
+		items: MenuItem[],
+		colors?: {
+			text: string,
+			title: string,
+			titleBorder: string
+			menuItemBorder: string
+		}
+		clicked: (menuItem: MenuItem) => void
+		dev: boolean
+	}) {
 
-	function Item({item, idx, dev}: {item:MenuItem, idx: number, dev?: boolean}) {
+	function Item({item, idx, dev}: { item: MenuItem, idx: number, dev?: boolean }) {
 		return (
 			<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => clicked(item)}
-					style={{borderRadius: 2, border: dev ? '1px solid orange' : '1px solid black'}}>
+					style={{
+						borderRadius: 2,
+						border: dev ? `1px solid ${'#ffffff'}` : `1px solid ${colors.menuItemBorder}`
+					}}>
 				<div style={{position: 'absolute', top: 0, right: -10}}>
 					{item.svg}
 				</div>
 				<div style={{display: 'flex', justifyContent: 'space-between', position: 'relative'}}>
-					<h3 className={'bp5-heading'} style={{marginTop: -5}}>{item.heading}</h3>
+					{/*<h3 className={'bp5-heading'} style={{marginTop: -5}}>{item.heading}</h3>*/}
+					<svg width={50} height={40} style={{overflow: 'visible'}}>
+						<text fontWeight={'bold'} fontSize={'20'} fill={colors.title}
+								stroke={colors.titleBorder} strokeWidth={0.7}
+								x={0} y={20}>{item.heading}</text>
+					</svg>
 					<div style={{color: 'gray', whiteSpace: 'nowrap'}}>
 						{
 							// @ts-ignore (icon={i})
@@ -39,10 +68,13 @@ export function BigMenu({items, clicked}:{items: MenuItem[], clicked: (menuItem:
 		)
 	}
 
-	function ItemPinned({item, idx, dev}: {item:MenuItem, idx: number, dev?:boolean}) {
+	function ItemPinned({item, idx, dev}: { item: MenuItem, idx: number, dev?: boolean }) {
 		return (
 			<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => clicked(item)}
-					style={{borderRadius: 30, border: dev ? '1px solid orange' : '1px solid black'}}>
+					style={{
+						borderRadius: 30,
+						border: dev ? `1px solid ${'#ffffff'}` : `1px solid ${colors.menuItemBorder}`
+					}}>
 				<div style={{position: 'absolute', top: 0, right: -10}}>
 					{item.svg}
 				</div>
@@ -52,10 +84,14 @@ export function BigMenu({items, clicked}:{items: MenuItem[], clicked: (menuItem:
 					</div>
 					<div style={{width: '100%'}}>
 						<div style={{display: 'flex', justifyContent: 'space-between', position: 'relative'}}>
-							<h3 className={'bp5-heading'} style={{marginTop: -5}}>{item.heading}</h3>
+							{/*<h3 className={'bp5-heading'} style={{marginTop: -5}}>{item.heading}</h3>*/}
+							<svg width={50} height={40} style={{overflow: 'visible'}}>
+								<text fontWeight={'bold'} fontSize={'30'} fill={colors.title}
+										stroke={colors.titleBorder} strokeWidth={0.9}
+										x={0} y={25}>{item.heading}</text>
+							</svg>
 							<div style={{color: 'gray', whiteSpace: 'nowrap'}}>
 								{
-									// @ts-ignore (icon={i})
 									item.mediaIcons.map((i, idx) => <Icon key={idx} icon={i} size={16}/>)
 								}
 							</div>
@@ -72,21 +108,21 @@ export function BigMenu({items, clicked}:{items: MenuItem[], clicked: (menuItem:
 
 	return (
 		<div className={'main-menu-container'}>
-			{mainMenuContent.map((item, idx) => {
+			{items.map((item, idx) => {
 					return (
 						<>
-						{ !item.dev ?
-							idx < 6 ?
-								<ItemPinned item={item} idx={idx}/>
-								:
-								<Item item={item} idx={idx}/>
-							: process.env.NODE_ENV === 'development' ?
+							{!item.dev ?
 								idx < 6 ?
-									<ItemPinned item={item} idx={idx} dev />
+									<ItemPinned item={item} idx={idx}/>
 									:
-									<Item item={item} idx={idx} dev />
-								: null
-						}
+									<Item item={item} idx={idx}/>
+								: dev ?
+									idx < 6 ?
+										<ItemPinned item={item} idx={idx} dev/>
+										:
+										<Item item={item} idx={idx} dev/>
+									: null
+							}
 						</>
 					)
 				}

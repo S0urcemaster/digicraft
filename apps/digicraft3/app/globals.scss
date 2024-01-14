@@ -52,11 +52,11 @@ footer {
 div {
 }
 p {
-	font-size: 16px
+	font-size: 16px;
+	margin-bottom: 30px;
 }
 
 h1 {
-
 }
 
 h2 {
@@ -85,6 +85,7 @@ code {
 
 .bp5-heading {
 	color: $color;
+	margin-bottom: 40px;
 }
 
 .bp5-button-text {
@@ -141,7 +142,8 @@ code {
 
 .news-columns {
 	column-count: 4;
-	column-gap: 20px;
+	column-gap: 40px;
+	text-align: justify;
 }
 
 .header-player {
@@ -157,11 +159,14 @@ code {
 	}}
 
 @media screen and (max-width: 950px) {
-	.news-columns {
-		column-count: 3;
-	}
 	.header-player {
 		display: none
+	}
+}
+
+@media screen and (max-width: 1450px) {
+	.news-columns {
+		column-count: 3;
 	}
 }
 
@@ -174,7 +179,7 @@ code {
 	}
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
 	.news-columns {
 		column-count: 2;
 	}
@@ -189,7 +194,7 @@ code {
 	}
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
 	.news-columns {
 		column-count: 1;
 	}
