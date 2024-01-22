@@ -13,11 +13,11 @@
     "@digicraft/dev": "*",
     "@digicraft/lib": "*",
     "@digicraft/svg": "*",
+    "game-of-life": "file:../../wasm/game-of-life/pkg",
     "moment": "^2.29.4",
-    "next": "~13.4.6",
+    "next": "~14.1.0",
     "react": "~18.2.0",
-    "react-dom": "~18.2.0",
-    "game-of-life": "file:../../wasm/game-of-life/pkg"
+    "react-dom": "~18.2.0"
   },
   "devDependencies": {
     "@types/node": "~18.16.0",

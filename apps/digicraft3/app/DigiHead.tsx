@@ -6,8 +6,49 @@ import DigiText from '../components/svg/logo/DigiText'
 import { useRouter } from 'next/navigation'
 import cssVars from '../vars.module.scss'
 import { useWebAudio } from '../components/AudioHook'
-import { useEffect } from 'react'
+import { CSSProperties, useEffect, useState } from 'react'
 import { HeaderPlayer } from './digi_radio/components/HeaderPlayer'
+
+export function HeaderButton(
+	{
+		onText,
+		offText,
+		onColor,
+		offColor,
+		height,
+		initialOn,
+		onClick,
+		style,
+	} :
+	{
+		onText: string,
+		offText: string,
+		onColor: string,
+		offColor: string,
+		height: number
+		initialOn: boolean,
+		onClick: (state: boolean) => void,
+		style?: CSSProperties,
+	})
+{
+	const [on, setOn] = useState(initialOn)
+	const [color, setColor] = useState(initialOn ? onColor : offColor)
+
+	function click() {
+		setOn(!on)
+		setColor(!on ? onColor : offColor)
+		onClick(!on)
+	}
+
+	return (
+		<DigiText
+			text={on ? onText : offText}
+			onClick={click}
+			color={on ? onColor : offColor}
+			height={height}
+			style={{cursor: 'pointer', ...style}} />
+	)
+}
 
 export default function DigiHead() {
 
