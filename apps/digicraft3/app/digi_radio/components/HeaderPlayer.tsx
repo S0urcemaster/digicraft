@@ -1,7 +1,7 @@
 import * as React from 'react'
 import cssVars from '../../../vars.module.scss'
 import DigiText from '../../../components/svg/logo/DigiText'
-import { useWebAudio } from '../../../components/AudioHook'
+import { useWebAudio } from '../../../components/WebAudioHook'
 import { useEffect, useState } from 'react'
 import { HeaderButton } from '../../DigiHead'
 import { radiostreams } from '../../../cms/radiostreams'
@@ -10,9 +10,8 @@ export function HeaderPlayer() {
 
 	const audio = useWebAudio()
 
-	const [speakerOn, setSpeakerOn] = useState(true)
 	const [playOn, setPlayOn] = useState(false)
-	const [volume, setVolume] = useState(5)
+	const [volume, setVolume] = useState(audio.volume)
 	const [currentStream, setCurrentStream] = useState(0)
 
 	useEffect(() => {
@@ -48,19 +47,20 @@ export function HeaderPlayer() {
 	function volumeUp() {
 		let v = volume
 		v < 9 ? v++ : v = 9
-		audio.setVolume(v *10)
+		audio.setVolume(v)
 		setVolume(v)
 	}
 
 	function volumeDown() {
 		let v = volume
 		v > 0 ? v-- : v = 0
-		audio.setVolume(v *10)
+		audio.setVolume(v)
 		setVolume(v)
 	}
 
 	return (
 		<div className={'header-player'} style={{paddingLeft: 8, paddingTop: 4}}>
+			<DigiText text={radiostreams[currentStream].host.split('').join()} height={17} color={cssVars.color} style={{paddingRight: 10}}/>
 			<HeaderButton
 				onText={'left'}
 				offText={'left'}
@@ -71,7 +71,6 @@ export function HeaderPlayer() {
 				style={{marginRight: 10}}
 				onClick={prevStream}
 			/>
-			<DigiText text={radiostreams[currentStream].host.split('').join()} height={17} color={cssVars.color} style={{paddingRight: 10}}/>
 			<HeaderButton
 				onText={'right'}
 				offText={'right'}

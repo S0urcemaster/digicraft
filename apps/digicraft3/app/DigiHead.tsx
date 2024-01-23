@@ -5,7 +5,7 @@ import { useDigiCraftContext } from './DigiCraftContext'
 import DigiText from '../components/svg/logo/DigiText'
 import { useRouter } from 'next/navigation'
 import cssVars from '../vars.module.scss'
-import { useWebAudio } from '../components/AudioHook'
+import { useWebAudio } from '../components/WebAudioHook'
 import { CSSProperties, useEffect, useState } from 'react'
 import { HeaderPlayer } from './digi_radio/components/HeaderPlayer'
 

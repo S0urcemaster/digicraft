@@ -1,4 +1,4 @@
-import { RadioStream } from '../components/AudioHook'
+import { RadioStream } from '../components/WebAudioHook'
 
 export const radiostreams:RadioStream[] = [
 	{host: 'SWR3', hostUrl: '', volume: 0.8, streamUrl: () => 'https://liveradio.swr.de/sw282p3/swr3/play.mp3' + '?date=' + new Date().getTime()},
