@@ -6,7 +6,7 @@ const style = {
 	border: '1px solid black',
 }
 
-export function DigiRadio() {
+export function DigiMusic() {
 
 	return (
 		<div style={style}>

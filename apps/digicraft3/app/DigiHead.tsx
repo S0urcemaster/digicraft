@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 import cssVars from '../vars.module.scss'
 import { useWebAudio } from '../components/WebAudioHook'
 import { CSSProperties, useEffect, useState } from 'react'
-import { HeaderPlayer } from './digi_radio/components/HeaderPlayer'
+import { HeaderPlayer } from './music/components/HeaderPlayer'
 
 export function HeaderButton(
 	{
@@ -71,10 +71,10 @@ export default function DigiHead() {
 					<HeaderPlayer />
 				</div>
 				:
-				// <DigiText text={`D,I,G,I, ,C,R,A,F,T, ,W,O,R,K,S,H,O,P`} height={17} color={cssVars.color}/>
-				<div style={{paddingTop: 4, cursor: 'pointer'}}>
-					<DigiText text={`1,2,3,4,5,6,7,8,9,0,stop,play,play_pressed,left,right,speaker,speaker_off,plus,minus`} height={17} color={cssVars.logoBg} onClick={top} />
-				</div>
+				<DigiText text={`D,I,G,I, ,C,R,A,F,T, ,W,O,R,K,S,H,O,P`} height={17} color={cssVars.logoBg} style={{cursor: 'pointer', marginTop: 4}} />
+				// <div style={{paddingTop: 4, cursor: 'pointer'}}>
+				// 	<DigiText text={`1,2,3,4,5,6,7,8,9,0,stop,play,play_pressed,left,right,speaker,speaker_off,plus,minus`} height={17} color={cssVars.logoBg} onClick={top} />
+				// </div>
 			}
 		</header>
 	)

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { MediaIcon } from '../core/model'
 import { Card, Elevation, Icon } from '@blueprintjs/core'
-import { ReactNode } from 'react'
+import { Fragment, ReactNode } from 'react'
 
 export type MenuItem = {
 	heading: string
@@ -112,7 +112,7 @@ export function BigMenu(
 		<div className={'main-menu-container'}>
 			{items.map((item, idx) => {
 					return (
-						<>
+						<Fragment key={idx}>
 							{!item.dev ?
 								idx < 4 ?
 									<ItemPinned item={item} idx={idx}/>
@@ -125,7 +125,7 @@ export function BigMenu(
 										<Item item={item} idx={idx} dev/>
 									: null
 							}
-						</>
+						</Fragment>
 					)
 				}
 			)}

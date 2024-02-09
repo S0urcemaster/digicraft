@@ -17,7 +17,6 @@ export const routes: {[key: string]: [route: string, title: string]} = {
 	numberGuessing: ['/numberGuessing', 'Zahlenraten Reloaded'],
 	passMaker: ['/passMaker', 'Pass Maker'],
 	privacy: ['/privacy', 'Datenschutz'],
-	radio: ['/radio', 'Digi Radio'],
 	settings: ['/meta/settings', 'Einstellungen'],
 	svgEditor: ['/svg-editor', 'Coder\'s SVG Editor'],
 	sourceCode: ['/sourceCode', 'Source Code'],

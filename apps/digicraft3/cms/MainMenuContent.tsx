@@ -35,7 +35,7 @@ export const mainMenuContent: MenuItem[] = [
 		icon: DigiMusicImage,
 		body: <><div>Radio & Technoscout</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.radio,
+		route: routes.music,
 		svg: bgSvg.app
 	},
 	{
