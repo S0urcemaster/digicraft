@@ -28,7 +28,8 @@ export const mainMenuContent: MenuItem[] = [
 		body: <><div>UI Komponenten zur Verwendung in der eigenen Webapp.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.components,
-		svg: bgSvg.app
+		svg: bgSvg.app,
+		dev: true,
 	},
 	{
 		heading: 'Digi Music',
@@ -62,20 +63,23 @@ export const mainMenuContent: MenuItem[] = [
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.digicraft,
 		svg: bgSvg.text,
+		dev: true,
 	},
 	{
 		heading: 'Body Craft',
 		body: <><div>Fitness für Zuhause</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.bodycraft,
-		svg: bgSvg.app
+		svg: bgSvg.app,
+		dev: true,
 	},
 	{
 		heading: 'Jobs',
 		body: <><div>Arbeit gegen Geld</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.jobs,
-		svg: bgSvg.text
+		svg: bgSvg.text,
+		dev: true,
 	},
 	{
 		heading: 'Mental Aid Kit',
@@ -122,36 +126,42 @@ export const mainMenuContent: MenuItem[] = [
 		body: <><div>Eine App, um Arbeitszeiten zu erfassen.</div></>,
 		mediaIcons: [MediaIcon.desktop],
 		route: routes.worktime, svg: bgSvg.app,
+		dev: true,
 	},
 	{
 		heading: 'Schach-Notationstrainer',
 		body: <><div>Eine App, um Schach-Notation zu trainieren.</div></>,
 		mediaIcons: [MediaIcon.desktop],
 		route: routes.notationTrainer, svg: bgSvg.game,
+		dev: true,
 	},
 	{
 		heading: 'Pass Maker',
 		body: <><div>Eine App, um Passwörter zu generieren.</div></>,
 		mediaIcons: [MediaIcon.desktop],
 		route: routes.passMaker, svg: bgSvg.app,
+		dev: true,
 	},
 	{
 		heading: 'Erfolge',
 		body: <><div>Eine App, um Erfolge zu verwalten.</div></>,
 		mediaIcons: [MediaIcon.desktop],
 		route: routes.achievements, svg: bgSvg.app,
+		dev: true,
 	},
 	{
 		heading: 'Zahlenraten Reloaded',
 		body: <><div>Eine App, um Zahlen zu raten.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.numberGuessing, svg: bgSvg.game,
+		dev: true,
 	},
 	{
 		heading: 'Neo Cortex',
 		body: <><div>Eine Sammlung von interessanten Links.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.neoCortex, svg: bgSvg.text
+		route: routes.neoCortex, svg: bgSvg.text,
+		dev: true,
 	},
 	{
 		heading: 'Source Code',
@@ -171,13 +181,15 @@ export const mainMenuContent: MenuItem[] = [
 		heading: 'Einstellungen',
 		body: <><div>Einstellungen für Sie.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.settings, svg: bgSvg.settings
+		route: routes.settings, svg: bgSvg.settings,
+		dev: true,
 	},
 	{
 		heading: 'Passwortsicherheit früher und heute',
 		body: <><div>Die bislang geltenden Regeln für sichere Passwörter gelten als überholt.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.settings, svg: bgSvg.blog,
+		dev: true,
 	},
 	{
 		heading: 'Stadtberatung',

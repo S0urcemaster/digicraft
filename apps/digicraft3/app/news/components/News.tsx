@@ -49,18 +49,14 @@ function NewsCard({title, date, shortDesc, first, children}:
 export function News() {
 	return (
 		<>
-			<NewsCard first title={'Digi Craft Workshop'} date={'29.08.2023'}
-						 shortDesc={'Frischer Wind'}>
+			<NewsCard first title={'Digi Craft 3'} date={'04.03.2024'}
+						 shortDesc={'Der nächste große Schritt'}>
 				<div className={'news-columns'}>
 					<p>
-						Ich habe mich entschieden, den aktuellen Projektstand zu killen und den neuen, noch sehr
-						groben Zustand online zu bringen.
-					</p>
-					<p>
-						Die Zeiten fehlenden Contents sind nicht mehr. Es gibt jede Menge
-						Sachen zum Herzeigen. Aus der Tatsache, dass Vieles noch nicht fertig ist, mache ich einfach
-						eine Tugend: Digi Craft wird zur Werkstatt, zum Labor, zum Workshop, wo alles, auch Unfertige,
-						begutachtet werden kann.
+						Schon einige Zeit gibt es eine Implementierung des neuen Frameworks. Einiger Content konnte aber
+						noch nicht nachgezogen werden. Am wichtigsten waren [Indexseite] und [Radio]. In welcher Richtung es
+						danach weitergeht, ist noch offen. Es gibt Einiges, was interessant wäre, die Frage dabei ist,
+						was sich am meisten lohnt.
 					</p>
 				</div>
 			</NewsCard>

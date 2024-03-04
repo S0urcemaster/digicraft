@@ -58,6 +58,10 @@ export function HeaderPlayer() {
 		setVolume(v)
 	}
 
+	function visitStation() {
+		window.open(radiostreams[currentStream].hostUrl, '_blank');
+	}
+
 	return (
 		<div className={'header-player'} style={{paddingLeft: 8, paddingTop: 4}}>
 			<DigiText text={radiostreams[currentStream].host.split('').join()} height={17} color={cssVars.color} style={{paddingRight: 10}}/>
@@ -96,6 +100,7 @@ export function HeaderPlayer() {
 				height={17}
 				color={cssVars.color}
 				style={{marginRight: 2, minWidth: 20}}
+				onClick={visitStation}
 			/>
 			<HeaderButton
 				onText={'plus'}
@@ -111,7 +116,7 @@ export function HeaderPlayer() {
 				onText={'play'}
 				offText={'play'}
 				height={17}
-				onColor={cssVars.magenta}
+				onColor={cssVars.green}
 				offColor={cssVars.color}
 				initialOn={playOn}
 				style={{ marginRight: 10}}

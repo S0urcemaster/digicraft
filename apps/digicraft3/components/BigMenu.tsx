@@ -2,13 +2,14 @@ import * as React from 'react'
 import { MediaIcon } from '../core/model'
 import { Card, Elevation, Icon } from '@blueprintjs/core'
 import { Fragment, ReactNode } from 'react'
+import { Route } from '../app/routes'
 
 export type MenuItem = {
 	heading: string
 	icon?: ReactNode
 	body: ReactNode
 	mediaIcons: MediaIcon[]
-	route: [string, string]
+	route: Route
 	svg: ReactNode
 	dev?: boolean
 }

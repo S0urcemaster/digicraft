@@ -30,8 +30,7 @@ export default function MainMenu() {
 
 	function onClick(menuItem: MenuItem) {
 		setContextLoaded(false)
-		const [route] = menuItem.route
-		router.push(route)
+		router.push(menuItem.route.path)
 	}
 
 	function href(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {

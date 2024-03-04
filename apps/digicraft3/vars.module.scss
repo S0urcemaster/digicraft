@@ -1,28 +1,18 @@
 @import '@blueprintjs/core/lib/scss/variables';
 @import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 
-// blue
-$page-bg: #c5cbd3;
-$card-bg: #dee3ea;
-$color: #1a2f44;
-
-// brown
-$page-bg: #d3cdc8;
-$card-bg: #e7e3e1;
-$color: #1c1411;
-
-// brown dark
-$page-bg: #404040;
-$card-bg: #5d5d5d;
-$color: #f3f9ff;
-
 // blue dark
 $page-bg: #334f6e;
 $card-bg: #5678a4;
 $color: #ebf5ff;
+
+// base colors
 $cyan: #6cd9d9;
 $magenta: #ffc7fc;
 $yellow: #faffd3;
+$red: #ff8787;
+$green: #9cff9c;
+$blue: #9b9bff;
 
 $coloredTitle: $yellow;
 $coloredTitleBorder: #252c00;
@@ -48,6 +38,9 @@ $footer-height: 18;
 	yellow: $yellow;
 	magenta: $magenta;
 	cyan: $cyan;
+	red: $red;
+	green: $green;
+	blue: $blue;
 	coloredTitle: $coloredTitle;
 	coloredTitleBorder: $coloredTitleBorder;
 	coloredBigMenuItemBorder: $coloredBigMenuItemBorder;
