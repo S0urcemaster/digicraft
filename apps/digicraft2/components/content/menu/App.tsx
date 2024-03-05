@@ -32,7 +32,7 @@ function MenuItem(props: {href: string, image?: StaticImageData, children: React
 )
 }
 
-export default function App(props: {}) {
+export default function App() {
 	return (
 		<>
 			<MenuItem href={routes.apps.svgEditorx} image={svgEditor}>SVG Editor</MenuItem>

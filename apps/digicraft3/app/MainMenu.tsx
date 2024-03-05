@@ -43,7 +43,7 @@ export default function MainMenu() {
 	}, [])
 
 	return (
-		<Page center>
+		<Page center style={{position: 'relative'}}>
 			<BigMenu items={mainMenuContent} clicked={onClick} colors={{
 				text: 'white',
 				title: cssVars.coloredTitle,
