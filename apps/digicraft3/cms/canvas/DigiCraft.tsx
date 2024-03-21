@@ -11,7 +11,7 @@ export function DigiCraft() {
 	const primitiveRef = useRef<Group>()
 
 	return (
-		<mesh position={[-120, -20, 40]}>
+		<mesh position={[0, -20, 40]}>
 			<primitive ref={primitiveRef} object={gltf.scene} />
 		</mesh>
 	)
