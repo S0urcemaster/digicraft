@@ -4,7 +4,7 @@ import { DigiMusic } from './components/DigiMusic'
 
 export default function() {
 	return (
-		<Page>
+		<Page center width={1080}>
 			<DigiMusic />
 		</Page>
 	)

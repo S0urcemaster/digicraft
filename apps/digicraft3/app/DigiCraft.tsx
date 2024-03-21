@@ -4,7 +4,6 @@ import * as React from 'react'
 import DigiHead from './DigiHead'
 import DigiMain from './DigiMain'
 import { ReactNode, useEffect, useState } from 'react'
-import { clog } from '@digicraft/lib'
 
 import { useDigiCraftContext } from './DigiCraftContext'
 import { DigiFoot } from './DigiFoot'

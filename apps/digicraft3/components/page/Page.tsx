@@ -11,7 +11,7 @@ type Props = {
 	center?: boolean
 	construction?: boolean // content on this page not finished
 	children: ReactNode,
-	style: CSSProperties
+	style?: CSSProperties
 }
 
 export function Page({children, center, width, style}: Props) {

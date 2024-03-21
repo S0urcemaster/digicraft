@@ -14,7 +14,7 @@ export type DigiAction = {
 }
 
 export function digiCraftReducer(state: Model, action: DigiAction): Model {
-	clog("reducer/" +action.type, action, state)
+	// clog("reducer/" +action.type, action, state)
 	const {type, payload} = action
 	switch (type) {
 		case DigiActionTypes.environment:

@@ -1,9 +1,10 @@
 import Image from 'next/image'
-import newsThumb from './images/digi-newspaper-page.png'
+import newsThumb from './images/digi-newspaper-page.jpg'
 import { routes } from '../app/routes'
-import componentsThumb from './images/digi-components-bricks.png'
-import digiCraftThumb from './images/digi-craft.png'
+import componentsThumb from './images/digi-components-bricks.jpg'
+import digiCraftThumb from './images/digi-craft.jpg'
 import digiMusicThumb from './images/digi-music.jpg'
+import digiCraftFrameworkThumb from './images/digicraft.png'
 import * as React from 'react'
 import { bgSvg, MediaIcon } from '../core/model'
 import { MenuItem } from '../components/BigMenu'
@@ -12,6 +13,7 @@ const NewsImage = <Image alt={''} src={newsThumb} width={100} height={100} style
 const ComponentsImage = <Image alt={''} src={componentsThumb} width={100} height={100} style={{marginRight: 20}} />
 const DigiCraftImage = <Image alt={''} src={digiCraftThumb} width={200} height={40} style={{marginRight: 20}} />
 const DigiMusicImage = <Image alt={''} src={digiMusicThumb} width={100} height={100} style={{marginRight: 20}} />
+const DigiCraftFrameworkImage = <Image alt={''} src={digiCraftFrameworkThumb} width={100} height={100} style={{marginRight: 20}} />
 
 export const mainMenuContent: MenuItem[] = [
 	{
@@ -24,11 +26,12 @@ export const mainMenuContent: MenuItem[] = [
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone], route: routes.news, svg: bgSvg.text
 	},
 	{
-		heading: 'Components', icon: ComponentsImage,
-		body: <><div>UI Komponenten zur Verwendung in der eigenen Webapp.</div></>,
+		heading: 'Digiframe',
+		icon: DigiCraftFrameworkImage,
+		body: <><div>Das Webframework für reaktive Webseiten</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.components,
-		svg: bgSvg.app,
+		route: routes.framework,
+		svg: bgSvg.text,
 		// dev: true,
 	},
 	{
@@ -38,6 +41,14 @@ export const mainMenuContent: MenuItem[] = [
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.music,
 		svg: bgSvg.app
+	},
+	{
+		heading: 'Components', icon: ComponentsImage,
+		body: <><div>UI Komponenten zur Verwendung in der eigenen Webapp.</div></>,
+		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
+		route: routes.components,
+		svg: bgSvg.app,
+		// dev: true,
 	},
 	{
 		heading: 'Waypoints',
@@ -141,24 +152,10 @@ export const mainMenuContent: MenuItem[] = [
 		// dev: true,
 	},
 	{
-		heading: 'Neo Cortex',
-		body: <><div>Eine Sammlung von interessanten Links.</div></>,
-		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.neoCortex, svg: bgSvg.text,
-		// dev: true,
-	},
-	{
 		heading: 'Source Code',
 		body: <><div>Der Source Code der Apps.</div></>,
 		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
 		route: routes.sourceCode, svg: bgSvg.text,
-		// dev: true,
-	},
-	{
-		heading: 'Über Digi Craft',
-		body: <><div>Allgemeines über Digi Craft.</div></>,
-		mediaIcons: [MediaIcon.desktop, MediaIcon.mobilePhone],
-		route: routes.about, svg: bgSvg.text,
 		// dev: true,
 	},
 	{

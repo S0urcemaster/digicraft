@@ -73,7 +73,7 @@ export function BigMenu(
 		return (
 			<Card interactive={true} elevation={Elevation.TWO} key={idx} onClick={() => clicked(item)}
 					style={{
-						borderRadius: 30,
+						borderRadius: 10,
 						border: dev ? `3px solid ${'#ece30f'}` : `1px solid ${colors.menuItemBorder}`
 					}}>
 				<div style={{position: 'absolute', top: 0, right: -10}}>
@@ -115,12 +115,12 @@ export function BigMenu(
 					return (
 						<Fragment key={idx}>
 							{!item.dev ?
-								idx < 4 ?
+								idx < 10 ?
 									<ItemPinned item={item} idx={idx}/>
 									:
 									<Item item={item} idx={idx}/>
 								: dev ?
-									idx < 4 ?
+									idx < 10 ?
 										<ItemPinned item={item} idx={idx} dev/>
 										:
 										<Item item={item} idx={idx} dev/>

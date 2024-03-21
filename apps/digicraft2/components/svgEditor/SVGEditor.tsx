@@ -47,13 +47,11 @@ export default function SVGEditor() {
 	}, [])
 
 	const handleKeyDown = (event: KeyboardEvent) => {
-		console.log('logsntr', 'event.key down', event.key)
 		setKeysPressed([...keysPressed, event.key])
 		event.stopImmediatePropagation()
 	}
 
 	const handleKeyUp = (event: KeyboardEvent) => {
-		console.log('logsntr', 'event.key up', event.key)
 		setKeysPressed([...keysPressed, event.key])
 		event.stopImmediatePropagation()
 	}

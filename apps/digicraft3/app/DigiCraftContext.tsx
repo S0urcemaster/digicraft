@@ -120,7 +120,7 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 	}, [worktime])
 
 	useEffect(() => {
-		clog("Context[state]", state)
+		// clog("Context[state]", state)
 	}, [state])
 
 

@@ -27,7 +27,6 @@ function ListItem({item, current}: {item: EditorItem, current: EditorItem}) {
 }
 
 function List({list, current}: {list: EditorItem[], current: EditorItem}) {
-	console.log("logsntr", "list", list, list.indexOf(current))
 	return (
 		<div style={{padding: 3}}>
 			{list.map((item, idx) => (
@@ -67,7 +66,6 @@ export default function Softdisk({style}: {style: CSSProperties}) {
 	}, [state.focus])
 
 	useEffect(() => {
-		console.log("logsntr", "keyPressed", key)
 		if(state.focus !== focuses.library) return
 		if(!key || key && !key!.key) return
 		if(current === undefined) setCurrent(state.root)

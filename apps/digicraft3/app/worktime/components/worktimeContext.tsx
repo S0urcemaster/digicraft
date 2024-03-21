@@ -73,7 +73,6 @@ export default function WorktimeContextProvider(props: { children: ReactNode }) 
 	}, [])
 
 	useEffect(() => {
-		console.log("logsntr", "worktime", worktime)
 		worktime[year] && setCalendar(valuesToCalendar(getCalendar(year), worktime[year]))
 	}, [year])
 

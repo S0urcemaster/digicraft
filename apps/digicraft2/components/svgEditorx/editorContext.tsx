@@ -93,7 +93,6 @@ export function EditorContextProvider(props: { children: ReactNode }) {
 	}, [state.loadFile])
 
 	const handleKeyDown = (event: KeyboardEvent) => {
-		console.log('logsntr', 'event.key', event.key)
 		switch (event.key) {
 			case 'ArrowUp':
 				event.preventDefault()

@@ -18,6 +18,7 @@ export default function DigiText({text, height, color, onClick, style}: Props) {
 
 	let offset = 0
 	let prevLetter = {} as LetterType
+
 	const letters: LetterType[] = text.split(',').map((t, idx) => {
 		idx > 0 ? offset += prevLetter.width + 1 : false
 		prevLetter = letterCoords[t]

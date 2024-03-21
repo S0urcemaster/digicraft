@@ -11,6 +11,7 @@ export const routes: { [key: string]: Route } = {
 	decider: {path: '/decider', title: 'Der Entscheider'},
 	dev: {path: '/dev', title: 'Development Page'},
 	digicraft: {path: '/digicraft', title: 'Digi Craft'},
+	framework: {path: '/framework', title: 'Digi Craft Framework'},
 	imprint: {path: '/meta/imprint', title: 'Impressum'},
 	jobs: {path: '/jobs', title: 'Jobs'},
 	mentalAidKit: {path: '/mental-aid-kit', title: 'Mental Aid Kit'},

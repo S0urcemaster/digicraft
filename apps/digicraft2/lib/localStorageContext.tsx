@@ -282,7 +282,6 @@ export function LocalStorageProvider(props: {children: ReactNode}) {
 		reader.readAsText(file)
 		reader.onload = function() {
 			const json = JSON.parse(reader.result as string)
-			console.log("logsntr", "json", json)
 			setSvgEditor({...svgEditor, current: json})
 		}
 		return null

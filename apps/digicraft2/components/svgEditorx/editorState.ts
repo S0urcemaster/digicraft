@@ -83,7 +83,6 @@ export const initialTreeState: EditorState = {
 
 export function reducer(state: EditorState, action: EditorAction): EditorState {
 	const {name, payload} = action
-	console.log('logsntr', 'state', state)
 	if(name === editorActions.setRoot) {
 		return {...state, root: payload, currentItem: payload}
 	} else if(!state.root) {
