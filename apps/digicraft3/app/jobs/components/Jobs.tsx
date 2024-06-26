@@ -1,24 +1,28 @@
 import * as React from 'react'
-import { H3 } from '@blueprintjs/core'
+import { H1, H3 } from '@blueprintjs/core'
+import { jobs } from '../../../cms/jobs/jobs'
+
+export type Category = {
+	name: string
+}
 
 export type Job = {
 	title: string
+	category: string
 	description: string
 }
 
-export function JobComp({title, backgroundColor, children}: {title: string, backgroundColor: string, children: React.ReactNode}) {
-	return (
-		<div style={{padding: 5, backgroundColor: backgroundColor}}>
-			<H3>{title}</H3>
-			<div>{children}</div>
-		</div>
-	)
-}
-
-export function JobsComp({children}: {children: React.ReactNode}) {
+export function Jobs() {
 	return (
 		<div style={{padding: 5}}>
-			{children}
+			{jobs.map(job => {
+				return <div>
+					<H3>{job.title}</H3>
+					<p>
+						{job.description}
+					</p>
+				</div>
+			})}
 		</div>
 	)
 }

@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 import { createContext, ReactNode, useContext, useEffect, useReducer, useState } from 'react'
-import { clog } from '@digicraft/lib'
 import { DigiActionTypes, digiCraftReducer } from './DigiCraftReducer'
 import { Worktime } from './worktime/components/worktimeContext'
 import cssVars from '../vars.module.scss'
@@ -95,10 +94,15 @@ export function DigiCraftContextProvider({initialState, children}: { initialStat
 	}
 
 	useEffect(() => {
+
 		const storage = loadStorage()
+
 		updateState(storage)
+
 		setStorage(storage)
+
 		setStorageLoaded(true)
+
 		dispatch({type: DigiActionTypes.environment, payload: {environment: {...state.environment,
 					headerHeight: Number.parseInt(cssVars.headerHeight),
 					footerHeight: Number.parseInt(cssVars.footerHeight)}

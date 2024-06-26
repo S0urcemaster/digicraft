@@ -18,8 +18,8 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 	const {state, setEnvironment} = useDigiCraftContext()
 
 
-	const [mouseX, setMouseX] = useState(window.innerWidth /2)
-	const [mouseY, setMouseY] = useState(window.innerHeight /2)
+	const [mouseX, setMouseX] = useState(960)
+	const [mouseY, setMouseY] = useState(540)
 
 	const cameraX = 0
 	const cameraY = 20
@@ -34,6 +34,8 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 
 		window.addEventListener('mousemove', handleMouseMove)
 
+		setMouseX(window.innerWidth /2)
+		setMouseY(window.innerHeight /2)
 
 		return () => {
 			window.removeEventListener('mousemove', handleMouseMove)
@@ -42,17 +44,13 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 	}, [])
 
 	function getCameraX() {
-		const diff = mouseX -window.innerWidth
+		const diff = mouseX -state.environment.clientWidth
 		return cameraX -(diff /50)
 	}
 	function getCameraY() {
-		const diff = mouseY -window.innerHeight
+		const diff = mouseY -state.environment.clientHeight
 		return cameraY +(diff /100)
 	}
-
-	useEffect(() => {
-	}, [])
-
 
 	useEffect(() => { // add resize listener
 		function resize() {
@@ -74,7 +72,6 @@ export default function DigiCraft({children}: { children: ReactNode }) {
 				<Canvas>
 					<color attach='background' args={[cssVars.pageBg]}/>
 					<ambientLight position={[0, 10, 0]} intensity={1}/>
-					{/*<directionalLight color="white" position={[0, 100, 10]} rotation={[0, 0, 0]}/>*/}
 					<directionalLight color={'white'} intensity={1} position={[0.1, 1, 0.1]}/>
 					{/*<mesh position={[50, 66, 5]} rotation={[0, 0, 0]}>*/}
 					{/*	<coneGeometry args={[5, 100, 4]}/>*/}

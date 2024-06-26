@@ -25,5 +25,6 @@ export const routes: { [key: string]: Route } = {
 	settings: {path: '/meta/settings', title: 'Einstellungen'},
 	svgEditor: {path: '/svg-editor', title: 'Coder\'s SVG Editor'},
 	sourceCode: {path: '/sourceCode', title: 'Source Code'},
+	textbud: {path: '/text-bud', title: 'text-bud'},
 	worktime: {path: '/worktime', title: 'Arbeitszeit'},
 }

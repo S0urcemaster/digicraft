@@ -145,6 +145,14 @@ code {
 	column-count: 4;
 	column-gap: 40px;
 	text-align: justify;
+	margin-bottom: 20px;
+}
+
+.news-columns:last-child {
+	column-count: 4;
+	column-gap: 40px;
+	text-align: justify;
+	margin-bottom: 0;
 }
 
 .header-player {

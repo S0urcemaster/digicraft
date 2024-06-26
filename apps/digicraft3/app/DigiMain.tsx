@@ -10,8 +10,8 @@ export default function DigiMain({children}: { children: ReactNode }) {
 
 	return (
 		<>
-			<Noise bgColor={'#1a2f44'} lifeColor={'#454a51'}
-					 width={state.environment.clientWidth +10} height={state.environment.clientHeight} cellSize={10}
+			<Noise bgColor={'#1a2f44'} lifeColor={'#454a51'} duration={1000}
+					 width={state.environment.clientWidth +10} height={state.environment.clientHeight} cellSize={50}
 					 loaded={contextLoaded}
 			/>
 			<main style={{height: getMainHeight()}}>

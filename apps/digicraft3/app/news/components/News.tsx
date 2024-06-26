@@ -53,10 +53,19 @@ export function News() {
 						 shortDesc={'Der nächste große Schritt'}>
 				<div className={'news-columns'}>
 					<p>
+						Die vorherige Version von Digi Craft wurde zwar schon mit der Idee, aber noch nicht mit der Absicht,
+						ein Framework daraus zu machen, geschrieben. Der nächste große Schritt hat nun versucht diese Absicht
+						noch weiter umzusetzen.
 						Schon einige Zeit gibt es eine Implementierung des neuen Frameworks. Einiger Content konnte aber
-						noch nicht nachgezogen werden. Am wichtigsten waren [Indexseite] und [Radio]. In welcher Richtung es
-						danach weitergeht, ist noch offen. Es gibt Einiges, was interessant wäre, die Frage dabei ist,
+						noch nicht nachgezogen werden. Am wichtigsten waren [Indexseite] und [News]. In welcher Richtung es
+						danach weitergeht, ist noch offen. Es gibt einiges, was interessant wäre, die Frage dabei ist,
 						was sich am meisten lohnt.
+					</p>
+				</div>
+
+				<div className={'news-columns'}>
+					<p>
+						Es gibt Ideen in Richtung 3D-Anwendung, einen Shop
 					</p>
 				</div>
 			</NewsCard>

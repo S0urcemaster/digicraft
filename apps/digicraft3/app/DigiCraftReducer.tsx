@@ -6,6 +6,7 @@ export enum DigiActionTypes {
 	contentTitle = 'contentTitle',
 	cssVars = 'cssVars',
 	contextLoaded = 'contextLoaded',
+	windowSizeChanged = 'windowSizeChanged',
 }
 
 export type DigiAction = {
@@ -28,6 +29,10 @@ export function digiCraftReducer(state: Model, action: DigiAction): Model {
 		case DigiActionTypes.contextLoaded:
 			return {
 				...state, contextLoaded: payload.contextLoaded
+			}
+		case DigiActionTypes.windowSizeChanged:
+			return {
+				...state, contextLoaded: payload.windowSizeChanged
 			}
 	}
 	return state

@@ -1,9 +1,7 @@
 import * as React from 'react'
 
-import { Canvas as Canvas3, useFrame, useThree } from '@react-three/fiber'
-import { ReactNode, useRef } from 'react'
-import { Euler } from 'three'
-import { Camera } from './Camera'
+import { Canvas as Canvas3 } from '@react-three/fiber'
+import { ReactNode } from 'react'
 
 
 export function Canvas({children}: {children: ReactNode}) {

@@ -9,9 +9,10 @@ type Props = {
 	cellSize: number
 	startAmount?: number
 	loaded: boolean
+	duration: number
 }
 
-export function Noise({bgColor, lifeColor, width, height, cellSize, loaded}: Props) {
+export function Noise({bgColor, lifeColor, width, height, cellSize, loaded, duration}: Props) {
 
 	const numRows = Math.ceil(height / cellSize)
 	const numCols = Math.ceil(width / cellSize)
@@ -46,8 +47,7 @@ export function Noise({bgColor, lifeColor, width, height, cellSize, loaded}: Pro
 
 	let context: CanvasRenderingContext2D
 
-	useEffect(() => {
-	}, [])
+	let counter = duration
 
 	useEffect(() => {
 		if(loaded) {
@@ -67,6 +67,8 @@ export function Noise({bgColor, lifeColor, width, height, cellSize, loaded}: Pro
 	const drawGrid = (timestamp: DOMHighResTimeStamp) => {
 		if (!running.current) return
 		if(!context) return
+		counter -= 31
+		if(counter <= 0) return
 
 		context.clearRect(0, 0, canvasRef.current!.width, canvasRef.current!.height)
 
