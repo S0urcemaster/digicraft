@@ -4,9 +4,11 @@ import { Group } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { useRef } from 'react'
 
+export const basePath = '/workshop'
+
 export function DigiCraft() {
 
-	const gltf = useLoader(GLTFLoader, '/digicraft.glb')
+	const gltf = useLoader(GLTFLoader, `${basePath}/digicraft.glb`)
 
 	const primitiveRef = useRef<Group>()
 

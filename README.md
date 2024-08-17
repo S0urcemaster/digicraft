@@ -1,5 +1,12 @@
 # digicraft
 
+## Roadmaps
+#### 2024.06.29
+- Server neu
+- Player immer on
+- Einstellungen
+- Save
+
 ## Setup
 - ```pnpm install```
 - ```pnpm build```

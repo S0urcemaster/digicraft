@@ -9,6 +9,7 @@ module.exports = {
     quotes: ['off', 'always'],
     "no-undef": "off",
     "no-unused-vars": "off",
+    "no-redeclare": "off",
   },
   globals: {
     window: true,

@@ -142,7 +142,7 @@ export default function Logo(props: Props) {
 						style={{background: '#900'}}
 				/>
 				<g id="digi">
-					<Text x={x} text={'DIGI CRAFT'} visible={visible} />
+					<Text x={x} text={'DIGI CRAFT WORKSHOP'} visible={visible} />
 				</g>
 			</g>
 		</svg>
