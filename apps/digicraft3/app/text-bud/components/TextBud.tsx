@@ -7,7 +7,7 @@ import { useTextBudContext } from './TextBudContext'
 export function TextBud() {
 
 	const {state} = useDigiCraftContext()
-	const {textBud, clipboard, tabNo, currentPrompt, setCurrentPrompt} = useTextBudContext()
+	const {textBud, clipboard, tabNo, setTabNo, currentPrompt, setCurrentPrompt} = useTextBudContext()
 
 	const [promptName, setPromptName] = useState('')
 	const [system, setSystem] = useState('')
@@ -80,33 +80,19 @@ export function TextBud() {
 							height: '100%',
 						}}
 									 placeholder={'User'} className={'textarea-no-scrollbar'}
-									 value={user} onChange={event => setUser(event.target.value)}
+									 value={currentPrompt().user} onChange={event => setCurrentPrompt({...currentPrompt(), user: event.target.value})}
 						></textarea>
 					</div>
 					<div style={{
 						width: '100%',
 						padding: '5px 5px 0 5px'
 					}}>
-						<div id={'tabsleft'} style={{whiteSpace: 'nowrap'}}>
-							<button style={{width: 20}}>1</button>
-							<button style={{width: 20}}>2</button>
-							<button style={{width: 20}}>3</button>
-							<button style={{width: 20}}>4</button>
-							<button style={{width: 20}}>5</button>
-							<button style={{width: 20}}>6</button>
-							<button style={{width: 20}}>7</button>
-							<button style={{width: 20}}>8</button>
-							<button style={{width: 20}}>9</button>
-							<button style={{width: 20}}>A</button>
-							<button style={{width: 20}}>B</button>
-							<button style={{width: 20}}>C</button>
-							<button style={{width: 20}}>D</button>
-							<button style={{width: 20}}>E</button>
-							<button style={{width: 20}}>F</button>
-							<button style={{width: 20}}>G</button>
-							<button style={{width: 20}}>H</button>
-							<button style={{width: 20}}>I</button>
-							<button style={{width: 20}}>J</button>
+						<div id={'tabs'} style={{whiteSpace: 'nowrap'}}>
+							{
+								textBud.prompts.map((p, ix) => {
+									return <button key={ix} style={{width: 30}} onClick={() => setTabNo(ix)}>{ix}</button>
+								})
+							}
 						</div>
 
 						<div id={'functions'} style={{padding: '5px 5px 0 2px'}}>
@@ -179,8 +165,8 @@ export function TextBud() {
 						resize: 'none',
 						width: '100%',
 						height: '100%',
-					}} placeholder={'Assistant'} className={'textarea-no-scrollbar'} value={assistant}
-								 onChange={event => setAssistant(event.target.value)}
+					}} placeholder={'Assistant'} className={'textarea-no-scrollbar'}
+								 value={currentPrompt().assistant} onChange={event => setCurrentPrompt({...currentPrompt(), assistant: event.target.value})}
 					></textarea>
 				</div>
 

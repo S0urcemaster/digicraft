@@ -9,6 +9,14 @@ export type Prompt = {
 	assistant: string
 }
 
+export const emptyPrompt: Prompt = {
+	assistant: '', model: '', name: '', system: '', user: ''
+}
+
+const emptyPrompts: Prompt[] = Array.from({length: 13}, (_, ix) => {
+	return {...emptyPrompt}
+})
+
 export type TextBud = {
 	prompts: Prompt[]
 	saved: Prompt[]
@@ -18,6 +26,7 @@ export type TextBudContext = {
 	textBud: TextBud
 	clipboard: string
 	tabNo: number
+	setTabNo: (n: number) => void
 	currentPrompt: () => Prompt
 	setCurrentPrompt: (prompt: Prompt) => void
 }
@@ -25,10 +34,31 @@ export type TextBudContext = {
 const initialTextBudContext: TextBudContext = {
 	clipboard: '',
 	textBud: {
-		prompts: [{name: '', model: '', system: '', user: '', assistant: ''}],
+		prompts: emptyPrompts,
 		saved: []
 	},
 	tabNo: 0,
+	setTabNo: () => {},
+	currentPrompt: () => ({} as Prompt),
+	setCurrentPrompt: () => {}
+}
+
+const dummyTextBudContext: TextBudContext = {...initialTextBudContext,
+	clipboard: '',
+	textBud: {
+		prompts: [
+			{name: 'P1', model: '', system: 'system1', user: 'user1', assistant: 'assistant1'},
+			{name: 'P2', model: '', system: 'system2', user: 'user2', assistant: 'assistant2'},
+			{name: 'P3', model: '', system: 'system3', user: 'user3', assistant: 'assistant3'},
+		],
+		saved: [
+			{name: 'L1', model: '', system: 'system1', user: 'user1', assistant: 'assistant1'},
+			{name: 'L2', model: '', system: 'system2', user: 'user2', assistant: 'assistant2'},
+			{name: 'L3', model: '', system: 'system3', user: 'user3', assistant: 'assistant3'},
+		]
+	},
+	tabNo: 0,
+	setTabNo: () => {},
 	currentPrompt: () => ({} as Prompt),
 	setCurrentPrompt: () => {}
 }
@@ -41,6 +71,11 @@ export function TextBudContextProvider({children}: { children: ReactNode}) {
 	const [clipboard, setClipboard] = useState('')
 	const [tabNo, setTabNo] = useState(0)
 
+	useEffect(() => {
+		// setCurrentPrompt(textBud.prompts[tabNo])
+		console.log("logsntr", "tabNo", tabNo)
+	}, [tabNo])
+
 	function currentPrompt(): Prompt {
 		return textBud.prompts[tabNo]
 	}
@@ -52,7 +87,7 @@ export function TextBudContextProvider({children}: { children: ReactNode}) {
 
 	return (
 		<TextBudContext.Provider value={{
-			textBud, clipboard, tabNo, currentPrompt, setCurrentPrompt
+			textBud, clipboard, tabNo, setTabNo, currentPrompt, setCurrentPrompt
 		}}>
 			{children}
 		</TextBudContext.Provider>
