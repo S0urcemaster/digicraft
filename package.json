@@ -13,8 +13,6 @@
     "build:ui": "pnpm -F @digicraft/ui build",
     "build:dev": "pnpm -F @digicraft/dev build",
     "build:dc3": "pnpm -F @digicraft/digicraft3 build",
-    "build:dc2": "pnpm -F @digicraft/digicraft2 build",
-    "build:dc2server": "pnpm -F @digicraft/digicraft2server build",
     "clean": "pnpm  -F \"./packages/**\" clean",
     "dev": "pnpm -F @digicraft/digicraft3 run dev",
     "dev:dc2": "pnpm -F @digicraft/digicraft2 run dev",

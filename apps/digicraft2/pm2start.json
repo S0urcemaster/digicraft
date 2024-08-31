@@ -1,9 +1,0 @@
-{
-  "apps": [
-    {
-      "name": "digi-craft2",
-      "script": "pnpm",
-      "args": "start"
-    }
-  ]
-}
